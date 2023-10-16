@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF7103CB2AD5409E004F9EDF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103CA2AD5409E004F9EDF /* OnboardingView.swift */; };
+		BF7103CD2AD544ED004F9EDF /* WalktroughScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103CC2AD544ED004F9EDF /* WalktroughScreen.swift */; };
+		BF7103D02AD54E7B004F9EDF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103CF2AD54E7B004F9EDF /* Color.swift */; };
+		BF7103D22AD7D9BA004F9EDF /* CalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103D12AD7D9BA004F9EDF /* CalculationView.swift */; };
+		BF7103D42AD7EF87004F9EDF /* BabyStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103D32AD7EF87004F9EDF /* BabyStepView.swift */; };
+		BF7103D62AD93126004F9EDF /* CircularBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103D52AD93126004F9EDF /* CircularBarScreen.swift */; };
 		DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39382AD531F2002E488D /* SleepWellApp.swift */; };
 		DACC393B2AD531F2002E488D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC393A2AD531F2002E488D /* ContentView.swift */; };
 		DACC393D2AD531F4002E488D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACC393C2AD531F4002E488D /* Assets.xcassets */; };
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF7103CA2AD5409E004F9EDF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BF7103CC2AD544ED004F9EDF /* WalktroughScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalktroughScreen.swift; path = SleepWell/View/Screen/WalktroughScreen.swift; sourceTree = SOURCE_ROOT; };
+		BF7103CF2AD54E7B004F9EDF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BF7103D12AD7D9BA004F9EDF /* CalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationView.swift; sourceTree = "<group>"; };
+		BF7103D32AD7EF87004F9EDF /* BabyStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyStepView.swift; sourceTree = "<group>"; };
+		BF7103D52AD93126004F9EDF /* CircularBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularBarScreen.swift; path = SleepWell/View/Screen/CircularBarScreen.swift; sourceTree = SOURCE_ROOT; };
 		DACC39352AD531F2002E488D /* SleepWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACC39382AD531F2002E488D /* SleepWellApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWellApp.swift; sourceTree = "<group>"; };
 		DACC393A2AD531F2002E488D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF7103CE2AD54E62004F9EDF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF7103CF2AD54E7B004F9EDF /* Color.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		DACC392C2AD531F2002E488D = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +116,7 @@
 		DACC39372AD531F2002E488D /* SleepWell */ = {
 			isa = PBXGroup;
 			children = (
+				BF7103CE2AD54E62004F9EDF /* Extension */,
 				DACC39652AD5337D002E488D /* Utility */,
 				DACC39642AD53370002E488D /* View Model */,
 				DACC39632AD5333E002E488D /* View */,
@@ -167,6 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				DACC39682AD533B5002E488D /* HomeScreenView.swift */,
+				BF7103CA2AD5409E004F9EDF /* OnboardingView.swift */,
+				BF7103D12AD7D9BA004F9EDF /* CalculationView.swift */,
+				BF7103D32AD7EF87004F9EDF /* BabyStepView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -174,6 +198,8 @@
 		DACC39672AD53396002E488D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				BF7103CC2AD544ED004F9EDF /* WalktroughScreen.swift */,
+				BF7103D52AD93126004F9EDF /* CircularBarScreen.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -309,8 +335,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */,
+				BF7103CB2AD5409E004F9EDF /* OnboardingView.swift in Sources */,
+				BF7103D42AD7EF87004F9EDF /* BabyStepView.swift in Sources */,
 				DACC393B2AD531F2002E488D /* ContentView.swift in Sources */,
 				DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */,
+				BF7103CD2AD544ED004F9EDF /* WalktroughScreen.swift in Sources */,
+				BF7103D22AD7D9BA004F9EDF /* CalculationView.swift in Sources */,
+				BF7103D02AD54E7B004F9EDF /* Color.swift in Sources */,
+				BF7103D62AD93126004F9EDF /* CircularBarScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
