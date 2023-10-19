@@ -18,10 +18,11 @@ struct RoundedButton: View {
         Button(action: action) {
             Text(title)
                 .font(.subheadline)
+                .fontWeight(.bold)
                 .foregroundColor(foregroundColor)
                 .padding()
         }
-        .frame(width: 309, height: 60)
+        .frame(width: 342, height: 60)
         .background(
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(backgroundColor)

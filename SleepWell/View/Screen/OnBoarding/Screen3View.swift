@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Screen8View: View {
-   @State var name: String = ""
+struct Screen30View: View {
+    @State var name: String = ""
     
     var body: some View {
         ZStack {
@@ -18,47 +18,46 @@ struct Screen8View: View {
                 .edgesIgnoringSafeArea(.all)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
-            VStack (spacing: 20) {
-                Text("Meet your sleep companion!")
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 45)
-                    .padding(.leading, 0)
-                
-                Text("This cute Koala will be your friend to help you have a better sleep habit!")
-                    .foregroundStyle(.white)
-                    .padding()
-                Image("koalaInTheMoon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 189, height: 180)
-                Text("What do you want to call this cute friend?")
-                    .foregroundStyle(.white)
-                    .padding()
-                ZStack(alignment: .bottom) {
-                    TextField("", text: $name)
-                        .textFieldStyle(PlainTextFieldStyle())
-                        .font(.system(size: 34, weight: .bold, design: .rounded))
-                        .padding(.leading, 20)
-                        .foregroundColor(.white)
-                    Rectangle()
-                        .frame(width: 334, height: 1)
-                        .foregroundColor(.gray)
-                        .padding(.leading)
-                }
-                .padding(.top, 50)
+            VStack (alignment: .leading) {
                 Spacer()
-                RoundedButton(title: "Continue",
-                              action: {},
-                              backgroundColor: .paleLavender,
-                              foregroundColor: .black,
-                              cornerRadius: 15)
+                HStack{
+                    Spacer()
+                    ZStack {
+                        CircularDotProgressView()
+                        Image("koalaInTheMoon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 120, height: 114)
+                            .padding(.leading, -25)
+                        
+                    }
+                    .border(.red)
+                    .padding()
+                    Spacer()
+                }
+                
+                VStack{
+                    Text("Give us a second!")
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(.white)
+                    Text("Give us a second! We will give you the calculation of your sleep duration!")
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.top, 20)
+                
+                Spacer()
+                Spacer()
+                
             }
-            .padding()
+            .border(.red)
+            .padding(.horizontal)
         }
     }
 }
 
 #Preview {
-    Screen8View()
+    Screen30View()
 }

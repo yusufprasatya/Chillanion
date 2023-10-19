@@ -17,32 +17,47 @@ struct Screen11View: View {
                 .edgesIgnoringSafeArea(.all)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
-            VStack (spacing: 20) {
-                Image("koalaInTheMoon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 189, height: 180)
+            VStack (alignment: .leading) {
+                HStack{
+                    Spacer()
+                    Image("koalaInTheMoon")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 154, height: 146)
+                        .border(.red)
+                        .padding(.leading, -50)
+                        .padding(.top, -10)
+                    Spacer()
+                }
                 
                 Text("What time do you usually go to bed?")
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
-                    .padding(.top, 45)
+                    .padding(.top, 28)
                     .padding(.leading, 0)
-                VStack {
-                    DatePicker("Select a Time", selection: $selectedDate, displayedComponents: .hourAndMinute)
-                        .labelsHidden()
-                        .datePickerStyle(WheelDatePickerStyle())
-                        .frame(width: 200)
-                        .background(.clear)
-                        .colorScheme(.dark)
-                        .cornerRadius(13)
+                    .border(.red)
+                HStack{
+                    Spacer()
+                    VStack {
+                        DatePicker("Select a Time", selection: $selectedDate, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .frame(width: 200)
+                            .background(.clear)
+                            .colorScheme(.dark)
+                            .cornerRadius(13)
+                    }
+                    Spacer()
                 }
+                .padding(.top, 48)
+                .border(.red)
                 Spacer()
                 RoundedButton(title: "Continue",
                               action: {},
                               backgroundColor: .paleLavender,
                               foregroundColor: .black,
                               cornerRadius: 15)
+                .border(.red)
             }
             .padding()
         }

@@ -11,32 +11,67 @@ struct Screen9View: View {
     @State private var name: String = ""
     var body: some View {
         ZStack {
-            Image("background")
+            Image("bg")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
-            VStack (spacing: 20) {
-                Text("Okay, now let Chilla knows you better.")
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
+            VStack (alignment: .leading) {
+                HStack{
+                    Spacer()
+                    Image("koala")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 178, height: 128)
+                        .border(.red)
+                    Spacer()
+                }
+                .padding(.top, 5)
+
+                Text("Based on your health data")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
-                    .padding(.top, 45)
-                    .padding(.leading, 0)
+                    .padding(.top, 12)
                 
-                Image("koalaInTheMoon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 189, height: 180)
+                Text("Your average sleep time is:")
+                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                    .foregroundStyle(.white)
+                    .padding(.top, 64)
+                
+                HStack(alignment: .bottom) {
+                    Text("5")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("hours")
+                        .font(.system(size: 20, weight: .regular, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("27")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("minutes")
+                        .font(.system(size: 20, weight: .regular, design: .rounded))
+                        .foregroundStyle(.white)
+                }
+                .border(.red)
+                
+                Text("Based on research, young adult should sleep at 7-9 hours each night")
+                    .font(.system(size: 17, weight: .semibold, design: .rounded))
+                    .foregroundStyle(.white)
+                    .padding(.top, 54)
                 
                 Spacer()
-                RoundedButton(title: "Continue",
+                Spacer()
+                RoundedButton(title: "What’s next?",
                               action: {},
                               backgroundColor: .paleLavender,
                               foregroundColor: .black,
                               cornerRadius: 15)
+                Spacer()
             }
+            .border(.red)
             .padding()
+            .padding(.horizontal)
         }
     }
 }

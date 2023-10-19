@@ -8,31 +8,54 @@
 import SwiftUI
 
 struct Screen7View: View {
+    @State private var name: String = "Yusuf"
+    
     var body: some View {
         ZStack {
-            Image("background")
+            Image("bg")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             
-            VStack (spacing: 20) {
-                Text("We understand..")
+            VStack (alignment: .leading) {
+                Image("koalaInTheMoon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 177, height: 169)
+                    .padding(.leading, 60)
+                    .padding(.top)
+                
+                Text("Hi, \(name)!")
                     .font(.system(size: 34, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 45)
-                    .padding(.leading, 0)
+                    .foregroundColor(.white)
+                    .padding(.top, 30)
+                    .padding(.bottom, 5)
                 
-                Text("... The joy that comes from having someone accompany us on our journey of improvement!")
-                    .foregroundStyle(.white)
-                    .padding()
+                Text("To know you better, may I ask your permission to access your health data?")
+                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding(.bottom, 40)
                 
-                Text("So..")
-                    .foregroundStyle(.white)
-                    .padding()
+                
+                Spacer(minLength: 180)
+                
+                Text("Why we need your health data?")
+                    .font(.system(size: 17, weight: .light, design: .rounded))
+                    .foregroundColor(.white)
+                    .underline()
+                    .padding(.bottom, 24)
+                RoundedButton(title: "Continue",
+                              action: {},
+                              backgroundColor: .paleLavender,
+                              foregroundColor: .black,
+                              cornerRadius: 15)
+                
                 Spacer()
+                
             }
-            .padding()
+            .border(.red)
+            .padding(.horizontal)
         }
     }
 }

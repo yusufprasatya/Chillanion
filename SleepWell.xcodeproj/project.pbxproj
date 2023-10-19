@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0E5B1B2ADF108F002563DB /* Screen5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1A2ADF108F002563DB /* Screen5View.swift */; };
+		DA0E5B1D2ADF6D3F002563DB /* Screen6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1C2ADF6D3F002563DB /* Screen6View.swift */; };
+		DA0E5B1F2ADF709B002563DB /* Screen8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1E2ADF709B002563DB /* Screen8View.swift */; };
+		DA0E5B212ADF7F89002563DB /* RoundedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B202ADF7F89002563DB /* RoundedPicker.swift */; };
+		DABFA33C2AE131C70012DEC2 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA33B2AE131C70012DEC2 /* SleepManager.swift */; };
 		DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39382AD531F2002E488D /* SleepWellApp.swift */; };
 		DACC393B2AD531F2002E488D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC393A2AD531F2002E488D /* ContentView.swift */; };
 		DACC393D2AD531F4002E488D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACC393C2AD531F4002E488D /* Assets.xcassets */; };
@@ -15,6 +20,19 @@
 		DACC39542AD531F4002E488D /* SleepWellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39532AD531F4002E488D /* SleepWellUITests.swift */; };
 		DACC39562AD531F4002E488D /* SleepWellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39552AD531F4002E488D /* SleepWellUITestsLaunchTests.swift */; };
 		DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39682AD533B5002E488D /* HomeScreenView.swift */; };
+		DADBD0172ADD236300E74D3C /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0162ADD236300E74D3C /* OnBoardingView.swift */; };
+		DADBD01A2ADD302400E74D3C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0192ADD302400E74D3C /* Color+Extensions.swift */; };
+		DADBD01C2ADD33D300E74D3C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD01B2ADD33D300E74D3C /* RoundedButton.swift */; };
+		DADBD0202ADE213400E74D3C /* Screen1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD01F2ADE213400E74D3C /* Screen1View.swift */; };
+		DADBD0222ADE21E100E74D3C /* Screen2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0212ADE21E100E74D3C /* Screen2View.swift */; };
+		DADBD0242ADE22C400E74D3C /* Screen3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0232ADE22C400E74D3C /* Screen3View.swift */; };
+		DADBD0262ADE274100E74D3C /* Screen4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0252ADE274000E74D3C /* Screen4View.swift */; };
+		DADBD0282ADE27B600E74D3C /* Screen10View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0272ADE27B600E74D3C /* Screen10View.swift */; };
+		DADBD02A2ADE284C00E74D3C /* TImePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBD0292ADE284C00E74D3C /* TImePicker.swift */; };
+		DADF46132ADE321800771DF0 /* Screen7View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46122ADE321800771DF0 /* Screen7View.swift */; };
+		DADF46152ADE328E00771DF0 /* Screen12LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46142ADE328E00771DF0 /* Screen12LoadingView.swift */; };
+		DADF46172ADE389300771DF0 /* CircularDotProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */; };
+		DADF461B2ADE4B9900771DF0 /* Screen13View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF461A2ADE4B9900771DF0 /* Screen13View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA0E5B1A2ADF108F002563DB /* Screen5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5View.swift; sourceTree = "<group>"; };
+		DA0E5B1C2ADF6D3F002563DB /* Screen6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen6View.swift; sourceTree = "<group>"; };
+		DA0E5B1E2ADF709B002563DB /* Screen8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen8View.swift; sourceTree = "<group>"; };
+		DA0E5B202ADF7F89002563DB /* RoundedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedPicker.swift; path = SleepWell/View/Screen/OnBoarding/RoundedPicker.swift; sourceTree = SOURCE_ROOT; };
+		DABFA33B2AE131C70012DEC2 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SleepManager.swift; path = "../../../../Xcode Projects/SleepManager.swift"; sourceTree = "<group>"; };
 		DACC39352AD531F2002E488D /* SleepWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACC39382AD531F2002E488D /* SleepWellApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWellApp.swift; sourceTree = "<group>"; };
 		DACC393A2AD531F2002E488D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +69,19 @@
 		DACC39532AD531F4002E488D /* SleepWellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWellUITests.swift; sourceTree = "<group>"; };
 		DACC39552AD531F4002E488D /* SleepWellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepWellUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DACC39682AD533B5002E488D /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		DADBD0162ADD236300E74D3C /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		DADBD0192ADD302400E74D3C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		DADBD01B2ADD33D300E74D3C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedButton.swift; path = SleepWell/Extensions/RoundedButton.swift; sourceTree = SOURCE_ROOT; };
+		DADBD01F2ADE213400E74D3C /* Screen1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1View.swift; sourceTree = "<group>"; };
+		DADBD0212ADE21E100E74D3C /* Screen2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen2View.swift; sourceTree = "<group>"; };
+		DADBD0232ADE22C400E74D3C /* Screen3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen3View.swift; sourceTree = "<group>"; };
+		DADBD0252ADE274000E74D3C /* Screen4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen4View.swift; sourceTree = "<group>"; };
+		DADBD0272ADE27B600E74D3C /* Screen10View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen10View.swift; sourceTree = "<group>"; };
+		DADBD0292ADE284C00E74D3C /* TImePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TImePicker.swift; path = SleepWell/View/Screen/OnBoarding/TImePicker.swift; sourceTree = SOURCE_ROOT; };
+		DADF46122ADE321800771DF0 /* Screen7View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen7View.swift; sourceTree = "<group>"; };
+		DADF46142ADE328E00771DF0 /* Screen12LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen12LoadingView.swift; sourceTree = "<group>"; };
+		DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularDotProgressView.swift; path = SleepWell/View/Screen/OnBoarding/CircularDotProgressView.swift; sourceTree = SOURCE_ROOT; };
+		DADF461A2ADE4B9900771DF0 /* Screen13View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen13View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +132,7 @@
 		DACC39372AD531F2002E488D /* SleepWell */ = {
 			isa = PBXGroup;
 			children = (
+				DADBD0182ADD301200E74D3C /* Extensions */,
 				DACC39652AD5337D002E488D /* Utility */,
 				DACC39642AD53370002E488D /* View Model */,
 				DACC39632AD5333E002E488D /* View */,
@@ -152,6 +189,7 @@
 		DACC39642AD53370002E488D /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				DABFA33B2AE131C70012DEC2 /* SleepManager.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -166,6 +204,7 @@
 		DACC39662AD5338B002E488D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				DADBD0152ADD235200E74D3C /* OnBoarding */,
 				DACC39682AD533B5002E488D /* HomeScreenView.swift */,
 			);
 			path = Screen;
@@ -174,8 +213,39 @@
 		DACC39672AD53396002E488D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				DADBD01B2ADD33D300E74D3C /* RoundedButton.swift */,
+				DADBD0292ADE284C00E74D3C /* TImePicker.swift */,
+				DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */,
+				DA0E5B202ADF7F89002563DB /* RoundedPicker.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		DADBD0152ADD235200E74D3C /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				DADBD0162ADD236300E74D3C /* OnBoardingView.swift */,
+				DADBD01F2ADE213400E74D3C /* Screen1View.swift */,
+				DADBD0212ADE21E100E74D3C /* Screen2View.swift */,
+				DADBD0232ADE22C400E74D3C /* Screen3View.swift */,
+				DADBD0252ADE274000E74D3C /* Screen4View.swift */,
+				DA0E5B1A2ADF108F002563DB /* Screen5View.swift */,
+				DA0E5B1C2ADF6D3F002563DB /* Screen6View.swift */,
+				DADF46122ADE321800771DF0 /* Screen7View.swift */,
+				DA0E5B1E2ADF709B002563DB /* Screen8View.swift */,
+				DADBD0272ADE27B600E74D3C /* Screen10View.swift */,
+				DADF46142ADE328E00771DF0 /* Screen12LoadingView.swift */,
+				DADF461A2ADE4B9900771DF0 /* Screen13View.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		DADBD0182ADD301200E74D3C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DADBD0192ADD302400E74D3C /* Color+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +378,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADBD02A2ADE284C00E74D3C /* TImePicker.swift in Sources */,
+				DADF46172ADE389300771DF0 /* CircularDotProgressView.swift in Sources */,
+				DADBD01A2ADD302400E74D3C /* Color+Extensions.swift in Sources */,
+				DADBD01C2ADD33D300E74D3C /* RoundedButton.swift in Sources */,
+				DABFA33C2AE131C70012DEC2 /* SleepManager.swift in Sources */,
+				DADBD0262ADE274100E74D3C /* Screen4View.swift in Sources */,
+				DA0E5B1B2ADF108F002563DB /* Screen5View.swift in Sources */,
+				DADBD0242ADE22C400E74D3C /* Screen3View.swift in Sources */,
 				DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */,
+				DADBD0172ADD236300E74D3C /* OnBoardingView.swift in Sources */,
+				DA0E5B212ADF7F89002563DB /* RoundedPicker.swift in Sources */,
+				DADBD0282ADE27B600E74D3C /* Screen10View.swift in Sources */,
+				DADF46152ADE328E00771DF0 /* Screen12LoadingView.swift in Sources */,
+				DA0E5B1D2ADF6D3F002563DB /* Screen6View.swift in Sources */,
 				DACC393B2AD531F2002E488D /* ContentView.swift in Sources */,
+				DADF46132ADE321800771DF0 /* Screen7View.swift in Sources */,
+				DADF461B2ADE4B9900771DF0 /* Screen13View.swift in Sources */,
+				DA0E5B1F2ADF709B002563DB /* Screen8View.swift in Sources */,
+				DADBD0202ADE213400E74D3C /* Screen1View.swift in Sources */,
+				DADBD0222ADE21E100E74D3C /* Screen2View.swift in Sources */,
 				DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
