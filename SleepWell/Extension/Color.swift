@@ -15,4 +15,6 @@ extension Color {
     static let circular2 = Color(red: 198/255, green: 175/255, blue: 246/255)
     static let barcolor = Color(red: 11 / 255.0, green: 32 / 255.0, blue: 102 / 255.0)
     static let BarIconColor = Color(red: 255 / 255.0, green: 253 / 255.0, blue: 179 / 255.0)
+    static let buttoncolor = Color(red: 255/255, green: 252/255, blue: 178/255)
+    static let lightpurple = Color(red: 199/255, green: 176/255, blue: 247/255)
 }
