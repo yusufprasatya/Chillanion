@@ -140,6 +140,11 @@ struct MainScreenView: View {
 struct TabBarView: View {
     @State private var selectedTab = 0
 
+    init() {
+        UITabBar.appearance().barTintColor = .black
+    }
+
+
     var body: some View {
         TabView(selection: $selectedTab) {
             // First Tab: MainScreenView
@@ -148,7 +153,6 @@ struct TabBarView: View {
                     Label("Summary", systemImage: "star.fill")
                 }
                 .tag(0)
-            
             
             // Second Tab: Placeholder view
             Text("Second Tab Content")
@@ -165,7 +169,6 @@ struct TabBarView: View {
                 .tag(2)
         }
         .accentColor(.BarIconColor)
-      
     }
 }
 

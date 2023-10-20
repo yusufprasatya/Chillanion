@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "StepBackground.png",
+      "filename" : "OnboardingImage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "StepBackground@2x.png",
+      "filename" : "OnboardingImage@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "StepBackground@3x.png",
+      "filename" : "OnboardingImage@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
