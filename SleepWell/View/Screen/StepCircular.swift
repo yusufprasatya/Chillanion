@@ -8,24 +8,13 @@
 import SwiftUI
 
 struct StepCircular: View {
-    @Binding var stepprogress: Float // 2/9
+    @Binding var stepprogress: Float
 
     var body: some View {
         VStack {
             ProgressBar(progress: $stepprogress)
                
-                
-
-//            Button(action: {
-//                // Increase progress by 0.05 each time the button is tapped
-//                self.progress = min(self.progress + 0.05, 1.0)
-//            }) {
-//                Text("Increase Progress")
-//                    .padding()
-//                    .background(Color.blue)
-//                    .foregroundColor(.white)
-//                    .cornerRadius(10)
-//            }
+   
         }
         .padding()
     }
@@ -33,6 +22,7 @@ struct StepCircular: View {
 
 struct StepProgressBar: View {
     @Binding var stepprogress: Float
+    
     
     var stepgradientColors: [Color] {
         if stepprogress <= 0.4 {

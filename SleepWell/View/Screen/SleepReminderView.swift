@@ -13,21 +13,24 @@ struct SleepReminderView: View {
     var body: some View {
         VStack{
             Text("Sleep Reminder")
-                .foregroundStyle(Color.black)
+                .foregroundStyle(Color.white)
                 .fontWeight(.bold)
                 .font(.system(size: 34))
             .frame(width: 334, alignment: .leading)
+           
          
             ZStack{
                 Image("CalculationImage")
                     .resizable()
                     .frame(width: 218, height: 218)
                 Text("23.30")
-                    .foregroundStyle(Color.black)
+                    .foregroundStyle(Color.white)
                     .fontWeight(.semibold)
                     .font(.system(size: 40))
                     .frame(width: 109, height: 22)
             }
+            .padding(.top, 51)
+            .padding(.bottom, 56)
             HStack{
                 ZStack{
                     Image("BedtimeBackground")
@@ -52,6 +55,7 @@ struct SleepReminderView: View {
                         .padding(.leading, -70)
                 }
             }
+            .padding(.bottom, 17.25)
             ZStack {
                            Rectangle()
                                .fill(Color.rectanglebg) // Adjust the color as needed
@@ -70,6 +74,7 @@ struct SleepReminderView: View {
                         .font(.system(size: 17))
                     Spacer()
                 }
+               
                        }
             ZStack {
                            Rectangle()
@@ -88,6 +93,13 @@ struct SleepReminderView: View {
                 }
                        }
         }
+        .background(
+            Image("ReminderBackground")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            
+            )
     }
 }
 
