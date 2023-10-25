@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SleepGoal.png",
+      "filename" : "Image.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SleepGoal@2x.png",
+      "filename" : "Image 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SleepGoal@3x.png",
+      "filename" : "Image 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

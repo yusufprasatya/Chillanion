@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SleepGoal.png",
+      "filename" : "coffee.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SleepGoal@2x.png",
+      "filename" : "coffee@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SleepGoal@3x.png",
+      "filename" : "coffee@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
