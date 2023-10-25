@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CalculationImage.png",
+      "filename" : "BedtimeBackground.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CalculationImage@2x.png",
+      "filename" : "BedtimeBackground@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CalculationImage@3x.png",
+      "filename" : "BedtimeBackground@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

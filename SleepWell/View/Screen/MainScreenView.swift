@@ -16,7 +16,9 @@ struct MainScreenView: View {
     let sleepQualityData: [Double] = [8, 7, 9, 8, 9, 7, 8]
 
     var body: some View {
+        NavigationStack{
         ScrollView {
+            
             ZStack {
                 VStack(alignment: .leading) {
                     HStack {
@@ -30,15 +32,15 @@ struct MainScreenView: View {
                                 .padding(.top, -15)
                                 .fixedSize(horizontal: true, vertical: false)
                                 .frame(width: 110, alignment: .leading)
-                                   
+                            
                             
                             Text("Your last\nnight's sleep:")
-                                       .foregroundStyle(Color.white)
-                                       .fontWeight(.bold)
-                                       .font(.system(size: 17))
-                                       .multilineTextAlignment(.leading)
-                                       .lineLimit(2)
-                                       .padding(.top, 6)
+                                .foregroundStyle(Color.white)
+                                .fontWeight(.bold)
+                                .font(.system(size: 17))
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(2)
+                                .padding(.top, 6)
                             
                             
                             Text("50%")
@@ -52,7 +54,7 @@ struct MainScreenView: View {
                         Spacer()
                         ZStack{
                             CircularBarScreen(progress: $SleepBarProgress)
-                               
+                            
                             Image("KoalaSad")
                                 .resizable()
                                 .frame(width: 133, height: 96)
@@ -60,49 +62,53 @@ struct MainScreenView: View {
                                 .padding(.leading, 12)
                         }
                     }
-                Spacer(minLength: 40)
-                    ZStack{
+                    Spacer(minLength: 40)
+                    NavigationLink(destination: SleepReminderView()) {ZStack{
+                        
                         Image("SleepGoal")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 342, height: 157)
+                        
                         Text("22.30")
                             .foregroundStyle(Color.white)
                             .fontWeight(.bold)
                             .font(.system(size: 40))
-                            
+                        
                             .padding(.leading, -150)
                             .padding(.top, 16)
                     }
-
+                    }
+                    
                     Text("Activities:")
                         .font(.system(size: 20))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
                         .padding(.leading, 5)
                         .padding(.top, -10)
-                    ZStack{
+                    NavigationLink(destination: NewMainScreenView()) {ZStack{
                         Image("StepBackground")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 342, height: 157)
                             .padding(.top, -5)
                         HStack{
-                           Spacer()
+                            Spacer()
                             Text("2250")
                             
                                 .font(.system(size: 34))
                                 .fontWeight(.bold)
                                 .foregroundStyle(Color.white)
-                                + Text("/4500 step")
-                                    .font(.system(size: 17))
-                                    .foregroundStyle(Color.white)
-                                  Spacer()
+                            + Text("/4500 step")
+                                .font(.system(size: 17))
+                                .foregroundStyle(Color.white)
+                            Spacer()
                             
                             StepProgressBar(stepprogress: $StepBarProgress)
-                                .frame(width: 100, height: 100)
+                                .frame(width: 80, height: 100)
                             Spacer()
                         }
+                    }
                     }
                     VStack {
                         Button(action: {
@@ -123,11 +129,11 @@ struct MainScreenView: View {
                                         .foregroundColor(.white)
                                     
                                     Image(systemName: isCaffeineSelected ? "checkmark.square.fill" : "square.fill")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.buttoncolor)
                                         .font(.system(size: 35))
                                         .padding(.trailing, 10)
                                 }
-                                .background(isCaffeineSelected ? Color.doneactivitybg : Color.activitybg)
+                                .background(isCaffeineSelected ? Color.activitybg : Color.activitybg)
                                 .cornerRadius(10)
                             }
                         }
@@ -146,11 +152,11 @@ struct MainScreenView: View {
                                     .padding(.leading, -105)
                                     .foregroundColor(.white)
                                 Image(systemName: isNapSelected ? "checkmark.square.fill" : "square.fill")
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.buttoncolor)
                                     .font(.system(size: 35))
                                     .padding(.trailing, 10)
                             }
-                            .background(isNapSelected ? Color.doneactivitybg : Color.activitybg)
+                            .background(isNapSelected ? Color.activitybg : Color.activitybg)
                             .cornerRadius(10)
                         }
                         
@@ -171,31 +177,32 @@ struct MainScreenView: View {
                                     .foregroundColor(.white)
                                 
                                 Image(systemName: isJournalingSelected ? "checkmark.square.fill" : "square.fill")
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.buttoncolor)
                                     .font(.system(size: 35))
                                     .padding(.trailing, 10)
                             }
-                            .background(isJournalingSelected ? Color.doneactivitybg : Color.activitybg)
+                            .background(isJournalingSelected ? Color.activitybg : Color.activitybg)
                             .cornerRadius(10)
                         }
                     }
-
-                        
-//                    ZStack{
-//                        Image("SleepActivity")
-//                            .resizable()
-//                            .scaledToFill()
-//                           /* .frame(width: UIScreen.main.bounds.width - 10)*/ // Adjust the image width if needed
-//                        SleepQualityBarChart(data: sleepQualityData, showDayLabels: false)
-//                            .padding(.top, 20)
-//                            .padding(.horizontal, 20)
-//                    }
-
-Image("JournalBackground")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 342, height: 157)
-                        .padding(.top, 35)
+                    
+                    
+                    //                    ZStack{
+                    //                        Image("SleepActivity")
+                    //                            .resizable()
+                    //                            .scaledToFill()
+                    //                           /* .frame(width: UIScreen.main.bounds.width - 10)*/ // Adjust the image width if needed
+                    //                        SleepQualityBarChart(data: sleepQualityData, showDayLabels: false)
+                    //                            .padding(.top, 20)
+                    //                            .padding(.horizontal, 20)
+                    //                    }
+                    
+                    NavigationLink(destination: NewMainScreenView()) {Image("JournalBackground")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 342, height: 157)
+                            .padding(.top, 35)
+                    }
                 }
                 .padding(.horizontal, 40)
                 .background(
@@ -205,6 +212,7 @@ Image("JournalBackground")
                         .edgesIgnoringSafeArea(.all)
                 )
             }
+        }
         }
     }
 }

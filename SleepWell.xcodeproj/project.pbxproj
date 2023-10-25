@@ -10,6 +10,7 @@
 		BF5586F72AE270FF003E9028 /* AlarmCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586F62AE270FF003E9028 /* AlarmCircle.swift */; };
 		BF5586F92AE6723C003E9028 /* NewMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586F82AE6723C003E9028 /* NewMainScreenView.swift */; };
 		BF5586FB2AE7B87D003E9028 /* StepCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586FA2AE7B87D003E9028 /* StepCircular.swift */; };
+		BF5586FD2AE90945003E9028 /* SleepReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586FC2AE90945003E9028 /* SleepReminderView.swift */; };
 		BF7103CB2AD5409E004F9EDF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103CA2AD5409E004F9EDF /* OnboardingView.swift */; };
 		BF7103CD2AD544ED004F9EDF /* WalktroughScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103CC2AD544ED004F9EDF /* WalktroughScreen.swift */; };
 		BF7103D02AD54E7B004F9EDF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7103CF2AD54E7B004F9EDF /* Color.swift */; };
@@ -50,6 +51,7 @@
 		BF5586F62AE270FF003E9028 /* AlarmCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlarmCircle.swift; path = SleepWell/View/Screen/AlarmCircle.swift; sourceTree = SOURCE_ROOT; };
 		BF5586F82AE6723C003E9028 /* NewMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainScreenView.swift; sourceTree = "<group>"; };
 		BF5586FA2AE7B87D003E9028 /* StepCircular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepCircular.swift; path = SleepWell/View/Screen/StepCircular.swift; sourceTree = SOURCE_ROOT; };
+		BF5586FC2AE90945003E9028 /* SleepReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepReminderView.swift; sourceTree = "<group>"; };
 		BF7103CA2AD5409E004F9EDF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BF7103CC2AD544ED004F9EDF /* WalktroughScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalktroughScreen.swift; path = SleepWell/View/Screen/WalktroughScreen.swift; sourceTree = SOURCE_ROOT; };
 		BF7103CF2AD54E7B004F9EDF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				BF7103D12AD7D9BA004F9EDF /* CalculationView.swift */,
 				BF7103DC2ADFC89A004F9EDF /* SelectionView.swift */,
 				BF7103D72ADD3590004F9EDF /* MainScreenView.swift */,
+				BF5586FC2AE90945003E9028 /* SleepReminderView.swift */,
 				BF5586F82AE6723C003E9028 /* NewMainScreenView.swift */,
 				BF7103D32AD7EF87004F9EDF /* BabyStepView.swift */,
 			);
@@ -364,6 +367,7 @@
 				BF7103CD2AD544ED004F9EDF /* WalktroughScreen.swift in Sources */,
 				BF7103D22AD7D9BA004F9EDF /* CalculationView.swift in Sources */,
 				BF5586F72AE270FF003E9028 /* AlarmCircle.swift in Sources */,
+				BF5586FD2AE90945003E9028 /* SleepReminderView.swift in Sources */,
 				BF7103D02AD54E7B004F9EDF /* Color.swift in Sources */,
 				BF7103D62AD93126004F9EDF /* CircularBarScreen.swift in Sources */,
 				BF7103DD2ADFC89A004F9EDF /* SelectionView.swift in Sources */,
