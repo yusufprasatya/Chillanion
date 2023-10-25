@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab = 0
+    
+    init() {
+        UITabBar.appearance().barTintColor = .black
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if UserDefaults.standard.onBoardingShow {
+            HomeScreenView()
+        }else {
+            OnBoardingView()
         }
-        .padding()
+    }
+}
+
+extension UserDefaults {
+    var onBoardingShow: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "onBoardingShow") as? Bool) ?? false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "onBoardingShow")
+        }
     }
 }
 

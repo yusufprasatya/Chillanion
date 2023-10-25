@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct Screen9View: View {
+struct Screen4View: View {
+    @Binding var screen: Int
+    @Binding var averageSleepDuration: String
     @State private var name: String = ""
+    @State private var next: Bool = false
+    @ObservedObject private var sleepManager: SleepManager = SleepManager()
+    
     var body: some View {
         ZStack {
             Image("bg")
@@ -16,66 +21,81 @@ struct Screen9View: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            
-            VStack (alignment: .leading) {
+            VStack (alignment: .center) {
+                Spacer()
                 HStack{
                     Spacer()
-                    Image("koala")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 178, height: 128)
-                        .border(.red)
+                    ZStack {
+                        CircularDotProgressView()
+                        Image("koalaInTheMoon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 120, height: 114)
+                            .padding(.leading, -25)
+                    }
+                    .padding()
                     Spacer()
                 }
-                .padding(.top, 5)
-
-                Text("Based on your health data")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 12)
-                
-                Text("Your average sleep time is:")
-                    .font(.system(size: 18, weight: .medium, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 64)
-                
-                HStack(alignment: .bottom) {
-                    Text("5")
-                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                Group {
+                    Text("Give us a second!")
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white)
-                    Text("hours")
-                        .font(.system(size: 20, weight: .regular, design: .rounded))
-                        .foregroundStyle(.white)
-                    Text("27")
-                        .font(.system(size: 34, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
-                    Text("minutes")
-                        .font(.system(size: 20, weight: .regular, design: .rounded))
+                    Text("We will give you the calculation of your sleep duration")
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
+                        .multilineTextAlignment(.center)
                         .foregroundStyle(.white)
                 }
-                .border(.red)
-                
-                Text("Based on research, young adult should sleep at 7-9 hours each night")
-                    .font(.system(size: 17, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 54)
-                
-                Spacer()
-                Spacer()
-                RoundedButton(title: "What’s next?",
-                              action: {},
-                              backgroundColor: .paleLavender,
-                              foregroundColor: .black,
-                              cornerRadius: 15)
-                Spacer()
+                Group {
+                    Spacer()
+                    Spacer()
+                }
             }
-            .border(.red)
             .padding()
             .padding(.horizontal)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation {
+                    screen += 1
+                }
+            }
         }
     }
 }
 
+extension Screen4View {
+    func getTotalDUrationBeetweenTwoTime(startDate: Date, endDate: Date) -> TimeInterval{
+        return endDate.timeIntervalSince(startDate)
+    }
+    
+    func humanReadableHour (data: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: data)!
+    }
+    
+    func extractNumbers(from input: String) -> (hours: Int, minutes: Int) {
+        do {
+            let regex = try NSRegularExpression(pattern: "(\\d+)h (\\d+)m", options: [])
+            if let match = regex.firstMatch(in: input, options: [], range: NSRange(input.startIndex..., in: input)) {
+                let hoursRange = Range(match.range(at: 1), in: input)
+                let minutesRange = Range(match.range(at: 2), in: input)
+                
+                if let hoursRange = hoursRange, let minutesRange = minutesRange {
+                    if let hours = Int(input[hoursRange]), let minutes = Int(input[minutesRange]) {
+                        return (hours, minutes)
+                    }
+                }
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        
+        return (0, 0)
+    }
+}
+
 #Preview {
-    Screen9View()
+    Screen4View(screen: .constant(1), averageSleepDuration: .constant(""))
 }

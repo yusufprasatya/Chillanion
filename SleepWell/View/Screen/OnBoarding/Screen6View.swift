@@ -1,13 +1,14 @@
 //
-//  Screen6View.swift
+//  Screen9View.swift
 //  SleepWell
 //
-//  Created by Muhammad Yusuf on 18/10/23.
+//  Created by Muhammad Yusuf on 20/10/23.
 //
 
 import SwiftUI
 
 struct Screen6View: View {
+    @Binding var screen: Int
     var body: some View {
         ZStack {
             Image("bg")
@@ -15,48 +16,48 @@ struct Screen6View: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            
             VStack (alignment: .leading) {
                 HStack{
                     Spacer()
-                    Image("koalaInTheMoon")
+                    Image("koala")
                         .resizable()
-                        .scaledToFill()
-                        .frame(width: 154, height: 146)
-                        .border(.red)
-                        .padding(.leading, -50)
-                        .padding(.top, -10)
+                        .scaledToFit()
+                        .frame(width: 185, height: 146)
                     Spacer()
                 }
-                
-                Text("What is sleep-cycle?")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 45)
-                    .padding(.leading, 0)
-                    .border(.red)
-                
-                Text("A sleep cycle is like a fascinating journey your body takes during sleep. It's made up of different phases, such as light sleep, deep sleep, and rapid eye movement (REM) sleep.   Each cycle lasts about 90 minutes and happens multiple times while you snooze at night. This journey is crucial because it helps your body relax, repair, and refresh itself, making sure you wake up feeling good. ")
-                    .font(.system(size: 18, weight: .medium, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.top, 17)
-                    .padding(.leading, 0)
-                    .border(.red, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                
+                .padding(.bottom, 12)
+                Group {
+                    Text("Before we go further....")
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("Have you ever heard about “sleep cycle”?")
+                        .font(.system(size: 18, weight: .medium, design: .rounded))
+                        .foregroundStyle(.white)
+                        .padding(.top, 44)
+                    Text("Let’s check this out!")
+                        .font(.system(size: 18, weight: .medium, design: .rounded))
+                        .foregroundStyle(.white)
+                        .padding(.top, 19)
+                }
                 Spacer()
-                RoundedButton(title: "Understood!",
-                              action: {},
-                              backgroundColor: .paleLavender,
-                              foregroundColor: .black,
+                Spacer()
+                RoundedButton(title: "Let’s go!",
+                              action: {
+                    withAnimation {
+                        screen += 1
+                    }
+                },
+                              backgroundColor: .primaryButton,
+                              foregroundColor: .white,
                               cornerRadius: 15)
-                .border(.red)
             }
             .padding()
+            .padding(.top, -20)
             .padding(.horizontal)
         }
+        .transition(.move(edge: .trailing))
     }
 }
-
 #Preview {
-    Screen6View()
+    Screen6View(screen: .constant(1))
 }

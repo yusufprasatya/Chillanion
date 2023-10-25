@@ -17,16 +17,17 @@ struct RoundedButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
+                .frame(width: 342, height: 60)
                 .font(.subheadline)
                 .fontWeight(.bold)
                 .foregroundColor(foregroundColor)
-                .padding()
+                .background(backgroundColor)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.clear, lineWidth: 2)
+                )
         }
-        .frame(width: 342, height: 60)
-        .background(
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(backgroundColor)
-        )
+        .cornerRadius(15)
     }
 }
 

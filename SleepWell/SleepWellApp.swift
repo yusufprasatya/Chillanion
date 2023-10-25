@@ -11,7 +11,7 @@ import SwiftUI
 struct SleepWellApp: App {
     var body: some Scene {
         WindowGroup {
-            OnBoardingView()
+            ContentView()
         }
     }
 }
