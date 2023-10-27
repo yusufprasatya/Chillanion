@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF39D4B72AEBADFB00922E85 /* CustomViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF39D4B62AEBADFB00922E85 /* CustomViewButton.swift */; };
 		BF5586F72AE270FF003E9028 /* AlarmCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586F62AE270FF003E9028 /* AlarmCircle.swift */; };
 		BF5586F92AE6723C003E9028 /* NewMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586F82AE6723C003E9028 /* NewMainScreenView.swift */; };
 		BF5586FB2AE7B87D003E9028 /* StepCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5586FA2AE7B87D003E9028 /* StepCircular.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF39D4B62AEBADFB00922E85 /* CustomViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomViewButton.swift; path = SleepWell/View/Screen/CustomViewButton.swift; sourceTree = SOURCE_ROOT; };
 		BF5586F62AE270FF003E9028 /* AlarmCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlarmCircle.swift; path = SleepWell/View/Screen/AlarmCircle.swift; sourceTree = SOURCE_ROOT; };
 		BF5586F82AE6723C003E9028 /* NewMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainScreenView.swift; sourceTree = "<group>"; };
 		BF5586FA2AE7B87D003E9028 /* StepCircular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepCircular.swift; path = SleepWell/View/Screen/StepCircular.swift; sourceTree = SOURCE_ROOT; };
@@ -222,6 +224,7 @@
 				BF7103CC2AD544ED004F9EDF /* WalktroughScreen.swift */,
 				BF7103D52AD93126004F9EDF /* CircularBarScreen.swift */,
 				BF5586FA2AE7B87D003E9028 /* StepCircular.swift */,
+				BF39D4B62AEBADFB00922E85 /* CustomViewButton.swift */,
 				BF7103D92ADE7960004F9EDF /* ChartBarScreen.swift */,
 				BF5586F62AE270FF003E9028 /* AlarmCircle.swift */,
 			);
@@ -361,6 +364,7 @@
 				DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */,
 				BF7103DA2ADE7960004F9EDF /* ChartBarScreen.swift in Sources */,
 				BF7103D82ADD3590004F9EDF /* MainScreenView.swift in Sources */,
+				BF39D4B72AEBADFB00922E85 /* CustomViewButton.swift in Sources */,
 				BF5586FB2AE7B87D003E9028 /* StepCircular.swift in Sources */,
 				BF7103CB2AD5409E004F9EDF /* OnboardingView.swift in Sources */,
 				BF7103D42AD7EF87004F9EDF /* BabyStepView.swift in Sources */,

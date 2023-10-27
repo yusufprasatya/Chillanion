@@ -86,7 +86,7 @@ struct MainScreenView: View {
                         .fontWeight(.bold)
                         .padding(.leading, 5)
                         .padding(.top, -10)
-                    NavigationLink(destination: NewMainScreenView()) {ZStack{
+                    NavigationLink(destination: TodayStepView()) {ZStack{
                         Image("StepBackground")
                             .resizable()
                             .scaledToFit()
@@ -114,89 +114,48 @@ struct MainScreenView: View {
                         Button(action: {
                             isCaffeineSelected.toggle()
                         }) {
-                            VStack {
-                                HStack {
-                                    Image("coffee")
-                                        .resizable()
-                                        .frame(width: 43, height: 43)
-                                        .foregroundColor(.white)
-                                        .padding(.leading, 25)
-                                    
-                                    Text("Limit Caffeine")
-                                        .font(.system(size: 20))
-                                        .frame(width: 285, height: 66)
-                                        .padding(.leading, -80)
-                                        .foregroundColor(.white)
-                                    
-                                    Image(systemName: isCaffeineSelected ? "checkmark.square.fill" : "square.fill")
-                                        .foregroundColor(.buttoncolor)
-                                        .font(.system(size: 35))
-                                        .padding(.trailing, 10)
+                            ZStack {
+                                Color.activitybg
+                                    .frame(width: 341, height: 93)
+
+                                CustomViewButton(icon: "coffee", title: "Limit Caffeine", desc: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!😌", isSelected: isCaffeineSelected) {
+                                    isCaffeineSelected.toggle()
+                                
                                 }
-                                .background(isCaffeineSelected ? Color.activitybg : Color.activitybg)
-                                .cornerRadius(10)
                             }
+                            .cornerRadius(10)
                         }
+
                         Button(action: {
                             isNapSelected.toggle()
                         }) {
-                            HStack {
-                                Image("nap")
-                                    .resizable()
-                                    .frame(width: 43, height: 43)
-                                    .foregroundColor(.white)
-                                    .padding(.leading, 25)
-                                Text("Power Nap")
-                                    .font(.system(size: 20))
-                                    .frame(width: 310, height: 66)
-                                    .padding(.leading, -105)
-                                    .foregroundColor(.white)
-                                Image(systemName: isNapSelected ? "checkmark.square.fill" : "square.fill")
-                                    .foregroundColor(.buttoncolor)
-                                    .font(.system(size: 35))
-                                    .padding(.trailing, 10)
+                            ZStack {
+                                Color.activitybg
+                                    .frame(width: 341, height: 93)
+
+                                CustomViewButton(icon: "nap", title: "Power Nap", desc: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!⚡️", isSelected: isNapSelected) {
+                                    isNapSelected.toggle()
+                                
+                                }
                             }
-                            .background(isNapSelected ? Color.activitybg : Color.activitybg)
                             .cornerRadius(10)
                         }
-                        
+
                         Button(action: {
                             isJournalingSelected.toggle()
                         }) {
-                            HStack {
-                                Image("journaling")
-                                    .resizable()
-                                    .frame(width: 43, height: 43)
-                                    .foregroundColor(.white)
-                                    .padding(.leading, 25)
-                                
-                                Text("Journaling")
-                                    .font(.system(size: 20))
-                                    .frame(width: 310, height: 66)
-                                    .padding(.leading, -105)
-                                    .foregroundColor(.white)
-                                
-                                Image(systemName: isJournalingSelected ? "checkmark.square.fill" : "square.fill")
-                                    .foregroundColor(.buttoncolor)
-                                    .font(.system(size: 35))
-                                    .padding(.trailing, 10)
+                            ZStack {
+                                Color.activitybg
+                                    .frame(width: 341, height: 93)
+
+                                CustomViewButton(icon: "journaling", title: "Journaling", desc: "Hi, how’s your day? Wanna write it down?", isSelected: isJournalingSelected) {
+                                    isJournalingSelected.toggle()
+                                }
                             }
-                            .background(isJournalingSelected ? Color.activitybg : Color.activitybg)
                             .cornerRadius(10)
                         }
                     }
-                    
-                    
-                    //                    ZStack{
-                    //                        Image("SleepActivity")
-                    //                            .resizable()
-                    //                            .scaledToFill()
-                    //                           /* .frame(width: UIScreen.main.bounds.width - 10)*/ // Adjust the image width if needed
-                    //                        SleepQualityBarChart(data: sleepQualityData, showDayLabels: false)
-                    //                            .padding(.top, 20)
-                    //                            .padding(.horizontal, 20)
-                    //                    }
-                    
+
                     NavigationLink(destination: NewMainScreenView()) {Image("JournalBackground")
                             .resizable()
                             .scaledToFit()

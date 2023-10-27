@@ -20,6 +20,8 @@ extension Color {
     static let buttoncolor = Color(red: 255/255, green: 252/255, blue: 178/255)
     static let lightpurple = Color(red: 199/255, green: 176/255, blue: 247/255)
     static let activitybg = Color(red: 27/255, green: 34/255, blue: 73/255)
-    static let doneactivitybg = Color(red: 133/255, green: 118/255, blue: 63/255)
+    static let doneactivitybg = Color(red: 66/255, green: 66/255, blue: 65/255)
     static let rectanglebg = Color(red: 19/255, green: 27/255, blue: 52/255)
+    static let graytext = Color(red: 190/255, green: 190/255, blue: 215/255)
+    static let graybg = Color(red: 66/255, green: 66/255, blue: 65/255)
 }
