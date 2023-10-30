@@ -104,7 +104,7 @@ struct MainScreenView: View {
                                 .foregroundStyle(Color.white)
                             Spacer()
                             
-                            StepProgressBar(stepprogress: $StepBarProgress)
+                            StepProgressBar(stepprogress: $StepBarProgress, lineWidth: 15)
                                 .frame(width: 80, height: 100)
                             Spacer()
                         }

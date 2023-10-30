@@ -22,7 +22,7 @@ struct StepCircular: View {
 
 struct StepProgressBar: View {
     @Binding var stepprogress: Float
-    
+    let lineWidth: CGFloat
     
     var stepgradientColors: [Color] {
         if stepprogress <= 0.4 {
@@ -35,13 +35,13 @@ struct StepProgressBar: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(lineWidth: 15)
+                .stroke(lineWidth: lineWidth)
                 .opacity(0.20)
                 .foregroundColor(Color.gray)
             
             Circle()
                 .trim(from: 0.0, to: min(CGFloat(self.stepprogress), 1.0))
-                .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .fill(LinearGradient(gradient: Gradient(colors: stepgradientColors),
                                      startPoint: UnitPoint(x: 0.9, y: 0.5), endPoint: UnitPoint(x: 0.5, y: 0.0)))
                 .rotationEffect(Angle(degrees: -90)) 
