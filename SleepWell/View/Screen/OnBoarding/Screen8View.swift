@@ -61,6 +61,7 @@ struct Screen8View: View {
             .padding(.top, -20)
             .padding(.horizontal)
         }
+    
     }
 }
 

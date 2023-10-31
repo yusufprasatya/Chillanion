@@ -9,16 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = 0
+    @State private var isSplashNotAppear = false
     
     init() {
         UITabBar.appearance().barTintColor = .black
     }
     
     var body: some View {
-        if UserDefaults.standard.onBoardingShow {
-            HomeScreenView()
-        }else {
-            OnBoardingView()
+        ZStack {
+            if isSplashNotAppear {
+                if UserDefaults.standard.onBoardingShow {
+                    HomeScreenView()
+                }else {
+                    OnBoardingView()
+                }
+            }else{
+                SplashScreenView()
+            }
+        }.onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                withAnimation {
+                    self.isSplashNotAppear = true
+                }
+            }
         }
     }
 }

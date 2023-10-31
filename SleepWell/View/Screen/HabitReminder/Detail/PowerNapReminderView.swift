@@ -9,28 +9,74 @@ import SwiftUI
 
 struct PowerNapReminderView: View {
     @State private var isReminderActive: Bool = false
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-                    Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [.navyBlue, .paleAqua]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .frame(width: .infinity, height: 250)
-                        .cornerRadius(10)
+//                    Rectangle()
+//                        .fill(LinearGradient(gradient: Gradient(colors: [.slateBlue, .teal]), startPoint: .topLeading, endPoint: .bottomTrailing))
+//                        .frame(width: .infinity, height: 250)
+//                        .cornerRadius(10)
+//                        .padding(.top, 10)
+                    Image("RminderBgPink")
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(15)
                         .padding(.top, 10)
-                    HStack {
-                        VStack (alignment: .leading) {
-                            Text("Power Nap")
-                                .font(.system(size: 28, weight: .bold, design: .rounded))
-                            
-                            Text("lorem ipsum dolor siamet")
-                                .font(.system(size: 17, weight: .regular, design: .rounded))
-                        }
-                        Text("😴")
-                            .font(.system(size: 150, weight: .semibold, design: .rounded))
+                        .overlay(
+                            // Skip Button
+                            Text("😴")
+                                .font(.system(size: 150, weight: .semibold))
+                            , alignment: .topTrailing
+                        )
+                    VStack (alignment: .leading) {
+                        Text("Power Nap")
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                        
+                        Text("️⚡️ Boost with Power Naps:  ")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                        Text("️ Use short naps to recharge and improve focus in the daytime.")
+                            .font(.system(size: 16, weight: .regular, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 20)
+                        
+                        Text("️😌 Mindful Nap Length:  ")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                        Text("️ Keep them brief to avoid disrupting your nighttime sleep.")
+                            .font(.system(size: 16, weight: .regular, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 20)
+                        
+                        
+                        Text("️🌈 Sweet Dreams All Night:  ")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                        Text("️ Your nighttime sleep remains undisturbed! 💤😴")
+                            .font(.system(size: 16, weight: .regular, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 20)
+                        
+                        
                     }
+                    .frame(width: 330)
+                    .padding()
+//                    HStack {
+//                        VStack (alignment: .leading) {
+//                            Text("Power Nap")
+//                                .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            
+//                            Text("lorem ipsum dolor siamet")
+//                                .font(.system(size: 17, weight: .regular, design: .rounded))
+//                        }
+//                        Text("😴")
+//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
+//                    }
                 }
                 
                 VStack(alignment: .leading) {
@@ -38,11 +84,10 @@ struct PowerNapReminderView: View {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
-                        Text("To get sunlight exposure")
+                        Text("To take a power nap")
                             .font(.system(size: 16, weight: .regular, design: .rounded))
                             .foregroundColor(.white)
                     })
-                    
                     
                     Text("Reminder time")
                         .font(.system(size: 16, weight: .regular, design: .rounded))
@@ -54,13 +99,19 @@ struct PowerNapReminderView: View {
                     Spacer()
                     RoundedButton(
                         title: "Done",
-                        action: {},
+                        action: {
+                            
+                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Power Nap", body: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!⚡️", notifHour: nil)
+                            self.presentationMode
+                                .wrappedValue
+                                .dismiss()},
                         backgroundColor: .primaryButton,
                         foregroundColor: .white,
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
             }
+            .padding()
             .navigationTitle("Power Nap")
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(

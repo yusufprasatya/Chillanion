@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SleepWellApp: App {
+    @StateObject var healthStore: SleepManager = SleepManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(healthStore)
         }
     }
 }

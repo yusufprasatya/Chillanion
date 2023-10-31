@@ -89,4 +89,47 @@ struct PersistenceController {
         
         return User()
     }
+    
+    func saveReminder(reminder: ReminderModel) {
+        let context = container.viewContext
+        
+        if let entity = NSEntityDescription.entity(forEntityName: "Reminder", in: context) {
+            let newReminder = NSManagedObject(entity: entity, insertInto: context) as! Reminder
+            newReminder.id = UUID()
+            newReminder.name = reminder.name
+            newReminder.category = reminder.categroy
+            newReminder.remindTime = reminder.remindTime
+            newReminder.isRemind = reminder.isRemind
+            
+            do {
+                try context.save()
+                print("Item saved successfully")
+            } catch {
+                print("Error saving item: \(error)")
+            }
+        }
+    }
+    func fetchReminder(name: String) -> Reminder {
+        let context = container.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reminder")
+        
+        // Set up a predicate to filter by propertie
+        
+        let predicate = NSPredicate(format: "name == %@", name)
+        request.predicate = predicate
+        do {
+            let result = try context.fetch(request)
+            if let firstResult = result.first {
+                // Use firstResult, which is the first record in the entity
+                return firstResult as! Reminder
+            } else {
+                // Handle the case where no data is found
+                print("No data found")
+            }
+        } catch {
+            print("Error fetching user: \(error)")
+        }
+        
+        return Reminder()
+    }
 }

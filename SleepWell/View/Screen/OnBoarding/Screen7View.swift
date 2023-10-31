@@ -43,15 +43,28 @@ struct Screen7View: View {
                             .font(.system(size: 16, weight: .medium, design: .rounded))
                             .foregroundStyle(.white)
                         
-                        Text("Each cycle lasts about 90 minutes and happens multiple times while you snooze at night. This journey is crucial because it helps your body relax, repair, and refresh itself, making sure you wake up feeling good.")
-                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                        Text("Each cycle = +- 90 minutes")
+                            .font(.system(size: 25, weight: .semibold, design: .rounded))
                             .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
                             .padding(.top, 20)
+                            .padding(.bottom, 20)
+                            .padding(.leading, 10)
                         
-                        Text("Sleep duration that is for recommended fo young adults to wake-up refreshed and energized is between 4 cycles to 7 cycles.")
+                        Text("Each cycle lasts about 90 minutes and happens multiple times while you snooze at night. ")
                             .font(.system(size: 16, weight: .medium, design: .rounded))
-                            .foregroundStyle(.white)
-                            .padding(.top, 20)
+                            .foregroundColor(.white)+Text("This journey is crucial because it helps your body relax, repair, and refresh itself, making sure you wake up feeling good.")
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)
+                            .underline()
+                            
+                        Spacer(minLength: 20)
+                            
+                        Text("Sleep duration that is for recommended fo young adults to wake-up refreshed and energized is between ")
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)+Text("4 cycles to 7 cycles.").underline()
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)
                     }
                     Spacer()
                     Spacer()

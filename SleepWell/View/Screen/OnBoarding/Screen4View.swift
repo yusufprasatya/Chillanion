@@ -13,6 +13,7 @@ struct Screen4View: View {
     @State private var name: String = ""
     @State private var next: Bool = false
     @ObservedObject private var sleepManager: SleepManager = SleepManager()
+    @Binding var avgSleep: TimeInterval
     
     var body: some View {
         ZStack {
@@ -95,7 +96,7 @@ extension Screen4View {
         return (0, 0)
     }
 }
-
-#Preview {
-    Screen4View(screen: .constant(1), averageSleepDuration: .constant(""))
-}
+//
+//#Preview {
+//    Screen4View(screen: .constant(1), averageSleepDuration: .constant(""))
+//}

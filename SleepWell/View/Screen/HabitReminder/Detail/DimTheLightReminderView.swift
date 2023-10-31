@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DimTheLightReminderView: View {
     @State private var isReminderActive: Bool = false
-
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -17,7 +17,7 @@ struct DimTheLightReminderView: View {
             VStack(spacing: 23) {
                 ZStack {
                     Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [.navyBlue, .paleAqua]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .fill(LinearGradient(gradient: Gradient(colors: [.midnightBlue, .paleAqua]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width: .infinity, height: 250)
                         .cornerRadius(10)
                         .padding(.top, 10)
@@ -54,7 +54,12 @@ struct DimTheLightReminderView: View {
                     Spacer()
                     RoundedButton(
                         title: "Done",
-                        action: {},
+                        action: {
+//                            UserNotificationService.shared.scheduleNotification(type: "time", title: "Sunlight", body: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!🌤️", notifHour: nil)
+                            self.presentationMode
+                                .wrappedValue
+                                .dismiss()
+                        },
                         backgroundColor: .primaryButton,
                         foregroundColor: .white,
                         cornerRadius: 15)

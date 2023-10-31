@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HabitReminderView: View {
+    @State private var isPresented = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -20,7 +22,12 @@ struct HabitReminderView: View {
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .fontDesign(.rounded)
                             .foregroundColor(.white)
-                            .padding(.bottom, 14)
+                            .padding(.bottom, 23)
+                        Text("We know, building habit is not easy, But relax, Chilla will help and accompany your journey!")
+                            .frame(width: 300)
+                            .font(.system(size: 17, weight: .regular, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 15)
                         
                         Group {
                             Text("Day activity ☀️")
@@ -36,7 +43,7 @@ struct HabitReminderView: View {
                                             .stroke(LinearGradient(gradient: Gradient(colors: [ .turquoise, .navyBlue]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
                                             .frame(width: 110, height: 110)
                                             .background(Color.clear)
-                                            
+                                        
                                         
                                         VStack {
                                             Text("🏃")
@@ -74,6 +81,58 @@ struct HabitReminderView: View {
                                             Text("😴")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Power Nap")
+                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                })
+                                
+                            }
+                            HStack {
+                                NavigationLink(destination: HydratedView(), label: {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(LinearGradient(gradient: Gradient(colors: [ .turquoise, .navyBlue]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
+                                            .frame(width: 110, height: 110)
+                                            .background(Color.clear)
+                                        
+                                        
+                                        VStack {
+                                            Text("💧")
+                                                .font(.system(size: 40, weight: .semibold))
+                                            Text("Hydrate")
+                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                })
+                                
+                                NavigationLink(destination: BreatheView(), label: {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(LinearGradient(gradient: Gradient(colors: [ .turquoise, .navyBlue]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
+                                            .frame(width: 110, height: 110)
+                                            .background(Color.clear)
+                                        VStack {
+                                            Text("🌼")
+                                                .font(.system(size: 40, weight: .semibold))
+                                            Text("Breathe")
+                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                })
+                                NavigationLink(destination:BreaksView(), label: {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(LinearGradient(gradient: Gradient(colors: [ .turquoise, .navyBlue]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
+                                            .frame(width: 110, height: 110)
+                                            .background(Color.clear)
+                                        
+                                        VStack {
+                                            Text("💡")
+                                                .font(.system(size: 40, weight: .semibold))
+                                            Text("Breaks")
                                                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                                                 .foregroundColor(.white)
                                         }
@@ -137,6 +196,23 @@ struct HabitReminderView: View {
                                         }
                                     }
                                 })
+                            }
+                            HStack{
+                                NavigationLink(destination: LimitAlcoholView(), label: {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(LinearGradient(gradient: Gradient(colors: [.darkOrange, .lightOrange]), startPoint: .top, endPoint: .bottom))
+                                            .frame(width: 110, height: 110)
+                                        
+                                        VStack {
+                                            Text("🥂")
+                                                .font(.system(size: 40, weight: .semibold))
+                                            Text("Alcohol")
+                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                })
                             }.padding(.bottom, 30)
                         }
                         Group {
@@ -162,23 +238,23 @@ struct HabitReminderView: View {
                                         }
                                     }
                                 })
-                                NavigationLink(destination: DimTheLightReminderView(), label: {
+                                NavigationLink(destination: MeditationView(), label: {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 15)
                                             .stroke(LinearGradient(gradient: Gradient(colors: [.darkTeal, .darkTeal]), startPoint: .top, endPoint: .bottom))
                                             .frame(width: 110, height: 110)
                                         
                                         VStack {
-                                            Text("🛋️")
+                                            Text("🧘🏼‍♀️")
                                                 .font(.system(size: 40, weight: .semibold))
-                                            Text("Dim the light")
+                                            Text("Meditation")
                                                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.white)
                                         }
                                     }
                                 })
-                                NavigationLink(destination: SkincareRoutineView(), label: {
+                                NavigationLink(destination: HygieneView(), label: {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 15)
                                             .stroke(LinearGradient(gradient: Gradient(colors: [.darkTeal, .darkTeal]), startPoint: .top, endPoint: .bottom))
@@ -187,7 +263,25 @@ struct HabitReminderView: View {
                                         VStack {
                                             Text("😶‍🌫️")
                                                 .font(.system(size: 40, weight: .semibold))
-                                            Text("Skincare routine")
+                                            Text("Hygiene")
+                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .multilineTextAlignment(.center)
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                })
+                            }
+                            HStack {
+                                NavigationLink(destination: ScreenTimeView(), label: {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(LinearGradient(gradient: Gradient(colors: [.darkTeal, .darkTeal]), startPoint: .top, endPoint: .bottom))
+                                            .frame(width: 110, height: 110)
+                                        
+                                        VStack {
+                                            Text("📱")
+                                                .font(.system(size: 40, weight: .semibold))
+                                            Text("Screen-time")
                                                 .font(.system(size: 20, weight: .semibold, design: .rounded))
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.white)
@@ -200,6 +294,9 @@ struct HabitReminderView: View {
                     .padding()
                     .padding(.horizontal)
                 }
+            }
+            .onAppear {
+                UserNotificationService.shared.requestPermission()
             }
         }
     }

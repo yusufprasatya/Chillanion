@@ -9,15 +9,15 @@ import SwiftUI
 
 // created by Bilbert Pohandy
 struct CircularBarView: View {
-    @Binding var progress: Float // 2/9
+    @Binding var progress: Double // 2/9
 
     var body: some View {
-        VStack {
-            ProgressBar(progress: $progress)
-                .frame(width: 167, height: 167)
-                .padding(.leading, 10)
-                .padding(.top, 50)
-
+        print("progress \(progress)")
+       return VStack {
+           ProgressBar(progress: $progress)
+               .frame(width: 167, height: 167)
+               .padding(.leading, 10)
+               .padding(.top, 50)
 //            Button(action: {
 //                // Increase progress by 0.05 each time the button is tapped
 //                self.progress = min(self.progress + 0.05, 1.0)
@@ -28,13 +28,13 @@ struct CircularBarView: View {
 //                    .foregroundColor(.white)
 //                    .cornerRadius(10)
 //            }
-        }
-        .padding()
+       }
+       .padding()
     }
 }
 
 struct ProgressBar: View {
-    @Binding var progress: Float
+    @Binding var progress: Double
     
     var gradientColors: [Color] {
         if progress <= 0.4 {

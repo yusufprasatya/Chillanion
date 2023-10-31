@@ -17,7 +17,6 @@ struct ConfirmationView: View {
     var onBoardingShow: Bool = false
     
     var body: some View {
-        if screen == 10 {
             ZStack{
                 Image("bg")
                     .resizable()
@@ -77,7 +76,6 @@ struct ConfirmationView: View {
                 .padding(.top, -20)
                 .padding(.horizontal)
             }
-        }
     }
 }
 

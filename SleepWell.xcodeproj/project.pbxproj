@@ -11,8 +11,16 @@
 		DA0E5B1D2ADF6D3F002563DB /* Screen6notView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */; };
 		DA0E5B1F2ADF709B002563DB /* Screen5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1E2ADF709B002563DB /* Screen5View.swift */; };
 		DA0E5B212ADF7F89002563DB /* RoundedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B202ADF7F89002563DB /* RoundedPicker.swift */; };
+		DA2C324C2AEB4DAA00D18B19 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C324B2AEB4DAA00D18B19 /* HealthManager.swift */; };
+		DA2C324E2AEB512600D18B19 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C324D2AEB512600D18B19 /* SleepManager.swift */; };
+		DA2C32522AEB576700D18B19 /* SleepFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C32512AEB576700D18B19 /* SleepFilter.swift */; };
+		DA2C32562AEB5FB300D18B19 /* StepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C32552AEB5FB300D18B19 /* StepService.swift */; };
+		DA2C32582AEB73B400D18B19 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C32572AEB73B400D18B19 /* UserNotificationService.swift */; };
+		DA2C325A2AEB76DB00D18B19 /* WalkTroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C32592AEB76DB00D18B19 /* WalkTroughView.swift */; };
 		DA2F3AED2AE1A5EF0032E190 /* Screen6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F3AEC2AE1A5EF0032E190 /* Screen6View.swift */; };
 		DA2F3AEF2AE1A6390032E190 /* Screen8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F3AEE2AE1A6390032E190 /* Screen8View.swift */; };
+		DA3028372AEF939300A334FA /* CustomViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3028362AEF939300A334FA /* CustomViewButton.swift */; };
+		DA3028392AEF959E00A334FA /* TodayStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3028382AEF959E00A334FA /* TodayStepView.swift */; };
 		DA8CE7262AE6F70100884062 /* HabitReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7252AE6F70100884062 /* HabitReminderView.swift */; };
 		DA8CE7282AE75E4900884062 /* SunlightReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7272AE75E4900884062 /* SunlightReminderView.swift */; };
 		DA8CE72C2AE76BA000884062 /* StepReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE72B2AE76BA000884062 /* StepReminderView.swift */; };
@@ -22,7 +30,7 @@
 		DA8CE7342AE76E2B00884062 /* WorkOutReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7332AE76E2B00884062 /* WorkOutReminderView.swift */; };
 		DA8CE7362AE76E7A00884062 /* JournalingReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7352AE76E7A00884062 /* JournalingReminderView.swift */; };
 		DA8CE7382AE76EB000884062 /* DimTheLightReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7372AE76EB000884062 /* DimTheLightReminderView.swift */; };
-		DA8CE73A2AE76F3C00884062 /* SkincareRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7392AE76F3C00884062 /* SkincareRoutineView.swift */; };
+		DA8CE73A2AE76F3C00884062 /* HygieneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7392AE76F3C00884062 /* HygieneView.swift */; };
 		DA8CE73C2AE77CA300884062 /* MeetChilaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE73B2AE77CA300884062 /* MeetChilaView.swift */; };
 		DA8CE73E2AE77E9B00884062 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE73D2AE77E9B00884062 /* PlanView.swift */; };
 		DA8CE7402AE77EED00884062 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE73F2AE77EED00884062 /* TrackView.swift */; };
@@ -30,13 +38,22 @@
 		DA8CE7642AE7B03900884062 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7632AE7B03900884062 /* Persistence.swift */; };
 		DA8CE7672AE7B06600884062 /* SleepWell.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7652AE7B06600884062 /* SleepWell.xcdatamodeld */; };
 		DA8CE7942AE8249100884062 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7932AE8249100884062 /* UserModel.swift */; };
+		DA8DC43F2AF019E800FA476A /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DC43E2AF019E800FA476A /* FeatureView.swift */; };
+		DA8DC4422AF02DF300FA476A /* SleepProblemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DC4412AF02DF300FA476A /* SleepProblemView.swift */; };
+		DA8DC4452AF03B3000FA476A /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DC4442AF03B3000FA476A /* SplashScreenView.swift */; };
+		DA8DC4472AF0A9D500FA476A /* ScreenTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DC4462AF0A9D500FA476A /* ScreenTimeView.swift */; };
+		DA8DC4492AF0ABE500FA476A /* LimitAlcoholView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DC4482AF0ABE500FA476A /* LimitAlcoholView.swift */; };
+		DA8DC44B2AF0AC7B00FA476A /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8DC44A2AF0AC7B00FA476A /* MeditationView.swift */; };
 		DA9099B92AE909D50011B09B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9099B82AE909D50011B09B /* DashboardView.swift */; };
 		DA9099BB2AE911060011B09B /* CircularBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9099BA2AE911060011B09B /* CircularBarView.swift */; };
 		DA9099BD2AE911F20011B09B /* StepCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9099BC2AE911F20011B09B /* StepCircularView.swift */; };
+		DA9099BF2AE95E9D0011B09B /* UIColor+Entensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9099BE2AE95E9D0011B09B /* UIColor+Entensions.swift */; };
+		DA945B292AEFB6F5009E7D64 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA945B282AEFB6F5009E7D64 /* JournalView.swift */; };
+		DA945B2B2AEFF321009E7D64 /* TesAutoSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA945B2A2AEFF321009E7D64 /* TesAutoSlide.swift */; };
 		DAAD1B2B2AE8B7AC00C85F43 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD1B2A2AE8B7AC00C85F43 /* DateUtil.swift */; };
 		DAAD1B2D2AE8B94100C85F43 /* SleepUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD1B2C2AE8B94100C85F43 /* SleepUtil.swift */; };
 		DAAD1B2F2AE8BED200C85F43 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD1B2E2AE8BED200C85F43 /* UserViewModel.swift */; };
-		DABFA33F2AE132570012DEC2 /* SleepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA33E2AE132570012DEC2 /* SleepManager.swift */; };
+		DABFA33F2AE132570012DEC2 /* SleepManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA33E2AE132570012DEC2 /* SleepManager2.swift */; };
 		DABFA3412AE1327D0012DEC2 /* SleepEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA3402AE1327D0012DEC2 /* SleepEntry.swift */; };
 		DABFA3442AE17B590012DEC2 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA3432AE17B590012DEC2 /* SelectionView.swift */; };
 		DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39382AD531F2002E488D /* SleepWellApp.swift */; };
@@ -60,6 +77,12 @@
 		DADF46152ADE328E00771DF0 /* Screen9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46142ADE328E00771DF0 /* Screen9View.swift */; };
 		DADF46172ADE389300771DF0 /* CircularDotProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */; };
 		DADF461B2ADE4B9900771DF0 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF461A2ADE4B9900771DF0 /* ConfirmationView.swift */; };
+		DAF2F6222AED4C3D004C8F72 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF2F6212AED4C3D004C8F72 /* ReminderViewModel.swift */; };
+		DAF2F6242AED4D29004C8F72 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF2F6232AED4D29004C8F72 /* ReminderModel.swift */; };
+		DAF2F6262AED9CB9004C8F72 /* HydratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF2F6252AED9CB9004C8F72 /* HydratedView.swift */; };
+		DAF2F6282AED9EC4004C8F72 /* BreatheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF2F6272AED9EC4004C8F72 /* BreatheView.swift */; };
+		DAF2F62A2AED9F96004C8F72 /* BreaksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF2F6292AED9F96004C8F72 /* BreaksView.swift */; };
+		DAF2F62C2AEEAD2D004C8F72 /* SleepReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF2F62B2AEEAD2D004C8F72 /* SleepReminderView.swift */; };
 		DAF86C532AE6132300E11DC6 /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF86C522AE6132300E11DC6 /* DataUtil.swift */; };
 		DAF86C562AE6134100E11DC6 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF86C552AE6134100E11DC6 /* NavigationButton.swift */; };
 		DAF86C592AE6C71700E11DC6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF86C582AE6C71700E11DC6 /* ProfileView.swift */; };
@@ -87,8 +110,16 @@
 		DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen6notView.swift; sourceTree = "<group>"; };
 		DA0E5B1E2ADF709B002563DB /* Screen5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5View.swift; sourceTree = "<group>"; };
 		DA0E5B202ADF7F89002563DB /* RoundedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoundedPicker.swift; path = SleepWell/View/Screen/OnBoarding/RoundedPicker.swift; sourceTree = SOURCE_ROOT; };
+		DA2C324B2AEB4DAA00D18B19 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		DA2C324D2AEB512600D18B19 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
+		DA2C32512AEB576700D18B19 /* SleepFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepFilter.swift; sourceTree = "<group>"; };
+		DA2C32552AEB5FB300D18B19 /* StepService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepService.swift; sourceTree = "<group>"; };
+		DA2C32572AEB73B400D18B19 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
+		DA2C32592AEB76DB00D18B19 /* WalkTroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkTroughView.swift; sourceTree = "<group>"; };
 		DA2F3AEC2AE1A5EF0032E190 /* Screen6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen6View.swift; sourceTree = "<group>"; };
 		DA2F3AEE2AE1A6390032E190 /* Screen8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen8View.swift; sourceTree = "<group>"; };
+		DA3028362AEF939300A334FA /* CustomViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewButton.swift; sourceTree = "<group>"; };
+		DA3028382AEF959E00A334FA /* TodayStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStepView.swift; sourceTree = "<group>"; };
 		DA8CE7252AE6F70100884062 /* HabitReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7272AE75E4900884062 /* SunlightReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunlightReminderView.swift; sourceTree = "<group>"; };
 		DA8CE72B2AE76BA000884062 /* StepReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepReminderView.swift; sourceTree = "<group>"; };
@@ -98,7 +129,7 @@
 		DA8CE7332AE76E2B00884062 /* WorkOutReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7352AE76E7A00884062 /* JournalingReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7372AE76EB000884062 /* DimTheLightReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimTheLightReminderView.swift; sourceTree = "<group>"; };
-		DA8CE7392AE76F3C00884062 /* SkincareRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkincareRoutineView.swift; sourceTree = "<group>"; };
+		DA8CE7392AE76F3C00884062 /* HygieneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HygieneView.swift; sourceTree = "<group>"; };
 		DA8CE73B2AE77CA300884062 /* MeetChilaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetChilaView.swift; sourceTree = "<group>"; };
 		DA8CE73D2AE77E9B00884062 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		DA8CE73F2AE77EED00884062 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
@@ -106,13 +137,22 @@
 		DA8CE7632AE7B03900884062 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		DA8CE7662AE7B06600884062 /* SleepWell.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepWell.xcdatamodel; sourceTree = "<group>"; };
 		DA8CE7932AE8249100884062 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DA8DC43E2AF019E800FA476A /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
+		DA8DC4412AF02DF300FA476A /* SleepProblemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepProblemView.swift; sourceTree = "<group>"; };
+		DA8DC4442AF03B3000FA476A /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		DA8DC4462AF0A9D500FA476A /* ScreenTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeView.swift; sourceTree = "<group>"; };
+		DA8DC4482AF0ABE500FA476A /* LimitAlcoholView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitAlcoholView.swift; sourceTree = "<group>"; };
+		DA8DC44A2AF0AC7B00FA476A /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
 		DA9099B82AE909D50011B09B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		DA9099BA2AE911060011B09B /* CircularBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBarView.swift; sourceTree = "<group>"; };
 		DA9099BC2AE911F20011B09B /* StepCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCircularView.swift; sourceTree = "<group>"; };
+		DA9099BE2AE95E9D0011B09B /* UIColor+Entensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Entensions.swift"; sourceTree = "<group>"; };
+		DA945B282AEFB6F5009E7D64 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		DA945B2A2AEFF321009E7D64 /* TesAutoSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesAutoSlide.swift; sourceTree = "<group>"; };
 		DAAD1B2A2AE8B7AC00C85F43 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		DAAD1B2C2AE8B94100C85F43 /* SleepUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepUtil.swift; sourceTree = "<group>"; };
 		DAAD1B2E2AE8BED200C85F43 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		DABFA33E2AE132570012DEC2 /* SleepManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager.swift; sourceTree = "<group>"; };
+		DABFA33E2AE132570012DEC2 /* SleepManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager2.swift; sourceTree = "<group>"; };
 		DABFA3402AE1327D0012DEC2 /* SleepEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SleepEntry.swift; path = "SleepWell/View Model/SleepEntry.swift"; sourceTree = SOURCE_ROOT; };
 		DABFA3422AE133980012DEC2 /* SleepWell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepWell.entitlements; sourceTree = "<group>"; };
 		DABFA3432AE17B590012DEC2 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
@@ -140,6 +180,12 @@
 		DADF46142ADE328E00771DF0 /* Screen9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen9View.swift; sourceTree = "<group>"; };
 		DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularDotProgressView.swift; path = SleepWell/View/Screen/OnBoarding/CircularDotProgressView.swift; sourceTree = SOURCE_ROOT; };
 		DADF461A2ADE4B9900771DF0 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		DAF2F6212AED4C3D004C8F72 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
+		DAF2F6232AED4D29004C8F72 /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
+		DAF2F6252AED9CB9004C8F72 /* HydratedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydratedView.swift; sourceTree = "<group>"; };
+		DAF2F6272AED9EC4004C8F72 /* BreatheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheView.swift; sourceTree = "<group>"; };
+		DAF2F6292AED9F96004C8F72 /* BreaksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreaksView.swift; sourceTree = "<group>"; };
+		DAF2F62B2AEEAD2D004C8F72 /* SleepReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepReminderView.swift; sourceTree = "<group>"; };
 		DAF86C522AE6132300E11DC6 /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		DAF86C552AE6134100E11DC6 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		DAF86C582AE6C71700E11DC6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -190,7 +236,13 @@
 				DA8CE7332AE76E2B00884062 /* WorkOutReminderView.swift */,
 				DA8CE7352AE76E7A00884062 /* JournalingReminderView.swift */,
 				DA8CE7372AE76EB000884062 /* DimTheLightReminderView.swift */,
-				DA8CE7392AE76F3C00884062 /* SkincareRoutineView.swift */,
+				DA8CE7392AE76F3C00884062 /* HygieneView.swift */,
+				DAF2F6252AED9CB9004C8F72 /* HydratedView.swift */,
+				DAF2F6272AED9EC4004C8F72 /* BreatheView.swift */,
+				DAF2F6292AED9F96004C8F72 /* BreaksView.swift */,
+				DA8DC4462AF0A9D500FA476A /* ScreenTimeView.swift */,
+				DA8DC4482AF0ABE500FA476A /* LimitAlcoholView.swift */,
+				DA8DC44A2AF0AC7B00FA476A /* MeditationView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -208,15 +260,50 @@
 			isa = PBXGroup;
 			children = (
 				DA9099B82AE909D50011B09B /* DashboardView.swift */,
+				DAF2F62B2AEEAD2D004C8F72 /* SleepReminderView.swift */,
+				DA3028382AEF959E00A334FA /* TodayStepView.swift */,
+				DA945B282AEFB6F5009E7D64 /* JournalView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DA8DC4402AF02D9200FA476A /* tmp */ = {
+			isa = PBXGroup;
+			children = (
+				DADBD01F2ADE213400E74D3C /* Screen1View.swift */,
+				DA2C32592AEB76DB00D18B19 /* WalkTroughView.swift */,
+				DABFA3432AE17B590012DEC2 /* SelectionView.swift */,
+				DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */,
+				DADF46122ADE321800771DF0 /* Screen7notView.swift */,
+				DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */,
+				DA945B2A2AEFF321009E7D64 /* TesAutoSlide.swift */,
+				DA8CE73B2AE77CA300884062 /* MeetChilaView.swift */,
+				DA8CE73D2AE77E9B00884062 /* PlanView.swift */,
+				DA8CE73F2AE77EED00884062 /* TrackView.swift */,
+				DA8CE7412AE77F3600884062 /* RemindView.swift */,
+			);
+			path = tmp;
+			sourceTree = "<group>";
+		};
+		DA8DC4432AF03B1D00FA476A /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DA8DC4442AF03B3000FA476A /* SplashScreenView.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		DABFA33D2AE132420012DEC2 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				DABFA33E2AE132570012DEC2 /* SleepManager.swift */,
+				DABFA33E2AE132570012DEC2 /* SleepManager2.swift */,
 				DAAD1B2E2AE8BED200C85F43 /* UserViewModel.swift */,
+				DA2C324B2AEB4DAA00D18B19 /* HealthManager.swift */,
+				DA2C324D2AEB512600D18B19 /* SleepManager.swift */,
+				DA2C32512AEB576700D18B19 /* SleepFilter.swift */,
+				DA2C32552AEB5FB300D18B19 /* StepService.swift */,
+				DA2C32572AEB73B400D18B19 /* UserNotificationService.swift */,
+				DAF2F6212AED4C3D004C8F72 /* ReminderViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -289,6 +376,7 @@
 			children = (
 				DABFA3402AE1327D0012DEC2 /* SleepEntry.swift */,
 				DA8CE7932AE8249100884062 /* UserModel.swift */,
+				DAF2F6232AED4D29004C8F72 /* ReminderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +403,7 @@
 		DACC39662AD5338B002E488D /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				DA8DC4432AF03B1D00FA476A /* SplashScreen */,
 				DA8CE76D2AE7C77B00884062 /* Dashboard */,
 				DA8CE7292AE76B0200884062 /* HabitReminder */,
 				DAF86C572AE6C6CA00E11DC6 /* Profile */,
@@ -334,6 +423,7 @@
 				DAF86C552AE6134100E11DC6 /* NavigationButton.swift */,
 				DA9099BA2AE911060011B09B /* CircularBarView.swift */,
 				DA9099BC2AE911F20011B09B /* StepCircularView.swift */,
+				DA3028362AEF939300A334FA /* CustomViewButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -341,8 +431,8 @@
 		DADBD0152ADD235200E74D3C /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				DA8DC4402AF02D9200FA476A /* tmp */,
 				DADBD0162ADD236300E74D3C /* OnBoardingView.swift */,
-				DADBD01F2ADE213400E74D3C /* Screen1View.swift */,
 				DADBD0212ADE21E100E74D3C /* Screen2View.swift */,
 				DADBD0232ADE22C400E74D3C /* Screen3View.swift */,
 				DADBD0252ADE274000E74D3C /* Screen4View.swift */,
@@ -352,14 +442,8 @@
 				DA2F3AEE2AE1A6390032E190 /* Screen8View.swift */,
 				DADF46142ADE328E00771DF0 /* Screen9View.swift */,
 				DADF461A2ADE4B9900771DF0 /* ConfirmationView.swift */,
-				DABFA3432AE17B590012DEC2 /* SelectionView.swift */,
-				DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */,
-				DADF46122ADE321800771DF0 /* Screen7notView.swift */,
-				DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */,
-				DA8CE73B2AE77CA300884062 /* MeetChilaView.swift */,
-				DA8CE73D2AE77E9B00884062 /* PlanView.swift */,
-				DA8CE73F2AE77EED00884062 /* TrackView.swift */,
-				DA8CE7412AE77F3600884062 /* RemindView.swift */,
+				DA8DC43E2AF019E800FA476A /* FeatureView.swift */,
+				DA8DC4412AF02DF300FA476A /* SleepProblemView.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -368,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				DADBD0192ADD302400E74D3C /* Color+Extensions.swift */,
+				DA9099BE2AE95E9D0011B09B /* UIColor+Entensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,8 +596,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DABFA3442AE17B590012DEC2 /* SelectionView.swift in Sources */,
+				DAF2F62A2AED9F96004C8F72 /* BreaksView.swift in Sources */,
 				DAAD1B2D2AE8B94100C85F43 /* SleepUtil.swift in Sources */,
 				DA8CE7262AE6F70100884062 /* HabitReminderView.swift in Sources */,
+				DA8DC4422AF02DF300FA476A /* SleepProblemView.swift in Sources */,
 				DA8CE73C2AE77CA300884062 /* MeetChilaView.swift in Sources */,
 				DADBD02A2ADE284C00E74D3C /* TImePicker.swift in Sources */,
 				DADF46172ADE389300771DF0 /* CircularDotProgressView.swift in Sources */,
@@ -520,32 +607,46 @@
 				DA9099B92AE909D50011B09B /* DashboardView.swift in Sources */,
 				DA8CE7382AE76EB000884062 /* DimTheLightReminderView.swift in Sources */,
 				DADBD01C2ADD33D300E74D3C /* RoundedButton.swift in Sources */,
+				DA2C32582AEB73B400D18B19 /* UserNotificationService.swift in Sources */,
 				DA8CE7942AE8249100884062 /* UserModel.swift in Sources */,
 				DABFA3412AE1327D0012DEC2 /* SleepEntry.swift in Sources */,
-				DABFA33F2AE132570012DEC2 /* SleepManager.swift in Sources */,
+				DABFA33F2AE132570012DEC2 /* SleepManager2.swift in Sources */,
+				DA945B2B2AEFF321009E7D64 /* TesAutoSlide.swift in Sources */,
 				DAAD1B2F2AE8BED200C85F43 /* UserViewModel.swift in Sources */,
+				DA2C324E2AEB512600D18B19 /* SleepManager.swift in Sources */,
 				DAF86C532AE6132300E11DC6 /* DataUtil.swift in Sources */,
+				DAF2F6242AED4D29004C8F72 /* ReminderModel.swift in Sources */,
 				DAAD1B2B2AE8B7AC00C85F43 /* DateUtil.swift in Sources */,
 				DA8CE7402AE77EED00884062 /* TrackView.swift in Sources */,
 				DADBD0262ADE274100E74D3C /* Screen4View.swift in Sources */,
 				DA2F3AED2AE1A5EF0032E190 /* Screen6View.swift in Sources */,
+				DA2C324C2AEB4DAA00D18B19 /* HealthManager.swift in Sources */,
+				DAF2F6222AED4C3D004C8F72 /* ReminderViewModel.swift in Sources */,
 				DA0E5B1B2ADF108F002563DB /* Screen5Viewnot.swift in Sources */,
 				DADBD0242ADE22C400E74D3C /* Screen3View.swift in Sources */,
 				DA8CE7642AE7B03900884062 /* Persistence.swift in Sources */,
 				DAF86C592AE6C71700E11DC6 /* ProfileView.swift in Sources */,
+				DA3028372AEF939300A334FA /* CustomViewButton.swift in Sources */,
+				DA8DC4492AF0ABE500FA476A /* LimitAlcoholView.swift in Sources */,
 				DA8CE7302AE76D8300884062 /* CaffeineReminderView.swift in Sources */,
 				DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */,
-				DA8CE73A2AE76F3C00884062 /* SkincareRoutineView.swift in Sources */,
+				DA8CE73A2AE76F3C00884062 /* HygieneView.swift in Sources */,
 				DA9099BD2AE911F20011B09B /* StepCircularView.swift in Sources */,
 				DADBD0172ADD236300E74D3C /* OnBoardingView.swift in Sources */,
 				DA0E5B212ADF7F89002563DB /* RoundedPicker.swift in Sources */,
+				DAF2F6262AED9CB9004C8F72 /* HydratedView.swift in Sources */,
 				DA8CE72C2AE76BA000884062 /* StepReminderView.swift in Sources */,
+				DAF2F6282AED9EC4004C8F72 /* BreatheView.swift in Sources */,
+				DA8DC4472AF0A9D500FA476A /* ScreenTimeView.swift in Sources */,
 				DA8CE7342AE76E2B00884062 /* WorkOutReminderView.swift in Sources */,
 				DA8CE72E2AE76CF500884062 /* PowerNapReminderView.swift in Sources */,
 				DA9099BB2AE911060011B09B /* CircularBarView.swift in Sources */,
 				DA8CE7422AE77F3600884062 /* RemindView.swift in Sources */,
 				DA8CE7672AE7B06600884062 /* SleepWell.xcdatamodeld in Sources */,
+				DA945B292AEFB6F5009E7D64 /* JournalView.swift in Sources */,
 				DA8CE7362AE76E7A00884062 /* JournalingReminderView.swift in Sources */,
+				DA2C32522AEB576700D18B19 /* SleepFilter.swift in Sources */,
+				DA8DC43F2AF019E800FA476A /* FeatureView.swift in Sources */,
 				DADBD0282ADE27B600E74D3C /* Screen7View.swift in Sources */,
 				DA8CE7282AE75E4900884062 /* SunlightReminderView.swift in Sources */,
 				DADF46152ADE328E00771DF0 /* Screen9View.swift in Sources */,
@@ -555,11 +656,18 @@
 				DADF46132ADE321800771DF0 /* Screen7notView.swift in Sources */,
 				DAF86C562AE6134100E11DC6 /* NavigationButton.swift in Sources */,
 				DADF461B2ADE4B9900771DF0 /* ConfirmationView.swift in Sources */,
+				DA2C325A2AEB76DB00D18B19 /* WalkTroughView.swift in Sources */,
+				DA9099BF2AE95E9D0011B09B /* UIColor+Entensions.swift in Sources */,
 				DA0E5B1F2ADF709B002563DB /* Screen5View.swift in Sources */,
 				DADBD0202ADE213400E74D3C /* Screen1View.swift in Sources */,
 				DADBD0222ADE21E100E74D3C /* Screen2View.swift in Sources */,
 				DA2F3AEF2AE1A6390032E190 /* Screen8View.swift in Sources */,
+				DAF2F62C2AEEAD2D004C8F72 /* SleepReminderView.swift in Sources */,
+				DA8DC44B2AF0AC7B00FA476A /* MeditationView.swift in Sources */,
 				DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */,
+				DA2C32562AEB5FB300D18B19 /* StepService.swift in Sources */,
+				DA8DC4452AF03B3000FA476A /* SplashScreenView.swift in Sources */,
+				DA3028392AEF959E00A334FA /* TodayStepView.swift in Sources */,
 				DA8CE73E2AE77E9B00884062 /* PlanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,6 +829,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = SleepWell/SleepWell.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -728,6 +837,7 @@
 				DEVELOPMENT_TEAM = LC2HFZR2DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
@@ -736,11 +846,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ilb.com.SleepWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -754,6 +865,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = SleepWell/SleepWell.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -761,6 +873,7 @@
 				DEVELOPMENT_TEAM = LC2HFZR2DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
@@ -769,11 +882,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ilb.com.SleepWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

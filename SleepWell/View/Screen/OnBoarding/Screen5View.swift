@@ -10,10 +10,14 @@ import SwiftUI
 struct Screen5View: View {
     @Binding var screen: Int
     @Binding var averageSleepDuration: String
-    @ObservedObject private var sleepManager: SleepManager = SleepManager()
+    @Binding var avgSleep: TimeInterval
+    @EnvironmentObject var sleepManager: SleepManager
+    var sleepFilter = SleepFilter()
     
     var body: some View {
-        ZStack {
+        print("body redraw")
+        
+        return ZStack {
             Image("bg")
                 .resizable()
                 .scaledToFill()
@@ -32,8 +36,8 @@ struct Screen5View: View {
                 Group {
                     Text("Based on your health data")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
-                    Text("Your average sleep time is:")
+                        .foregroundColor(Color.white)
+                    Text("Your average sleep time is:)")
                         .font(.system(size: 18, weight: .medium, design: .rounded))
                         .foregroundStyle(.white)
                         .padding(.top, 44)
@@ -45,7 +49,7 @@ struct Screen5View: View {
                                 .cornerRadius(15)
                             HStack {
                                 Group {
-                                    let (hours, minutes) = extractNumbers(from: humanReadableHour(data: sleepManager.getAverageSleepDuration()))
+                                    let (hours, minutes) = sleepFilter.calculateThreeMonthTotalDurationOfSleep(sleepData: sleepManager.sleepData)
                                     Text("\(hours)")
                                         .font(.system(size: 34, weight: .bold, design: .rounded))
                                         .foregroundStyle(.white)
@@ -60,10 +64,12 @@ struct Screen5View: View {
                                         .foregroundStyle(.white)
                                 }
                             }
+                            .onAppear {
+                            }
                         }
                     }
                     .padding(.top, 24)
-                    Text("Based on research, young adult should sleep at 7-9 hours each night")
+                    Text("💡Insight \n\nBased on research, young adult should sleep at 7-9 hours each night")
                         .font(.system(size: 17, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white)
                         .padding(.top, 49)
@@ -74,7 +80,7 @@ struct Screen5View: View {
                 }
                 RoundedButton(title: "What’s next?",
                               action: { withAnimation  {
-                    screen += 1
+                    screen += 2
                 } },
                               backgroundColor: .primaryButton,
                               foregroundColor: .white,
@@ -83,6 +89,14 @@ struct Screen5View: View {
             .padding()
             .padding(.top, -20)
             .padding(.horizontal)
+        }
+        .onAppear {
+            let now =  Date()
+            var totalDuration: TimeInterval = 0
+         
+            // create variabel that represent 3 months ago
+            let threeMonthAgo = Date() - 3 * 30 * 24 * 60 * 60
+            sleepManager.readSleep(from: threeMonthAgo, to: now)
         }
         .transition(.move(edge: .trailing))
     }
@@ -94,6 +108,7 @@ extension Screen5View {
     }
     
     func humanReadableHour (data: TimeInterval) -> String {
+        print("humanReadableHour kepanggil")
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .abbreviated
@@ -101,6 +116,7 @@ extension Screen5View {
     }
     
     func extractNumbers(from input: String) -> (hours: Int, minutes: Int) {
+        print("extractNumbers kepanggil")
         do {
             let regex = try NSRegularExpression(pattern: "(\\d+)h (\\d+)m", options: [])
             if let match = regex.firstMatch(in: input, options: [], range: NSRange(input.startIndex..., in: input)) {
@@ -122,5 +138,5 @@ extension Screen5View {
 }
 
 #Preview {
-    Screen5View(screen: .constant(1), averageSleepDuration: .constant(""))
+    Screen5View(screen: .constant(1), averageSleepDuration: .constant(""), avgSleep: .constant(0))
 }

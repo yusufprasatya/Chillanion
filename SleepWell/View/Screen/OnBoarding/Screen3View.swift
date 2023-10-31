@@ -11,7 +11,9 @@ struct Screen3View: View {
     @Binding var screen: Int
     @Binding var name: String
     @State private var isAlertPresented = false
-    @ObservedObject private var sleepManager = SleepManager()
+    @State private var isSheetPresented = false
+    @ObservedObject var healthManager = HealthManager()
+    
     var body: some View {
         ZStack {
             Image("bg")
@@ -46,11 +48,19 @@ struct Screen3View: View {
                 
                 Spacer(minLength: 180)
                 Group {
-                    Text("Why we need your health data?")
-                        .font(.system(size: 17, weight: .light, design: .rounded))
-                        .foregroundColor(.white)
-                        .underline()
-                        .padding(.bottom, 24)
+                    Button(action: {
+                        isSheetPresented.toggle()
+                    }, label: {
+                        Text("Why we need your health data?")
+                            .font(.system(size: 17, weight: .light, design: .rounded))
+                            .foregroundColor(.white)
+                            .underline()
+                            .padding(.bottom, 24)
+                    })
+                    .fullScreenCover(isPresented: $isSheetPresented) {
+                        FullScreenSheetView()
+                    }
+
                     RoundedButton(title: "Sure!",
                                   action: {
                         isAlertPresented.toggle()
@@ -72,11 +82,12 @@ struct Screen3View: View {
                         Text("Ok"),
                         action: {
                             // Handle access granted here
-                            sleepManager.requestHealthAuthorization()
-                            withAnimation{
-                                screen += 1
+                            healthManager.requestHealthAuthorization()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                withAnimation{
+                                    screen += 1
+                                }
                             }
-                           
                         }
                     ),
                     secondaryButton: .cancel(
@@ -89,6 +100,55 @@ struct Screen3View: View {
             }
         }
         .transition(.move(edge: .trailing))
+    }
+}
+
+struct FullScreenSheetView: View {
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        ZStack {
+            Image("bg")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            VStack (alignment: .leading) {
+                HStack {
+                    Spacer()
+                    Image("koalaInTheMoon")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 177, height: 169)
+                        .padding(.leading, -10)
+                        .rotationEffect(.degrees(2))
+                    Spacer()
+                }.padding(.bottom, 80)
+                
+                Group {
+                    Text("We can give your more accurate suggestion and recommendations if you are using Apple Watch when you are sleeping. ")
+                        .font(.system(size: 17, weight: .semibold, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.bottom, 40)
+                }
+                
+                Spacer(minLength: 180)
+                Group {
+                    RoundedButton(title: "Alright!",
+                                  action: {
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                                  backgroundColor: .primaryButton,
+                                  foregroundColor: .white,
+                                  cornerRadius: 15)
+                }
+                
+            }
+            .padding()
+            .padding(.top, -20)
+            .padding(.horizontal)
+        }
+
     }
 }
 

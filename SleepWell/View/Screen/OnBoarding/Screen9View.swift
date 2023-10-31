@@ -44,15 +44,12 @@ struct Screen9View: View {
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
-                    Text("Cool! Now, if you want to wake up at that time, it’ll be better if you can sleep at these times.")
+                    Text("Did you know? Experts recommended young adults to sleep atleast 7-9 hours each night!")
                         .font(.system(size: 17, weight: .medium, design: .rounded))
                         .foregroundColor(.white)
                         .padding(.top, 8)
                 }
                 VStack(spacing: 10) {
-                    Text("selectedt \(selectedCycle ?? 0)")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.white)
                     Group {
                         Button(action: {
                             selectedCycle = 4
@@ -60,10 +57,8 @@ struct Screen9View: View {
                         }) {
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("4-cycle sleep")
+                                    Text("7 hours")
                                         .font(.system(size: 17, weight: .semibold, design: .rounded))
-                                    Text("(4 x 90 mins)")
-                                        .font(.system(size: 16, weight: .medium, design: .rounded))
                                 }
                                 Spacer()
                                 Text("\(DateUtil.formatDateToString(param: DateUtil.calculateTimes(from: wakeTime, cycle: 4)))")
@@ -77,10 +72,8 @@ struct Screen9View: View {
                         }) {
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("5-cycle sleep")
+                                    Text("8 hours")
                                         .font(.system(size: 17, weight: .semibold, design: .rounded))
-                                    Text("(5 x 90 mins)")
-                                        .font(.system(size: 16, weight: .medium, design: .rounded))
                                 }
                                 Spacer()
                                 
@@ -95,10 +88,8 @@ struct Screen9View: View {
                         }) {
                             HStack {
                                 VStack (alignment: .leading) {
-                                    Text("6-cycle sleep")
+                                    Text("9 hours")
                                         .font(.system(size: 17, weight: .semibold, design: .rounded))
-                                    Text("(6 x 90 mins)")
-                                        .font(.system(size: 16, weight: .medium, design: .rounded))
                                 }
                                 Spacer()
                                 Text("\(DateUtil.formatDateToString(param: DateUtil.calculateTimes(from: wakeTime, cycle: 6)))")
@@ -108,20 +99,6 @@ struct Screen9View: View {
                         .buttonStyle(CustomButtonStyle(selected: selectedCycle == 6, width: buttonWidth))
                     }
                     Spacer()
-                    Button(action: {
-                        isExplanationPresented.toggle()
-                    }) {
-                        HStack {
-                            Text("What is sleep cycle?")
-                                .font(.system(size: 15, weight: .bold, design: .rounded))
-                                .underline()
-                                .foregroundColor(.buttoncolor)
-                        }
-                    }
-                    .padding(.leading, -160)
-                    .sheet(isPresented: $isExplanationPresented) {
-                        ExplanationView(explanation: "Explanation for the selected time.")
-                    }
                     
                     //                    Button(action: {
                     //                        print("Confirmed selection: \(selectedCycle ?? -1)")
