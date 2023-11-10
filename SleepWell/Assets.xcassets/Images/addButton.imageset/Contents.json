@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "KoalaHug1.png",
+      "filename" : "addButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "KoalaHug1@2x.png",
+      "filename" : "addButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "KoalaHug1@3x.png",
+      "filename" : "addButton@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
