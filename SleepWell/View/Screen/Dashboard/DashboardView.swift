@@ -15,21 +15,22 @@ struct DashboardView: View {
     @State private var isCaffeineSelected = false
     @State private var isNapSelected = false
     @State private var isJournalingSelected = false
-    
+
     @ObservedObject private var userViewModel = UserViewModel()
     @ObservedObject private var stepService = StepService()
     @EnvironmentObject var sleepManager: SleepManager
     var sleepFilter = SleepFilter()
-    
+
     @State private var todaysStepCount: Double = 0.0
     @State private var percentageOfSleep = 0.0
     @State private var isSleepDurationGood = false
     @State private var bedTimeCommitment = Date()
     @State private var wakeUpTime = Date()
     @State private var name = ""
-    
+    @State private var isOverlayVisible = true
+
     let sleepQualityData: [Double] = [8, 7, 9, 8, 9, 7, 8]
-    
+
     var body: some View {
         NavigationStack{
             ScrollView {
@@ -45,10 +46,10 @@ struct DashboardView: View {
                                     .padding(.top, -15)
                                     .fixedSize(horizontal: true, vertical: false)
                                     .frame(width: 110, alignment: .leading)
-                                Text("Your last\nnight's sleep:")
+                                Text("Your last night’s\nsleep duration:")
                                     .foregroundStyle(Color.white)
                                     .fontWeight(.bold)
-                                    .font(.system(size: 17))
+                                    .font(.system(size: 14))
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(2)
                                     .padding(.top, 6)
@@ -60,10 +61,16 @@ struct DashboardView: View {
                                     .multilineTextAlignment(.leading)
                                     .padding(.top, 6)
                                     .frame(width: 110, alignment: .leading)
+                                Text("Based on duration")
+                                    .foregroundStyle(Color.white)
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 10))
+                                    .frame(width: 110, alignment: .leading).lineLimit(1)
                             }
                             Spacer()
                             ZStack{
                                 CircularBarView(progress: $SleepBarProgress)
+                                    .background(Color.clear)
                                 switch SleepBarProgress {
                                 case 0.25..<0.50:
                                     Image("koalaSoso")
@@ -90,7 +97,9 @@ struct DashboardView: View {
                                         .padding(.top, 50)
                                         .padding(.leading, 12)
                                 }
-                            }
+                            }.background(Color.clear)
+                            //                            .showCase(order: 0, title: "Hello", cornerRadius: 10, style: .continuous)
+                            //                            .border(Color.red)
                         }
                         Spacer(minLength: 40)
                         NavigationLink(destination: SleepReminderView( bedTimeCommitment: $bedTimeCommitment, wakeUpTime: $wakeUpTime), label: {
@@ -107,8 +116,11 @@ struct DashboardView: View {
                                     .padding(.top, 16)
                             }
                         })
-                        
-                        Text("Activities:")
+                        Image("chillatips")
+                            .frame(width: 342, height: 168)
+                            .padding(.bottom, 18)
+                            .offset(y: -10)
+                        Text("Day Activity☀️")
                             .font(.system(size: 20))
                             .foregroundStyle(Color.white)
                             .fontWeight(.bold)
@@ -181,7 +193,7 @@ struct DashboardView: View {
                                 .cornerRadius(10)
                             }
                         }
-        
+                        
                         //                    ZStack{
                         //                        Image("SleepActivity")
                         //                            .resizable()
@@ -192,13 +204,13 @@ struct DashboardView: View {
                         //                            .padding(.horizontal, 20)
                         //                    }
                         
-                       NavigationLink(destination: JournalView(), label: {
-                           Image("JournalBackground")
-                               .resizable()
-                               .scaledToFit()
-                               .frame(width: 342, height: 157)
-                               .padding(.top, 35)
-                       })
+                        NavigationLink(destination: JournalView(), label: {
+                            Image("JournalBackground")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 342, height: 157)
+                                .padding(.top, 35)
+                        })
                     }
                     .padding(.horizontal, 40)
                     .background(
@@ -207,6 +219,15 @@ struct DashboardView: View {
                             .scaledToFill()
                             .ignoresSafeArea(.all)
                     )
+                    //                    .overlay(
+                    //                                       Color.black.opacity(isOverlayVisible ? 0.8 : 0)
+                    //                                           .edgesIgnoringSafeArea(.all)
+                    //                                           .onTapGesture {
+                    //                                               withAnimation {
+                    //                                                   isOverlayVisible.toggle()
+                    //                                }
+                    //                            }
+                    //                    )
                 }
                 .transition(.move(edge: .trailing))
                 .onAppear {
@@ -233,9 +254,21 @@ struct DashboardView: View {
                     SleepBarProgress = 0.0
                 }
             }
+//            .overlay(
+//                            Color.black.opacity(isOverlayVisible ? 0.8 : 0)
+//                                .edgesIgnoringSafeArea(.all)
+//                                .onTapGesture {
+//                                    withAnimation {
+//                                        isOverlayVisible.toggle()
+//                                    }
+//                                }
+//                        )
             .background(LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         }
+//        }.modifier(ShowcaseRoot(showHighlights: true, onFinished: {
+//            print("Finish Onboarding")
+//        }))
     }
 }
 

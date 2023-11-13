@@ -161,5 +161,5 @@ struct SecondSleepProblemView: View{
 }
 
 #Preview {
-    SecondSleepProblemView(screen: .constant(1))
+    SleepProblemView(screen: .constant(1))
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFBB78172AFFFB2E00FC3720 /* AddJournView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB78162AFFFB2E00FC3720 /* AddJournView.swift */; };
+		BFBB78192AFFFB7A00FC3720 /* JournComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB78182AFFFB7A00FC3720 /* JournComponent.swift */; };
+		BFBB781B2B00A44800FC3720 /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB781A2B00A44800FC3720 /* Highlight.swift */; };
+		BFBB781D2B00A5BD00FC3720 /* ShowcaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB781C2B00A5BD00FC3720 /* ShowcaseHelper.swift */; };
+		BFBB781F2B00C18400FC3720 /* TutorialDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB781E2B00C18400FC3720 /* TutorialDashboard.swift */; };
 		DA0E5B1B2ADF108F002563DB /* Screen5Viewnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */; };
 		DA0E5B1D2ADF6D3F002563DB /* Screen6notView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */; };
 		DA0E5B1F2ADF709B002563DB /* Screen5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1E2ADF709B002563DB /* Screen5View.swift */; };
@@ -106,6 +111,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BFBB78162AFFFB2E00FC3720 /* AddJournView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournView.swift; sourceTree = "<group>"; };
+		BFBB78182AFFFB7A00FC3720 /* JournComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournComponent.swift; sourceTree = "<group>"; };
+		BFBB781A2B00A44800FC3720 /* Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlight.swift; sourceTree = "<group>"; };
+		BFBB781C2B00A5BD00FC3720 /* ShowcaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseHelper.swift; sourceTree = "<group>"; };
+		BFBB781E2B00C18400FC3720 /* TutorialDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialDashboard.swift; sourceTree = "<group>"; };
 		DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5Viewnot.swift; sourceTree = "<group>"; };
 		DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen6notView.swift; sourceTree = "<group>"; };
 		DA0E5B1E2ADF709B002563DB /* Screen5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5View.swift; sourceTree = "<group>"; };
@@ -260,9 +270,12 @@
 			isa = PBXGroup;
 			children = (
 				DA9099B82AE909D50011B09B /* DashboardView.swift */,
+				BFBB781E2B00C18400FC3720 /* TutorialDashboard.swift */,
+				BFBB781C2B00A5BD00FC3720 /* ShowcaseHelper.swift */,
 				DAF2F62B2AEEAD2D004C8F72 /* SleepReminderView.swift */,
 				DA3028382AEF959E00A334FA /* TodayStepView.swift */,
 				DA945B282AEFB6F5009E7D64 /* JournalView.swift */,
+				BFBB78162AFFFB2E00FC3720 /* AddJournView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -376,6 +389,7 @@
 			children = (
 				DABFA3402AE1327D0012DEC2 /* SleepEntry.swift */,
 				DA8CE7932AE8249100884062 /* UserModel.swift */,
+				BFBB781A2B00A44800FC3720 /* Highlight.swift */,
 				DAF2F6232AED4D29004C8F72 /* ReminderModel.swift */,
 			);
 			path = Model;
@@ -423,6 +437,7 @@
 				DAF86C552AE6134100E11DC6 /* NavigationButton.swift */,
 				DA9099BA2AE911060011B09B /* CircularBarView.swift */,
 				DA9099BC2AE911F20011B09B /* StepCircularView.swift */,
+				BFBB78182AFFFB7A00FC3720 /* JournComponent.swift */,
 				DA3028362AEF939300A334FA /* CustomViewButton.swift */,
 			);
 			path = Component;
@@ -619,11 +634,13 @@
 				DAAD1B2B2AE8B7AC00C85F43 /* DateUtil.swift in Sources */,
 				DA8CE7402AE77EED00884062 /* TrackView.swift in Sources */,
 				DADBD0262ADE274100E74D3C /* Screen4View.swift in Sources */,
+				BFBB78192AFFFB7A00FC3720 /* JournComponent.swift in Sources */,
 				DA2F3AED2AE1A5EF0032E190 /* Screen6View.swift in Sources */,
 				DA2C324C2AEB4DAA00D18B19 /* HealthManager.swift in Sources */,
 				DAF2F6222AED4C3D004C8F72 /* ReminderViewModel.swift in Sources */,
 				DA0E5B1B2ADF108F002563DB /* Screen5Viewnot.swift in Sources */,
 				DADBD0242ADE22C400E74D3C /* Screen3View.swift in Sources */,
+				BFBB781B2B00A44800FC3720 /* Highlight.swift in Sources */,
 				DA8CE7642AE7B03900884062 /* Persistence.swift in Sources */,
 				DAF86C592AE6C71700E11DC6 /* ProfileView.swift in Sources */,
 				DA3028372AEF939300A334FA /* CustomViewButton.swift in Sources */,
@@ -653,6 +670,7 @@
 				DA0E5B1D2ADF6D3F002563DB /* Screen6notView.swift in Sources */,
 				DACC393B2AD531F2002E488D /* ContentView.swift in Sources */,
 				DA8CE7322AE76DCE00884062 /* MealReminderView.swift in Sources */,
+				BFBB781D2B00A5BD00FC3720 /* ShowcaseHelper.swift in Sources */,
 				DADF46132ADE321800771DF0 /* Screen7notView.swift in Sources */,
 				DAF86C562AE6134100E11DC6 /* NavigationButton.swift in Sources */,
 				DADF461B2ADE4B9900771DF0 /* ConfirmationView.swift in Sources */,
@@ -661,6 +679,7 @@
 				DA0E5B1F2ADF709B002563DB /* Screen5View.swift in Sources */,
 				DADBD0202ADE213400E74D3C /* Screen1View.swift in Sources */,
 				DADBD0222ADE21E100E74D3C /* Screen2View.swift in Sources */,
+				BFBB78172AFFFB2E00FC3720 /* AddJournView.swift in Sources */,
 				DA2F3AEF2AE1A6390032E190 /* Screen8View.swift in Sources */,
 				DAF2F62C2AEEAD2D004C8F72 /* SleepReminderView.swift in Sources */,
 				DA8DC44B2AF0AC7B00FA476A /* MeditationView.swift in Sources */,
@@ -669,6 +688,7 @@
 				DA8DC4452AF03B3000FA476A /* SplashScreenView.swift in Sources */,
 				DA3028392AEF959E00A334FA /* TodayStepView.swift in Sources */,
 				DA8CE73E2AE77E9B00884062 /* PlanView.swift in Sources */,
+				BFBB781F2B00C18400FC3720 /* TutorialDashboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,7 +854,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SleepWell/Preview Content\"";
-				DEVELOPMENT_TEAM = LC2HFZR2DS;
+				DEVELOPMENT_TEAM = 5N35QUT6UU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
@@ -870,7 +890,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SleepWell/Preview Content\"";
-				DEVELOPMENT_TEAM = LC2HFZR2DS;
+				DEVELOPMENT_TEAM = 5N35QUT6UU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
