@@ -126,6 +126,7 @@ struct DashboardView: View {
                             .fontWeight(.bold)
                             .padding(.leading, 5)
                             .padding(.top, -10)
+                            .id("DayActivity")
                         NavigationLink(destination: TodayStepView(todayStep: $todaysStepCount), label: {
                             ZStack{
                                 Image("StepBackground")

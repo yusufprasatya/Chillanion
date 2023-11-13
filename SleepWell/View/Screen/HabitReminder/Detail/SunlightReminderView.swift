@@ -17,7 +17,7 @@ struct SunlightReminderView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blackRegular, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack (spacing: 25){
                 ZStack {
@@ -26,49 +26,42 @@ struct SunlightReminderView: View {
                     //                        .frame(width: .infinity, height: 250)
                     //                        .cornerRadius(10)
                     //                        .padding(.top, 10)
-                    Image("habitbgBlue")
+                    Image("sunlightbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
+                        .frame(width: 342, height: 305)
                         .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("☀️")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-                    
-                    VStack (alignment: .leading) {
-                        Text("Sunlight")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("️☀️ Early Outdoor Exposure: ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️Step outside within 2 hours of waking up. ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        Text("️☀️ Natural Light Magic: ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️ Sunlight syncs your body's internal clock, boosting alertness and mood. ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        Text("️✨ Start Your Day Right:  ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️ Experience the magic of the outdoors,and start with a smile! 😊🌞 ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-
-                    }
-                    .frame(width: 330)
-                    .padding()
+                      
+//                    VStack (alignment: .leading) {
+//                        Text("Sunlight")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        
+//                        Text("️☀️ Early Outdoor Exposure: ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️Step outside within 2 hours of waking up. ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        Text("️☀️ Natural Light Magic: ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️ Sunlight syncs your body's internal clock, boosting alertness and mood. ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        Text("️✨ Start Your Day Right:  ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️ Experience the magic of the outdoors,and start with a smile! 😊🌞 ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//
+//                    }
+                   
                     
                 }
                 

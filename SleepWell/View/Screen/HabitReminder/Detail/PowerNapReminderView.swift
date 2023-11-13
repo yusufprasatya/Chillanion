@@ -12,7 +12,7 @@ struct PowerNapReminderView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -21,51 +21,51 @@ struct PowerNapReminderView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("RminderBgPink")
+                    Image("powernapbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("😴")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-                    VStack (alignment: .leading) {
-                        Text("Power Nap")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("️⚡️ Boost with Power Naps:  ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️ Use short naps to recharge and improve focus in the daytime.")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        Text("️😌 Mindful Nap Length:  ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️ Keep them brief to avoid disrupting your nighttime sleep.")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        
-                        Text("️🌈 Sweet Dreams All Night:  ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️ Your nighttime sleep remains undisturbed! 💤😴")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
+                        .frame(width: 342, height: 305)
+                        .padding(.top, 10)//
+//                        .overlay(
+//                            // Skip Button
+//                            Text("😴")
+//                                .font(.system(size: 150, weight: .semibold))
+//                            , alignment: .topTrailing
+//                        )
+//                    VStack (alignment: .leading) {
+//                        Text("Power Nap")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        
+//                        Text("️⚡️ Boost with Power Naps:  ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️ Use short naps to recharge and improve focus in the daytime.")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        Text("️😌 Mindful Nap Length:  ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️ Keep them brief to avoid disrupting your nighttime sleep.")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        
+//                        Text("️🌈 Sweet Dreams All Night:  ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️ Your nighttime sleep remains undisturbed! 💤😴")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        
+//                    }
+//                    .frame(width: 330)
+//                    .padding()
 //                    HStack {
 //                        VStack (alignment: .leading) {
 //                            Text("Power Nap")

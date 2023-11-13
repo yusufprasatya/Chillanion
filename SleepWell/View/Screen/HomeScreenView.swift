@@ -59,6 +59,7 @@ struct HomeScreenView: View {
 
 struct DashboardViewOverlay: View {
     @State private var currentImageIndex = 0
+    @State private var dayActivity: String = "scrollId"
 
     let imageNames = ["TeacherKoala", "TeacherKoala2", "TeacherKoala3", "TeacherKoala4"]
 
@@ -70,25 +71,21 @@ struct DashboardViewOverlay: View {
     ]
 
     var body: some View {
-        ScrollViewReader { scrollViewProxy in
+        print("render")
+        return ScrollViewReader { scrollViewProxy in
             Image(imageNames[currentImageIndex])
                 .resizable()
                 .scaledToFit()
                 .frame(width: imageFrames[currentImageIndex].width, height: imageFrames[currentImageIndex].height)
                 .offset(x: imageFrames[currentImageIndex].origin.x, y: imageFrames[currentImageIndex].origin.y)
-                .onAppear {
-                    // Automatically scroll to the bottom when the fourth image appears
-                    if currentImageIndex == 3 {
-                        withAnimation {
-                            scrollViewProxy.scrollTo(imageNames.count - 1)
-                        }
-                    }
-                }
                 .onTapGesture {
                     withAnimation {
                         currentImageIndex = (currentImageIndex + 1) % imageNames.count
                     }
-                }
+                }.onChange(of: currentImageIndex, {
+                    
+                    print("current index \(currentImageIndex)")
+                })
         }
     }
 }

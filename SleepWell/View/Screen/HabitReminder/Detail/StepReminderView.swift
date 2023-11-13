@@ -15,7 +15,7 @@ struct StepReminderView: View {
     @ObservedObject private var reminderViewModel = ReminderViewModel()
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -24,59 +24,58 @@ struct StepReminderView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("habitbgBlue")
+                    Image("stepbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("🏃")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Step")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//                            
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("🏃")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
+                        .frame(width: 342, height: 342)
+                        .padding(.top, 10)//                        .overlay(
+//                            // Skip Button
+//                            Text("🏃")
+//                                .font(.system(size: 150, weight: .semibold))
+//                            , alignment: .topTrailing
+//                        )
+////                    HStack {
+////                        VStack (alignment: .leading) {
+////                            Text("Step")
+////                                .font(.system(size: 28, weight: .bold, design: .rounded))
+////                            
+////                            Text("lorem ipsum dolor siamet")
+////                                .font(.system(size: 17, weight: .regular, design: .rounded))
+////                        }
+////                        Text("🏃")
+////                            .font(.system(size: 150, weight: .semibold, design: .rounded))
+////                    }
+//                    VStack (alignment: .leading) {
+//                        Text("Step")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        
+//                        Text("️🚶🏼‍Daily Steps for Sweet Dreams:  . ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️Daily steps improve sleep quality by regulating body temperature and reducing stress. ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        Text("️👣 Quality Sleep Upgrade:  ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️This lead to better sleep and preparing you to be refreshed in the morning. ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        Text("️⏰ Clockwork Rhythms:  ")
+//                            .font(.system(size: 18, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️Your body's internal clock will be synchronized with gratitude and thank you!")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
 //                    }
-                    VStack (alignment: .leading) {
-                        Text("Step")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("️🚶🏼‍Daily Steps for Sweet Dreams:  . ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️Daily steps improve sleep quality by regulating body temperature and reducing stress. ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        Text("️👣 Quality Sleep Upgrade:  ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️This lead to better sleep and preparing you to be refreshed in the morning. ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        Text("️⏰ Clockwork Rhythms:  ")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️Your body's internal clock will be synchronized with gratitude and thank you!")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
+                   
+                   
                 }
                 VStack(alignment: .leading) {
                     Toggle(isOn: $reminderViewModel.isRemind, label: {
