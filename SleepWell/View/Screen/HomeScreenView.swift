@@ -65,19 +65,19 @@ struct HomeScreenView: View {
 struct DashboardViewOverlay: View {
     @Binding var isOverlayVisible: Bool
     @State private var currentImageIndex = 0
-
+    
     let maxImageCount = 5 // Set the desired limit
-
+    
     let imageNames = ["TeacherKoala", "TeacherKoala2", "TeacherKoala3", "TeacherKoala4", "TeacherKoala5"]
-
+    
     let imageFrames: [CGRect] = [
         CGRect(x: 0, y: 0, width: 390, height: 844),
-        CGRect(x: 0, y: 10, width: 390, height: 844),
+        CGRect(x: 0, y: 0, width: 390, height: 844),
         CGRect(x: 0, y: 0, width: 390, height: 844),
         CGRect(x: 0, y: 0, width: 390, height: 844),
         CGRect(x: 0, y: 0, width: 390, height: 844)
     ]
-
+    
     var body: some View {
         ScrollViewReader { scrollViewProxy in
             if isOverlayVisible {
@@ -87,14 +87,11 @@ struct DashboardViewOverlay: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: imageFrames[currentImageIndex].width, height: imageFrames[currentImageIndex].height)
-                            .offset(x: imageFrames[currentImageIndex].origin.x, y: imageFrames[currentImageIndex].origin.y)
+                            .offset(x: imageFrames[currentImageIndex].origin.x, y: isOverlayVisible ? 0 : UIScreen.main.bounds.height) // Move the image off-screen initially
+                            .opacity(isOverlayVisible ? 1 : 0) // Set the initial opacity to 0
                             .contentShape(Rectangle())
-                            .transition(
-                                currentImageIndex < 3 ? .identity : .slide
-                            )
-                            .animation(
-                                currentImageIndex < 3 ? nil : .easeOut(duration: 1.0)
-                            )
+                            .transition(currentImageIndex == 3 ? .move(edge: .bottom) : .identity)
+                            .animation(currentImageIndex == 3 ? .smooth(duration: 2) : nil) // Adjust the duration as needed
                             .onTapGesture {
                                 withAnimation {
                                     currentImageIndex = (currentImageIndex + 1) % imageNames.count

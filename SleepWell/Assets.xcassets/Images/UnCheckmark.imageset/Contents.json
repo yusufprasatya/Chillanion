@@ -6,12 +6,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "UnCheckmark 2.png",
+      "filename" : "UnCheckmark@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "UnCheckmark 1.png",
+      "filename" : "UnCheckmark@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
