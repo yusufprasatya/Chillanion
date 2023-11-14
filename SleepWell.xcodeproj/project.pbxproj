@@ -34,7 +34,6 @@
 		DA8CE7322AE76DCE00884062 /* MealReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7312AE76DCE00884062 /* MealReminderView.swift */; };
 		DA8CE7342AE76E2B00884062 /* WorkOutReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7332AE76E2B00884062 /* WorkOutReminderView.swift */; };
 		DA8CE7362AE76E7A00884062 /* JournalingReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7352AE76E7A00884062 /* JournalingReminderView.swift */; };
-		DA8CE7382AE76EB000884062 /* DimTheLightReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7372AE76EB000884062 /* DimTheLightReminderView.swift */; };
 		DA8CE73A2AE76F3C00884062 /* HygieneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7392AE76F3C00884062 /* HygieneView.swift */; };
 		DA8CE73C2AE77CA300884062 /* MeetChilaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE73B2AE77CA300884062 /* MeetChilaView.swift */; };
 		DA8CE73E2AE77E9B00884062 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE73D2AE77E9B00884062 /* PlanView.swift */; };
@@ -138,7 +137,6 @@
 		DA8CE7312AE76DCE00884062 /* MealReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7332AE76E2B00884062 /* WorkOutReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7352AE76E7A00884062 /* JournalingReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingReminderView.swift; sourceTree = "<group>"; };
-		DA8CE7372AE76EB000884062 /* DimTheLightReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimTheLightReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7392AE76F3C00884062 /* HygieneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HygieneView.swift; sourceTree = "<group>"; };
 		DA8CE73B2AE77CA300884062 /* MeetChilaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetChilaView.swift; sourceTree = "<group>"; };
 		DA8CE73D2AE77E9B00884062 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 				DA8CE7312AE76DCE00884062 /* MealReminderView.swift */,
 				DA8CE7332AE76E2B00884062 /* WorkOutReminderView.swift */,
 				DA8CE7352AE76E7A00884062 /* JournalingReminderView.swift */,
-				DA8CE7372AE76EB000884062 /* DimTheLightReminderView.swift */,
 				DA8CE7392AE76F3C00884062 /* HygieneView.swift */,
 				DAF2F6252AED9CB9004C8F72 /* HydratedView.swift */,
 				DAF2F6272AED9EC4004C8F72 /* BreatheView.swift */,
@@ -620,7 +617,6 @@
 				DADF46172ADE389300771DF0 /* CircularDotProgressView.swift in Sources */,
 				DADBD01A2ADD302400E74D3C /* Color+Extensions.swift in Sources */,
 				DA9099B92AE909D50011B09B /* DashboardView.swift in Sources */,
-				DA8CE7382AE76EB000884062 /* DimTheLightReminderView.swift in Sources */,
 				DADBD01C2ADD33D300E74D3C /* RoundedButton.swift in Sources */,
 				DA2C32582AEB73B400D18B19 /* UserNotificationService.swift in Sources */,
 				DA8CE7942AE8249100884062 /* UserModel.swift in Sources */,

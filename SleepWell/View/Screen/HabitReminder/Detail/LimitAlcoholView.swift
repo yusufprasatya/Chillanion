@@ -15,7 +15,7 @@ struct LimitAlcoholView: View {
     @ObservedObject private var reminderViewModel = ReminderViewModel()
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -24,11 +24,12 @@ struct LimitAlcoholView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("ReminderBgPurple")
+                    Image("limitalcoholbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
+                        .frame(width: 342, height: 305)
                         .padding(.top, 10)
+
 //                    HStack {
 //                        VStack (alignment: .leading) {
 //                            Text("Step")
@@ -40,18 +41,18 @@ struct LimitAlcoholView: View {
 //                        Text("🏃")
 //                            .font(.system(size: 150, weight: .semibold, design: .rounded))
 //                    }
-                    VStack (alignment: .leading) {
-                        Text("Limit Alcohol")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️*. Alcohol Sip Timing: Wrap up that last sip of alcohol 3-4 hours before bedtime for a cozier night's sleep. \n*. Sweet Dreams Assurance: Allowing your body to process the spirits guarantees uninterrupted slumber. \n*. Restful Nights Ahead: By following this bedtime rule, you'll be on your way to a well-rested night! 😴🍷🚫🌙 ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
+//                    VStack (alignment: .leading) {
+//                        Text("Limit Alcohol")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        Text("️*. Alcohol Sip Timing: Wrap up that last sip of alcohol 3-4 hours before bedtime for a cozier night's sleep. \n*. Sweet Dreams Assurance: Allowing your body to process the spirits guarantees uninterrupted slumber. \n*. Restful Nights Ahead: By following this bedtime rule, you'll be on your way to a well-rested night! 😴🍷🚫🌙 ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                    }
+//                    .frame(width: 330)
+//                    .padding()
                 }
                 VStack(alignment: .leading) {
                     Toggle(isOn: $reminderViewModel.isRemind, label: {

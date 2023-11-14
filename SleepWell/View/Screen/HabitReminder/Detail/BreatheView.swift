@@ -12,7 +12,7 @@ struct BreatheView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -21,26 +21,26 @@ struct BreatheView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("RminderBgPink")
+                    Image("breathbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
+                        .frame(width: 342, height: 342)
                         .padding(.top, 10)
 
-                    VStack (alignment: .leading) {
-                        Text("Breathe")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                       
-                        Text("️ *. Stress Relief: Embrace this simple routine as your daily stress-buster. \n*. Relaxation and Focus: It's your secret to a more relaxed mind and improved focus, even when you're tired or feeling moody from lack of sleep. \n*. Positivity and Productivity: Make it a habit for a brighter mood and increased productivity. 😌😊")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
+//                    VStack (alignment: .leading) {
+//                        Text("Breathe")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                       
+//                        Text("️ *. Stress Relief: Embrace this simple routine as your daily stress-buster. \n*. Relaxation and Focus: It's your secret to a more relaxed mind and improved focus, even when you're tired or feeling moody from lack of sleep. \n*. Positivity and Productivity: Make it a habit for a brighter mood and increased productivity. 😌😊")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        
+//                    }
+//                    .frame(width: 330)
+//                    .padding()
 //                    HStack {
 //                        VStack (alignment: .leading) {
 //                            Text("Power Nap")

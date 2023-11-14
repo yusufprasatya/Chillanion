@@ -12,7 +12,7 @@ struct BreaksView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -21,26 +21,26 @@ struct BreaksView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("RminderBgPink")
+                    Image("breaksbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
+                        .frame(width: 342, height: 342)
+                        .padding(.top, 24)
 
-                    VStack (alignment: .leading) {
-                        Text("Breaks")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                       
-                        Text("️ *. Refresh with Mini-Pauses: These are your quick mind and body pit stops for a recharge. \n*. Stay Strong and Focused: Make them a daily delight, ensuring even on sleep-deprived days, you tackle tasks with energy and a smile. \n*. Boost Productivity: Embrace those little breaks, and watch your productivity soar! 🥰")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
+//                    VStack (alignment: .leading) {
+//                        Text("Breaks")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                       
+//                        Text("️ *. Refresh with Mini-Pauses: These are your quick mind and body pit stops for a recharge. \n*. Stay Strong and Focused: Make them a daily delight, ensuring even on sleep-deprived days, you tackle tasks with energy and a smile. \n*. Boost Productivity: Embrace those little breaks, and watch your productivity soar! 🥰")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                        
+//                        
+//                    }
+//                    .frame(width: 330)
+//                    .padding()
 //                    HStack {
 //                        VStack (alignment: .leading) {
 //                            Text("Power Nap")

@@ -50,7 +50,7 @@ struct SplashScreenView: View {
             }
         }
         .onAppear {
-            withAnimation(.easeOut(duration: 1.4)) {
+            withAnimation(.easeOut(duration: 1)) {
                 chillaAppear = 0
                 unionAppear = 0
                 union1Appear = 0

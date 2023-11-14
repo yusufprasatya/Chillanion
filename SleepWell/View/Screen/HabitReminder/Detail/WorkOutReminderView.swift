@@ -12,7 +12,7 @@ struct WorkOutReminderView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -21,35 +21,35 @@ struct WorkOutReminderView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("ReminderBgPurple")
+                    Image("stopheavyworkoutbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
+                        .frame(width: 342, height: 305)
+                        .padding(.top, 24)
                         
-                    VStack (alignment: .leading) {
-                        Text("Stop Heavy Workout")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                    
-                        Text("️ *. Exercise Timing: Avoid intense workouts before bedtime. \n*. Pre-Bed Transition: Intense exercise can elevate heart rate and body temperature, making sleep challenging. \n*. Daytime Workouts: Schedule exercise earlier for a happier, well-rested you! 😴🏋️‍♂️🚫🌙")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                    }
-                    .frame(width: 330)
-                    .padding()
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Stop Heavy Workout")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//                            
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("🏋🏻")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
+//                    VStack (alignment: .leading) {
+//                        Text("Stop Heavy Workout")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                    
+//                        Text("️ *. Exercise Timing: Avoid intense workouts before bedtime. \n*. Pre-Bed Transition: Intense exercise can elevate heart rate and body temperature, making sleep challenging. \n*. Daytime Workouts: Schedule exercise earlier for a happier, well-rested you! 😴🏋️‍♂️🚫🌙")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
 //                    }
+//                    .frame(width: 330)
+//                    .padding()
+////                    HStack {
+////                        VStack (alignment: .leading) {
+////                            Text("Stop Heavy Workout")
+////                                .font(.system(size: 28, weight: .bold, design: .rounded))
+////                            
+////                            Text("lorem ipsum dolor siamet")
+////                                .font(.system(size: 17, weight: .regular, design: .rounded))
+////                        }
+////                        Text("🏋🏻")
+////                            .font(.system(size: 150, weight: .semibold, design: .rounded))
+////                    }
                 }
                 
                 VStack(alignment: .leading) {

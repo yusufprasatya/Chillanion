@@ -12,7 +12,7 @@ struct CaffeineReminderView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -21,29 +21,29 @@ struct CaffeineReminderView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("RminderBgPink")
+                    Image("limitcaffeinebg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
+                        .frame(width: 342, height: 305)
                         .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("☕️")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-                    VStack (alignment: .leading) {
-                        Text("Limit Caffeine")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("️*. Caffeine Cut-off: Say goodbye to caffeine 6 hours before bedtime for a peaceful night's sleep. \n*.Wind Down: Providing this buffer helps you relax and get ready for a restful night. \n*.Wake Up Smiling: Your well-rested self will greet the morning with a big smile! ☕😊  ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
+//                        .overlay(
+//                            // Skip Button
+//                            Text("☕️")
+//                                .font(.system(size: 150, weight: .semibold))
+//                            , alignment: .topTrailing
+//                        )
+//                    VStack (alignment: .leading) {
+//                        Text("Limit Caffeine")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                        
+//                        Text("️*. Caffeine Cut-off: Say goodbye to caffeine 6 hours before bedtime for a peaceful night's sleep. \n*.Wind Down: Providing this buffer helps you relax and get ready for a restful night. \n*.Wake Up Smiling: Your well-rested self will greet the morning with a big smile! ☕😊  ")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                        
+//                    }
+//                    .frame(width: 330)
+//                    .padding()
 //                    HStack {
 //                        VStack (alignment: .leading) {
 //                            Text("Stop Caffeine")

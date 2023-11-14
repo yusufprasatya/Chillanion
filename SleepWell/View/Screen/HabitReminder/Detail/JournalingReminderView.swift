@@ -12,7 +12,7 @@ struct JournalingReminderView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.blackRegular, .blackRegular]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
@@ -21,24 +21,24 @@ struct JournalingReminderView: View {
 //                        .frame(width: .infinity, height: 250)
 //                        .cornerRadius(10)
 //                        .padding(.top, 10)
-                    Image("ReminderBgCyan")
+                    Image("journalingbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
-                        
-                    VStack (alignment: .leading) {
-                        Text("Journaling")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                    
-                        Text("️ *. Pre-Sleep Journaling: Jot down your thoughts, dreams, or what's on your mind before snuggling up. \n*. Cozy Brain Blanket: It's like giving your brain a cozy blanket for more peaceful dreams. \n*. Nightly Ritual: Grab your journal and pen, and start your journey to a restful night! 😴📖🌙")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                    }
-                    .frame(width: 330)
-                    .padding()
+                        .frame(width: 342, height: 305)
+                        .padding(.top, 24)
+//                        
+//                    VStack (alignment: .leading) {
+//                        Text("Journaling")
+//                            .font(.system(size: 28, weight: .bold, design: .rounded))
+//                            .foregroundColor(.white)
+//                    
+//                        Text("️ *. Pre-Sleep Journaling: Jot down your thoughts, dreams, or what's on your mind before snuggling up. \n*. Cozy Brain Blanket: It's like giving your brain a cozy blanket for more peaceful dreams. \n*. Nightly Ritual: Grab your journal and pen, and start your journey to a restful night! 😴📖🌙")
+//                            .font(.system(size: 16, weight: .regular, design: .rounded))
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 20)
+//                    }
+//                    .frame(width: 330)
+//                    .padding()
 //                    HStack {
 //                        VStack (alignment: .leading) {
 //                            Text("Stop Heavy Workout")
