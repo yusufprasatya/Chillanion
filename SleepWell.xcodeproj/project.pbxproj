@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFB7ADE62B03EB3700981C79 /* WakeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7ADE52B03EB3700981C79 /* WakeUpView.swift */; };
 		BFBB78172AFFFB2E00FC3720 /* AddJournView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB78162AFFFB2E00FC3720 /* AddJournView.swift */; };
 		BFBB78192AFFFB7A00FC3720 /* JournComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB78182AFFFB7A00FC3720 /* JournComponent.swift */; };
 		BFBB781B2B00A44800FC3720 /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB781A2B00A44800FC3720 /* Highlight.swift */; };
 		BFBB781D2B00A5BD00FC3720 /* ShowcaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB781C2B00A5BD00FC3720 /* ShowcaseHelper.swift */; };
 		BFBB781F2B00C18400FC3720 /* TutorialDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB781E2B00C18400FC3720 /* TutorialDashboard.swift */; };
+		BFBB78242B036D1400FC3720 /* NightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB78232B036D1400FC3720 /* NightView.swift */; };
 		DA0E5B1B2ADF108F002563DB /* Screen5Viewnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */; };
 		DA0E5B1D2ADF6D3F002563DB /* Screen6notView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */; };
 		DA0E5B1F2ADF709B002563DB /* Screen5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1E2ADF709B002563DB /* Screen5View.swift */; };
@@ -110,11 +112,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BFB7ADE52B03EB3700981C79 /* WakeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeUpView.swift; sourceTree = "<group>"; };
 		BFBB78162AFFFB2E00FC3720 /* AddJournView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournView.swift; sourceTree = "<group>"; };
 		BFBB78182AFFFB7A00FC3720 /* JournComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournComponent.swift; sourceTree = "<group>"; };
 		BFBB781A2B00A44800FC3720 /* Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlight.swift; sourceTree = "<group>"; };
 		BFBB781C2B00A5BD00FC3720 /* ShowcaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseHelper.swift; sourceTree = "<group>"; };
 		BFBB781E2B00C18400FC3720 /* TutorialDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialDashboard.swift; sourceTree = "<group>"; };
+		BFBB78232B036D1400FC3720 /* NightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightView.swift; sourceTree = "<group>"; };
 		DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5Viewnot.swift; sourceTree = "<group>"; };
 		DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen6notView.swift; sourceTree = "<group>"; };
 		DA0E5B1E2ADF709B002563DB /* Screen5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5View.swift; sourceTree = "<group>"; };
@@ -224,6 +228,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFBB78222B036D0100FC3720 /* Feeling */ = {
+			isa = PBXGroup;
+			children = (
+				BFBB78232B036D1400FC3720 /* NightView.swift */,
+				BFB7ADE52B03EB3700981C79 /* WakeUpView.swift */,
+			);
+			path = Feeling;
+			sourceTree = "<group>";
+		};
 		DA8CE7292AE76B0200884062 /* HabitReminder */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				DAF86C582AE6C71700E11DC6 /* ProfileView.swift */,
+				BFBB78222B036D0100FC3720 /* Feeling */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -642,6 +656,7 @@
 				DA3028372AEF939300A334FA /* CustomViewButton.swift in Sources */,
 				DA8DC4492AF0ABE500FA476A /* LimitAlcoholView.swift in Sources */,
 				DA8CE7302AE76D8300884062 /* CaffeineReminderView.swift in Sources */,
+				BFB7ADE62B03EB3700981C79 /* WakeUpView.swift in Sources */,
 				DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */,
 				DA8CE73A2AE76F3C00884062 /* HygieneView.swift in Sources */,
 				DA9099BD2AE911F20011B09B /* StepCircularView.swift in Sources */,
@@ -668,6 +683,7 @@
 				DA8CE7322AE76DCE00884062 /* MealReminderView.swift in Sources */,
 				BFBB781D2B00A5BD00FC3720 /* ShowcaseHelper.swift in Sources */,
 				DADF46132ADE321800771DF0 /* Screen7notView.swift in Sources */,
+				BFBB78242B036D1400FC3720 /* NightView.swift in Sources */,
 				DAF86C562AE6134100E11DC6 /* NavigationButton.swift in Sources */,
 				DADF461B2ADE4B9900771DF0 /* ConfirmationView.swift in Sources */,
 				DA2C325A2AEB76DB00D18B19 /* WalkTroughView.swift in Sources */,

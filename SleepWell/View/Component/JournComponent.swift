@@ -6,54 +6,57 @@
 //
 
 import SwiftUI
-
 struct JournalComponent: View {
     let date: String
     let text: String
     var onEditTapped: (() -> Void)? = nil
-    
+    @Binding var journalEntries: [JournalEntry]
+
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Circle()
-                    .fill(Color.circular3)
-                    .frame(width: 23, height: 23)
-                
-                Text(date)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.circular3)
-                    .font(.system(size: 22))
-            }
-            .padding(.leading, -10)
-            
-            HStack {
-                Rectangle()
-                    .fill(Color.circular3)
-                    .frame(width: 2, height: 80)
-                
-                // Wrap the Rectangle in a Button
-                Button(action: {
-                    // Call the onEditTapped closure when the button is tapped
-                    onEditTapped?()
-                }) {
-                    ZStack {
+        NavigationLink(
+            destination: AddJournalView(journalEntries: $journalEntries, initialText: text),
+            label: {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Circle()
+                            .fill(Color.circular3) // Replace with your desired color
+                            .frame(width: 23, height: 23)
+
+                        Text(date)
+                            .fontWeight(.bold)
+                            .foregroundColor(.circular3) // Replace with your desired color
+                            .font(.system(size: 22))
+                    }
+                    .padding(.leading, -10)
+
+                    HStack {
                         Rectangle()
-                            .fill(Color.circular2)
-                            .frame(width: 300, height: 80)
-                            .cornerRadius(10)
-                        
-                        Text(text)
-                            .fontWeight(.semibold)
-                            .font(.system(size: 12))
-                            .padding(.top, 7.5)
-                            .frame(width: 290, height: 74, alignment: .topLeading)
+                            .fill(Color.circular3) // Replace with your desired color
+                            .frame(width: 2, height: 80)
+
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.circular2) // Replace with your desired color
+                                .frame(width: 300, height: 80)
+                                .cornerRadius(10)
+
+                            Text(text)
+                                .fontWeight(.semibold)
+                                .font(.system(size: 12))
+                                .padding(.top, 7.5)
+                                .frame(width: 290, height: 74, alignment: .topLeading)
+                        }
                     }
                 }
+                .padding(.horizontal)
             }
-        }
-        .padding(.horizontal)
-    }
-}
+        )
+               .onTapGesture {
+                   // Call the onEditTapped closure when the link is tapped
+                   onEditTapped?()
+               }
+           }
+       }
 struct JournalEntry: Identifiable, Hashable {
     let id = UUID()
     let date: String

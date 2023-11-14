@@ -75,4 +75,12 @@ extension Color {
     static let rectanglebg = Color(red: 19/255, green: 27/255, blue: 52/255)
     static let graytext = Color(red: 190/255, green: 190/255, blue: 215/255)
     static let graybg = Color(red: 66/255, green: 66/255, blue: 65/255)
+    static let goodbg = Color(red: 111/255, green: 192/255, blue: 83/255)
+    static let calmbg = Color(red: 10/255, green: 207/255, blue: 171/255)
+    static let happybg = Color(red: 181/255, green: 92/255, blue: 183/255)
+    static let enthusiasticbg = Color(red: 252/255, green: 219/255, blue: 99/255)
+    static let sadbg = Color(red: 0/255, green: 135/255, blue: 212/255)
+    static let annoyedbg = Color(red: 192/255, green: 123/255, blue: 83/255)
+    static let tiredbg = Color(red: 151/255, green: 83/255, blue: 192/255)
+    static let angrybg = Color(red: 192/255, green: 83/255, blue: 83/255)
 }

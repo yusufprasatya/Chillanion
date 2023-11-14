@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct JournalView: View {
-    @State private var isAddingEntry = false
     @State private var isAddJournalViewPresented = false
     @State private var journalEntries: [JournalEntry] = []
-
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack {
                 Image("ReminderBackground")
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-
+                
                 VStack(alignment: .leading) {
                     Text("💭 Your brain dump lately....")
                         .fontWeight(.bold)
@@ -28,33 +27,44 @@ struct JournalView: View {
                         .padding(.top, 116)
                         .padding(.horizontal, 28.5)
                         .frame(alignment: .topLeading)
-
+                    
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 20) {
-                            ForEach(journalEntries, id: \.id) { entry in
-                                JournalComponent(date: entry.date, text: entry.text)
-                            }
+                                           VStack(alignment: .leading, spacing: 20) {
+                                               ForEach(journalEntries.indices, id: \.self) { index in
+                                                   JournalComponent(date: journalEntries[index].date,
+                                                                    text: journalEntries[index].text,
+                                                                    onEditTapped: {
+                                                                        openAddJournalView(with: journalEntries[index])
+                                                                    },
+                                                                    journalEntries: $journalEntries)
+                                               }
+                                               .padding(.horizontal, 25)
                         }
-                        .padding(.horizontal, 25)
+                        .padding(.bottom, 140)
                     }
-                    .padding(.bottom, 140)
                 }
             }
-            .toolbar {
-                                      ToolbarItem(placement: .navigationBarTrailing) {
-                                          NavigationLink(destination: AddJournalView(journalEntries: $journalEntries), isActive: $isAddJournalViewPresented) {
-                                              Button(action: {
-                                                  isAddJournalViewPresented = true
-                                              }) {
-                                                  Image("addButton")
-                                              }
-                                          }
-                                      }
-                                  }
-                              }
-                          }
-                      }
-
+            .navigationBarItems(trailing:
+                                    Button(action: {
+                openAddJournalView(with: nil)
+            }) {
+                Image("addButton") // Replace with your actual image asset
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .padding()
+            }
+            )
+            .fullScreenCover(isPresented: $isAddJournalViewPresented) {
+                AddJournalView(journalEntries: $journalEntries)
+            }
+        }
+    }
+    
+    private func openAddJournalView(with entry: JournalEntry?) {
+        let initialText = entry?.text ?? ""
+        isAddJournalViewPresented = true
+    }
+}
 #Preview {
     JournalView()
 }
