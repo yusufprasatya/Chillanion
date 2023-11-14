@@ -19,39 +19,11 @@ struct MeditationView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-//                    Rectangle()
-//                        .fill(LinearGradient(gradient: Gradient(colors: [.navyBlue, .paleAqua]), startPoint: .topLeading, endPoint: .bottomTrailing))
-//                        .frame(width: .infinity, height: 250)
-//                        .cornerRadius(10)
-//                        .padding(.top, 10)
-                    Image("ReminderBgCyan")
+                    Image("meditationbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
+                        .frame(width: 342, height: 305)
                         .padding(.top, 10)
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Step")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("🏃")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
-//                    }
-                    VStack (alignment: .leading) {
-                        Text("Meditation")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("️*. Meditation at Night: Tuck your mind in with a bedtime lullaby through meditation. \n*. Soul's Bedtime Story: Create tranquility, melt away stress, and silence racing thoughts. \n*. Bedtime Buddy: Make meditation your companion for nights filled with rejuvenating rest! 😴🧘‍♂️🌙 ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
                 }
                 VStack(alignment: .leading) {
                     Toggle(isOn: $reminderViewModel.isRemind, label: {

@@ -12,7 +12,7 @@ struct StepCircular: View {
 
     var body: some View {
         VStack {
-            ProgressBar(progress: $stepprogress)
+            ProgressBar(progress: .constant(50), lineWidth: .constant(25.0))
         }
         .padding()
     }

@@ -50,7 +50,7 @@ struct OnBoardingView: View {
             case 8:
                 Screen6View(screen: $screen)
             case 9:
-                Screen7View(screen: $screen, name: $name, averageSleepDuration: $averageSleepDuration)
+                Screen8View(screen: $screen, name: $name, averageSleepDuration: $averageSleepDuration)
             case 10:
                 HomeScreenView()
             default:

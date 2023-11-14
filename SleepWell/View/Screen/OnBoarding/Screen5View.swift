@@ -69,36 +69,59 @@ struct Screen5View: View {
                         }
                     }
                     .padding(.top, 24)
-                    Text("💡Insight \n\nBased on research, young adult should sleep at 7-9 hours each night")
-                        .font(.system(size: 17, weight: .semibold, design: .rounded))
-                        .foregroundStyle(.white)
-                        .padding(.top, 49)
+                    
+                    HStack(alignment: .bottom) {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.primaryButton)
+                                .opacity(0.5)
+                                .frame(width: 342, height: 95)
+                                .cornerRadius(15)
+                            HStack {
+                                Group {
+                                    Image("ChillaGuide")
+                                        .resizable()
+                                        .frame(width: 62, height: 95)
+                                    VStack(alignment: .leading){
+                                        Text("Chilla’s Insight:")
+                                            .font(.system(size: 17, weight: .heavy, design: .rounded))
+                                            .foregroundStyle(.white)
+                                        Text("Based on research, young adult \nshould sleep for 7-9 hours each night.")
+                                            .font(.system(size: 16, weight: .regular, design: .rounded))
+                                            .foregroundStyle(.white)
+                                    }
+                                    .padding(.trailing)
+                                }
+                            }
+                        }
+                    }
+                    
+                    Group {
+                        Spacer()
+                        Spacer()
+                    }
+                    RoundedButton(title: "What’s next?",
+                                  action: { withAnimation  {
+                        screen += 2
+                    } },
+                                  backgroundColor: .primaryButton,
+                                  foregroundColor: .white,
+                                  cornerRadius: 15)
                 }
-                Group {
-                    Spacer()
-                    Spacer()
-                }
-                RoundedButton(title: "What’s next?",
-                              action: { withAnimation  {
-                    screen += 2
-                } },
-                              backgroundColor: .primaryButton,
-                              foregroundColor: .white,
-                              cornerRadius: 15)
+                .padding()
+                .padding(.top, -20)
+                .padding(.horizontal)
             }
-            .padding()
-            .padding(.top, -20)
-            .padding(.horizontal)
+            .onAppear {
+                let now =  Date()
+                var totalDuration: TimeInterval = 0
+                
+                // create variabel that represent 3 months ago
+                let threeMonthAgo = Date() - 3 * 30 * 24 * 60 * 60
+                sleepManager.readSleep(from: threeMonthAgo, to: now)
+            }
+            .transition(.move(edge: .trailing))
         }
-        .onAppear {
-            let now =  Date()
-            var totalDuration: TimeInterval = 0
-         
-            // create variabel that represent 3 months ago
-            let threeMonthAgo = Date() - 3 * 30 * 24 * 60 * 60
-            sleepManager.readSleep(from: threeMonthAgo, to: now)
-        }
-        .transition(.move(edge: .trailing))
     }
 }
 

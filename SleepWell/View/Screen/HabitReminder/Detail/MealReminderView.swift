@@ -16,45 +16,11 @@ struct MealReminderView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-//                    Rectangle()
-//                        .fill(LinearGradient(gradient: Gradient(colors: [.deepScarlet, .peach]), startPoint: .topLeading, endPoint: .bottomTrailing))
-//                        .frame(width: .infinity, height: 250)
-//                        .cornerRadius(10)
-//                        .padding(.top, 10)
-                    Image("ReminderBgPurple")
+                    Image("stoplatemealbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("🍜")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Stop Late Meal")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//                            
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("🍜")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
-//                    }
-                    VStack (alignment: .leading) {
-                        Text("Stop Late Meal")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("️*. Tummy Break: Give your tummy a break from late-night meals. \n*. Pre-Sleep Pause: Finish your last meal 2-3 hours before bedtime. \n*. Uninterrupted Slumber: Snuggle up and enjoy uninterrupted sleep! 😴🍽️🚫🌙  ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-
-                    }
-                    .frame(width: 330)
-                    
+                        .frame(width: 342, height: 305)
+                        .padding(.top, 24)
                 }
                 
                 VStack(alignment: .leading) {

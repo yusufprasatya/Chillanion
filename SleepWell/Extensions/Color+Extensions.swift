@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 extension Color {
     static let darkPurple = Color(red: 52 / 255, green: 6 / 255, blue: 61 / 255)
     static let darkGreen = Color(red: 34 / 255, green: 76 / 255, blue: 101 / 255)
@@ -75,4 +73,15 @@ extension Color {
     static let rectanglebg = Color(red: 19/255, green: 27/255, blue: 52/255)
     static let graytext = Color(red: 190/255, green: 190/255, blue: 215/255)
     static let graybg = Color(red: 66/255, green: 66/255, blue: 65/255)
+    static let paleSkyBlue = Color(red: 233/255, green: 242/255, blue: 251/255)
+    static let softPink = Color(red: 193/255, green: 140/255, blue: 202/255)
+    static let lightPink = Color(red: 229/255, green: 198/255, blue: 248/255)
+    static let lightGreen = Color(red: 154/255, green: 255/255, blue: 119/255)
+    static let orange = Color(red: 242/255, green: 154/255, blue: 72/255)
+    static let vividPink = Color(red: 254/255, green: 86/255, blue: 217/255)
+    static let cyanTeal = Color(red: 97/255, green: 170/255, blue: 180/255)
+    static let lightKhaki = Color(red: 205/255, green: 193/255, blue: 151/255)
+    static let lightTurqoise = Color(red: 203/255, green: 78/255, blue: 130/255).opacity(0.53)
+    static let rich = Color(red: 70/255, green: 62/255, blue: 87/255)
 }
+    

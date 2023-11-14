@@ -11,7 +11,6 @@ struct FeatureView: View {
     @Binding var screen: Int
     @State private var currentPage = 0
     @State private var showSkipButton = false // Added state for showing/hiding "Skip" button
-    let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     
     let featuresData: [FeatureScreenData] = [
         FeatureScreenData(title: "Imagine....", description: "if you can have a friend who can", imageName: ""),
@@ -28,11 +27,6 @@ struct FeatureView: View {
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .onReceive(timer) { _ in
-            withAnimation {
-                currentPage = (currentPage + 1) % featuresData.count
-            }
-        }
         .background(
             Image("OnboardingImage")
                 .resizable()
@@ -52,12 +46,15 @@ struct FeatureView: View {
                     }, label: {
                         HStack {
                             Image(systemName: "chevron.right")
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.primaryButton)
+                                .font(.title)
+                                .frame(width: 43, height: 41)
+                                .foregroundColor(.white)
+                                .background(Color.primaryButton)
+                                .cornerRadius(15)
                         }
                     })
                 } else if currentPage == 1 {
-                    HStack(spacing: 30) {
+                    HStack(spacing: 80) {
                         Button(action: {
                             withAnimation {
                                 currentPage -= 1
@@ -66,8 +63,11 @@ struct FeatureView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.left")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.primaryButton)
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
                             }
                         })
                         
@@ -79,13 +79,16 @@ struct FeatureView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.right")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.primaryButton)
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
                             }
                         })
                     }
                 }else if currentPage == 2 {
-                    HStack(spacing: 30) {
+                    HStack(spacing: 80) {
                         Button(action: {
                             withAnimation {
                                 currentPage -= 1
@@ -94,8 +97,11 @@ struct FeatureView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.left")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.primaryButton)
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
                             }
                         })
                         
@@ -107,14 +113,17 @@ struct FeatureView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.right")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.primaryButton)
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
                             }
                         })
                     }
                 }
                 else {
-                    HStack(spacing: 30) {
+                    HStack(spacing: 80) {
                         Button(action: {
                             withAnimation {
                                 currentPage -= 1
@@ -122,8 +131,11 @@ struct FeatureView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.left")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.primaryButton)
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
                             }
                         })
                         
@@ -134,8 +146,11 @@ struct FeatureView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.right")
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.primaryButton)
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
                             }
                         })
                     }

@@ -58,5 +58,5 @@ struct TabViewAutoSlide: View {
 }
 
 #Preview {
-    TabViewAutoSlide()
+    TesAutoSlide()
 }

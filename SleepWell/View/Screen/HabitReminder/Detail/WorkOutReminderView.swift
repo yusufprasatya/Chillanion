@@ -16,40 +16,11 @@ struct WorkOutReminderView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-//                    Rectangle()
-//                        .fill(LinearGradient(gradient: Gradient(colors: [.goldenYellow, .sageGreen]), startPoint: .topLeading, endPoint: .bottomTrailing))
-//                        .frame(width: .infinity, height: 250)
-//                        .cornerRadius(10)
-//                        .padding(.top, 10)
-                    Image("ReminderBgPurple")
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
-                        
-                    VStack (alignment: .leading) {
-                        Text("Stop Heavy Workout")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                    
-                        Text("️ *. Exercise Timing: Avoid intense workouts before bedtime. \n*. Pre-Bed Transition: Intense exercise can elevate heart rate and body temperature, making sleep challenging. \n*. Daytime Workouts: Schedule exercise earlier for a happier, well-rested you! 😴🏋️‍♂️🚫🌙")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                    }
-                    .frame(width: 330)
-                    .padding()
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Stop Heavy Workout")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//                            
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("🏋🏻")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
-//                    }
+                    Image("stopheavyworkoutbg")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 342, height: 305)
+                    .padding(.top, 24)
                 }
                 
                 VStack(alignment: .leading) {

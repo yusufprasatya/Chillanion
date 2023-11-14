@@ -12,7 +12,7 @@ import SwiftUI
 struct DashboardView: View {
     @State private var SleepBarProgress: Double = 0.0
     @State private var StepBarProgress: Double = 0.0
-    @State private var isCaffeineSelected = false
+    @State private var isStayHydrated = false
     @State private var isNapSelected = false
     @State private var isJournalingSelected = false
     
@@ -27,6 +27,11 @@ struct DashboardView: View {
     @State private var bedTimeCommitment = Date()
     @State private var wakeUpTime = Date()
     @State private var name = ""
+    @State private var habitSelected: String = ""
+    
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)])
+    private var habitsEntries: FetchedResults<DailyHabits>
+    @State var selectedHabit: [String: Bool] = [:]
     
     let sleepQualityData: [Double] = [8, 7, 9, 8, 9, 7, 8]
     
@@ -107,8 +112,11 @@ struct DashboardView: View {
                                     .padding(.top, 16)
                             }
                         })
-                        
-                        Text("Activities:")
+                        Image("chillatips")
+                            .frame(width: 342, height: 168)
+                            .padding(.bottom, 18)
+                            .offset(y: -10)
+                        Text("Day Activity☀️")
                             .font(.system(size: 20))
                             .foregroundStyle(Color.white)
                             .fontWeight(.bold)
@@ -139,33 +147,21 @@ struct DashboardView: View {
                             }
                         })
                         VStack {
+                            Text("total\(habitsEntries.count)")
+                                .foregroundColor(.white)
                             Button(action: {
-                                isCaffeineSelected.toggle()
+                                isStayHydrated.toggle()
                             }) {
                                 ZStack {
                                     Color.activitybg
                                         .frame(width: 341, height: 93)
-                                    
-                                    CustomViewButton(icon: "💧", title: "Stay Hydrated", desc: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", isSelected: isCaffeineSelected) {
-                                        isCaffeineSelected.toggle()
+                                    CustomViewButton(icon: "💧", title: "Stay Hydrated", desc: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", isSelected: isStayHydrated) {
+                                        isStayHydrated.toggle()
                                     }
                                 }
                                 .cornerRadius(10)
                             }
-                            
-                            Button(action: {
-                                isNapSelected.toggle()
-                            }) {
-                                ZStack {
-                                    Color.activitybg
-                                        .frame(width: 341, height: 93)
-                                    
-                                    CustomViewButton(icon: "🌼", title: "Mindful Breathing", desc: "Give yourself a little peace. Take mindful breaths for less stress, better focus, and stay on track!🌻", isSelected: isNapSelected) {
-                                        isNapSelected.toggle()
-                                    }
-                                }
-                                .cornerRadius(10)
-                            }
+                            .disabled(isStayHydrated)
                             
                             Button(action: {
                                 isJournalingSelected.toggle()
@@ -174,14 +170,38 @@ struct DashboardView: View {
                                     Color.activitybg
                                         .frame(width: 341, height: 93)
                                     
-                                    CustomViewButton(icon: "📝", title: "Journaling", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?🌸", isSelected: isJournalingSelected) {
+                                    CustomViewButton(icon: "📝", title: "Journaling", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isSelected: isJournalingSelected) {
                                         isJournalingSelected.toggle()
                                     }
                                 }
                                 .cornerRadius(10)
                             }
+                            .disabled(isJournalingSelected)
+                            
+                            ForEach(habitsEntries, id: \.self) { dailyHabit in
+                                if dailyHabit.isRemind == true {
+                                    Button(action: {
+                                        
+                                    }) {
+                                        ZStack {
+                                            Color.activitybg
+                                                .frame(width: 341, height: 93)
+                                            
+                                            CustomViewButton(
+                                                icon: dailyHabit.icon ?? "",
+                                                title: dailyHabit.name ?? "",
+                                                desc: dailyHabit.desc ?? "",
+                                                isSelected: false) {
+                                                    
+                                                }
+                                        }
+                                        .cornerRadius(10)
+                                    }
+                                    
+                                }
+                            }
                         }
-        
+                        
                         //                    ZStack{
                         //                        Image("SleepActivity")
                         //                            .resizable()
@@ -192,13 +212,13 @@ struct DashboardView: View {
                         //                            .padding(.horizontal, 20)
                         //                    }
                         
-                       NavigationLink(destination: JournalView(), label: {
-                           Image("JournalBackground")
-                               .resizable()
-                               .scaledToFit()
-                               .frame(width: 342, height: 157)
-                               .padding(.top, 35)
-                       })
+                        NavigationLink(destination: JournalView(), label: {
+                            Image("JournalBackground")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 342, height: 157)
+                                .padding(.top, 35)
+                        })
                     }
                     .padding(.horizontal, 40)
                     .background(
@@ -211,26 +231,32 @@ struct DashboardView: View {
                 .transition(.move(edge: .trailing))
                 .onAppear {
                     userViewModel.getUser()
-                    // bind data to reminder scree
+                    
+                    // Update UI-related data on the main queue
                     name = userViewModel.name
                     wakeUpTime = userViewModel.wakeUpTime
                     bedTimeCommitment = userViewModel.bedTimeCommitment
                     
+                    // Fetch today's steps asynchronously
                     stepService.getTodaysSteps { step in
-                        todaysStepCount = step
+                        // Update UI-related data on the main queue
+                        DispatchQueue.main.async {
+                            todaysStepCount = step
+                        }
                     }
-                    sleepManager.readSleep(from: userViewModel.bedTimeCommitment, to: userViewModel.wakeUpTime)
+                    print("tidur jam \(bedTimeCommitment) bangun jam \(wakeUpTime)")
+                    // Read sleep data
+                    //                        let wakeUp = DateUtil.calculateNextDateWithSameTime(from: Date(), at: wakeUpTime)
+                    //                        let bedTime = DateUtil.calculateNextDateWithSameTime(from: Date(), at: bedTimeCommitment)
+                    //                        print("tidur jam \(bedTime) bangun jam \(wakeUp)")
                     
+                    sleepManager.readSleep(from: Date().startOfDay, to: Date().endOfDay)
                     withAnimation(Animation.easeInOut(duration: 2.0)) {
                         StepBarProgress = todaysStepCount / 4500.0
                         SleepBarProgress = sleepFilter.getTotalDurationSleep(sleepData: sleepManager.sleepData)
                         / wakeUpTime.timeIntervalSince(bedTimeCommitment)
                         print("sleep progres \(SleepBarProgress)")
                     }
-                }
-                .onDisappear{
-                    StepBarProgress = 0.0
-                    SleepBarProgress = 0.0
                 }
             }
             .background(LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)

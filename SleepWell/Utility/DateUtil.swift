@@ -75,4 +75,47 @@ final class DateUtil {
         
         return (0, 0)
     }
+    
+    static func getDayOfWeek() -> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        let dayOfWeek = formatter.string(from: date)
+        return dayOfWeek
+    }
+    // create function for get date now
+    static func getDateNow() -> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        let dateNow = formatter.string(from: date)
+        return dateNow
+    }
+    
+    static func calculateNextDateWithSameTime(from currentDate: Date, at desiredTime: Date) -> Date {
+        let calendar = Calendar.current
+
+        // Add one day to the current date
+        let nextDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
+
+        // Combine the new date with the desired time
+        let resultDate = calendar.date(bySettingHour: calendar.component(.hour, from: desiredTime),
+                                       minute: calendar.component(.minute, from: desiredTime),
+                                       second: calendar.component(.second, from: desiredTime),
+                                       of: nextDate) ?? Date()
+
+        return resultDate
+    }
+    
+    static func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, d MMM ''yy" // Set the desired format
+        return dateFormatter.string(from: date)
+    }
+    
+    static func formatDatedmmmyyyy(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy" // Set the desired format
+        return dateFormatter.string(from: date)
+    }
 }
