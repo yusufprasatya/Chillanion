@@ -44,7 +44,6 @@ struct HabitReminderView: View {
                                             .frame(width: 110, height: 110)
                                             .background(Color.clear)
                                         
-                                        
                                         VStack {
                                             Text("🏃")
                                                 .font(.system(size: 40, weight: .semibold))
@@ -106,7 +105,6 @@ struct HabitReminderView: View {
                                         }
                                     }
                                 })
-                                
                                 NavigationLink(destination: BreatheView(), label: {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 15)

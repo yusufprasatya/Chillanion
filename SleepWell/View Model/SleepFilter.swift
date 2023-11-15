@@ -8,12 +8,9 @@
 import Foundation
 
 struct SleepFilter {
-  
     func calculateThreeMonthTotalDurationOfSleep(sleepData: [SleepEntry]) -> (hours: Int, minutes: Int) {
         var totalDuration: TimeInterval = 0
         print("Msdokkk ini lsh")
-    
-        
         for sleep in sleepData {
             do {
                 print("masuuk do")
@@ -25,7 +22,6 @@ struct SleepFilter {
             } catch {
                 print("Error: \(error)")
             }
-            
         }
         
         let average = totalDuration / 90
@@ -46,7 +42,7 @@ struct SleepFilter {
     
     func filteringSleepStages(sleepData: [SleepEntry],selectedDay: Date, sleepStage: String, startOfOpeningHours: Date, endOfOpeningHours: Date) -> [SleepEntry] {
         let filteredEntries = sleepData.filter { entry in
-            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours && entry.sleepStages == sleepStage
+            entry.startDate >= startOfOpeningHours && entry.endDate <= endOfOpeningHours
         }
         
         return filteredEntries

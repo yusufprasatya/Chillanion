@@ -82,10 +82,18 @@ struct Screen3View: View {
                         Text("Ok"),
                         action: {
                             // Handle access granted here
-                            healthManager.requestHealthAuthorization()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                withAnimation{
-                                    screen += 1
+                            healthManager.requestHealthAuthorization { success in
+                                if success {
+                                    healthManager.getCurrentAuthStatus()
+                                    print("status helath \(healthManager.healthKitStatus)")
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        withAnimation{
+                                            screen += 1
+                                        }
+                                    }
+                                } else {
+                                    // Handle the case where authorization failed
+                                    print("Handle authorization failure")
                                 }
                             }
                         }

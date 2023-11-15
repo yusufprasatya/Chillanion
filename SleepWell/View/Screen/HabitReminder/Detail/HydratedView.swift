@@ -6,56 +6,24 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct HydratedView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-//                    Rectangle()
-//                        .fill(LinearGradient(gradient: Gradient(colors: [.slateBlue, .teal]), startPoint: .topLeading, endPoint: .bottomTrailing))
-//                        .frame(width: .infinity, height: 250)
-//                        .cornerRadius(10)
-//                        .padding(.top, 10)
-                    Image("habitbgBlue")
+                    Image("hydratedbg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
-                        .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("💧")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-                    VStack (alignment: .leading) {
-                        Text("Stay Hydrated")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("*. Beat Energy Drain: Dehydration saps your energy, leaving you tired. \n*. Stay Hydrated: Sip water throughout the day, especially after a restless night's sleep. \n*. Feel Refreshed: Your body will smile brighter and feel rejuvenated! 💧💦😃")
-                            .font(.system(size: 19, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.bottom, 20)
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Power Nap")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("😴")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
-//                    }
+                        .frame(width: 342, height: 305)
+                        .padding(.top, 24)
                 }
                 
                 VStack(alignment: .leading) {
@@ -80,19 +48,26 @@ struct HydratedView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            let reminder = ReminderModel(name: "Stay Hydrated", category: "Day activity", remindTime: Date(), isRemind: true)
-                            
                             let notifEveryThreeHours: TimeInterval = 3 * 60 * 60
-                            PersistenceController.shared.saveReminder(reminder: reminder)
-                            UserNotificationService.shared.scheduleNotification(type: "time", timeInterval: notifEveryThreeHours, title: "Stay Hydrated", body: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", notifHour: nil)
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "stayHydrated", type: "time", timeInterval: notifEveryThreeHours, title: "Stay Hydrated", body: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", notifHour: nil)
+                            }else {
+                                UserNotificationService.shared.disableNotifications(identifiers: ["stayHydrated"])
+                            }
+                            
+                            dailyHabitViewModel.updateReminder(name: "Stay Hydrated", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
-                                .dismiss()},
+                            .dismiss()},
                         backgroundColor: .primaryButton,
                         foregroundColor: .white,
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Stay Hydrated")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Hydrate")
             .toolbarColorScheme(.dark, for: .navigationBar)

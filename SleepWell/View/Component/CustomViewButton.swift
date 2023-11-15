@@ -14,8 +14,18 @@ struct CustomViewButton: View {
     let isSelected: Bool
     let action: () -> Void
     
+    @State private var scaleFactor: CGFloat = 1
+    
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            withAnimation {
+                scaleFactor += 0.05
+                if scaleFactor > 1 {
+                    scaleFactor = 1 // Reset scale if it exceeds 2.0
+                }
+                action()
+            }
+        }) {
             ZStack {
                 Color(activitybgColor)
                     .frame(width: 341, height: 93)
@@ -39,12 +49,14 @@ struct CustomViewButton: View {
                             .padding(.leading, 11)
                     }
                     Spacer()
-                    Image(isSelected ? "check" : "UnCheckmark")
+                    Image(isSelected ? "checkv2" : "UnCheckmark")
                         .resizable()
-                        .frame(width: 34, height: 34)
+                        .scaledToFit()
+                        .frame(width: isSelected ? 50 : 34, height: isSelected ? 50 : 40)
                         .foregroundColor(.black)
                         .font(.system(size: 35))
                         .padding(.trailing, 15)
+                        .scaleEffect(scaleFactor)
                 }
             }
             .cornerRadius(10)

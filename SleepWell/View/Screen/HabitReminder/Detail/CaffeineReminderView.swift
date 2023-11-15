@@ -10,55 +10,23 @@ import SwiftUI
 struct CaffeineReminderView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-//                    Rectangle()
-//                        .fill(LinearGradient(gradient: Gradient(colors: [.amber, .lightTan]), startPoint: .topLeading, endPoint: .bottomTrailing))
-//                        .frame(width: .infinity, height: 250)
-//                        .cornerRadius(10)
-//                        .padding(.top, 10)
-                    Image("RminderBgPink")
+                    Image("limitcaffeinebg")
                         .resizable()
                         .scaledToFill()
-                        .cornerRadius(15)
+                        .frame(width: 342, height: 305)
                         .padding(.top, 10)
-                        .overlay(
-                            // Skip Button
-                            Text("☕️")
-                                .font(.system(size: 150, weight: .semibold))
-                            , alignment: .topTrailing
-                        )
-                    VStack (alignment: .leading) {
-                        Text("Limit Caffeine")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                        Text("️*. Caffeine Cut-off: Say goodbye to caffeine 6 hours before bedtime for a peaceful night's sleep. \n*.Wind Down: Providing this buffer helps you relax and get ready for a restful night. \n*.Wake Up Smiling: Your well-rested self will greet the morning with a big smile! ☕😊  ")
-                            .font(.system(size: 16, weight: .regular, design: .rounded))
-                            .foregroundColor(.white)
-                        
-                    }
-                    .frame(width: 330)
-                    .padding()
-//                    HStack {
-//                        VStack (alignment: .leading) {
-//                            Text("Stop Caffeine")
-//                                .font(.system(size: 28, weight: .bold, design: .rounded))
-//                            
-//                            Text("lorem ipsum dolor siamet")
-//                                .font(.system(size: 17, weight: .regular, design: .rounded))
-//                        }
-//                        Text("☕️")
-//                            .font(.system(size: 150, weight: .semibold, design: .rounded))
-//                    }
                 }
                 
                 VStack(alignment: .leading) {
-                    Toggle(isOn: $isReminderActive, label: {
+                    Toggle(isOn: $dailyHabitViewModel.isRemind, label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -66,7 +34,6 @@ struct CaffeineReminderView: View {
                             .font(.system(size: 16, weight: .regular, design: .rounded))
                             .foregroundColor(.white)
                     })
-                    
                     
                     Text("Reminder time")
                         .font(.system(size: 16, weight: .regular, design: .rounded))
@@ -79,7 +46,23 @@ struct CaffeineReminderView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Limit Caffeine", body: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!😌", notifHour: nil)
+                            // Get the current date and time
+                                    let currentDate = Date()
+
+                                    // Create a date component for 9 PM
+                                    var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: currentDate)
+                                    dateComponents.hour = 21
+                                    dateComponents.minute = 0
+                            if let notificationDate = Calendar.current.date(byAdding: .hour, value: -6, to: dateComponents.date ?? Date()) {
+                                let trigger6hour = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: notificationDate)
+                                if isReminderActive {
+                                    UserNotificationService.shared.scheduleNotification(identifier: "limitCaffeine", type: "date", timeInterval: nil, title: "Limit Caffeine", body: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!😌", notifHour: trigger6hour)
+                                } else{
+                                    UserNotificationService.shared.disableNotifications(identifiers: ["limitCaffeine"])
+
+                                }
+                            }
+                            dailyHabitViewModel.updateReminder(name: "Limit Caffeine", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()},
@@ -88,6 +71,10 @@ struct CaffeineReminderView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Limit Caffeine")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Stop Caffeine")

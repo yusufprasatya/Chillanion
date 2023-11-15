@@ -27,7 +27,7 @@ struct ContentView: View {
                 SplashScreenView()
             }
         }.onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 withAnimation {
                     self.isSplashNotAppear = true
                 }
@@ -43,6 +43,15 @@ extension UserDefaults {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: "onBoardingShow")
+        }
+    }
+    
+    var showCaseDashboard: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "showCaseDashboard") as? Bool) ?? false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "showCaseDashboard")
         }
     }
 }

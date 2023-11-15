@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 extension Color {
     static let darkPurple = Color(red: 52 / 255, green: 6 / 255, blue: 61 / 255)
     static let darkGreen = Color(red: 34 / 255, green: 76 / 255, blue: 101 / 255)
@@ -75,4 +73,23 @@ extension Color {
     static let rectanglebg = Color(red: 19/255, green: 27/255, blue: 52/255)
     static let graytext = Color(red: 190/255, green: 190/255, blue: 215/255)
     static let graybg = Color(red: 66/255, green: 66/255, blue: 65/255)
+    static let paleSkyBlue = Color(red: 233/255, green: 242/255, blue: 251/255)
+    static let softPink = Color(red: 193/255, green: 140/255, blue: 202/255)
+    static let lightPink = Color(red: 229/255, green: 198/255, blue: 248/255)
+    static let lightGreen = Color(red: 154/255, green: 255/255, blue: 119/255)
+    static let orange = Color(red: 242/255, green: 154/255, blue: 72/255)
+    static let vividPink = Color(red: 254/255, green: 86/255, blue: 217/255)
+    static let cyanTeal = Color(red: 97/255, green: 170/255, blue: 180/255)
+    static let lightKhaki = Color(red: 205/255, green: 193/255, blue: 151/255)
+    static let lightTurqoise = Color(red: 203/255, green: 78/255, blue: 130/255).opacity(0.53)
+    static let rich = Color(red: 70/255, green: 62/255, blue: 87/255)
+    static let goodbg = Color(red: 111/255, green: 192/255, blue: 83/255)
+    static let calmbg = Color(red: 10/255, green: 207/255, blue: 171/255)
+    static let happybg = Color(red: 181/255, green: 92/255, blue: 183/255)
+    static let enthusiasticbg = Color(red: 252/255, green: 219/255, blue: 99/255)
+    static let sadbg = Color(red: 0/255, green: 135/255, blue: 212/255)
+    static let annoyedbg = Color(red: 192/255, green: 123/255, blue: 83/255)
+    static let tiredbg = Color(red: 151/255, green: 83/255, blue: 192/255)
+    static let angrybg = Color(red: 192/255, green: 83/255, blue: 83/255)
 }
+

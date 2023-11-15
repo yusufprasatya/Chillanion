@@ -22,7 +22,7 @@ class UserNotificationService {
         }
     }
     
-    func scheduleNotification(type: String, timeInterval: TimeInterval?, title: String, body: String, notifHour: DateComponents?) {
+    func scheduleNotification(identifier: String, type: String, timeInterval: TimeInterval?, title: String, body: String, notifHour: DateComponents?) {
         var trigger: UNNotificationTrigger?
         
         if type == "date" {
@@ -36,7 +36,19 @@ class UserNotificationService {
         content.body = body
         content.sound = UNNotificationSound.default
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    func disableNotifications(identifiers: [String]) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: identifiers)
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+                print("Notifications disabled")
+            } else {
+                print("Notifications are not authorized")
+            }
+        }
     }
 }
