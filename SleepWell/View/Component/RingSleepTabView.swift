@@ -108,7 +108,7 @@ struct RingSleepTabView: View {
                                 }
                                 .fullScreenCover(isPresented: $showFullScreenCover) {
                                     // Your full-screen cover content
-                                    BeforeSleepFeelingView()
+                                    NightView()
                                 }
                             RoundedRectangleFeeling(category:"After Wake-up", feelEmoji: "😱")
                                 .onTapGesture{
@@ -116,7 +116,7 @@ struct RingSleepTabView: View {
                                 }
                                 .fullScreenCover(isPresented: $showFullScreenCover) {
                                     // Your full-screen cover content
-                                    AfterSleepFeelingView()
+                                    WakeUpView()
                                 }
                         }
                         Text("Habit Tracker")

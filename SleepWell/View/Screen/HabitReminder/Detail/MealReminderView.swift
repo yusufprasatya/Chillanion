@@ -10,6 +10,8 @@ import SwiftUI
 struct MealReminderView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -46,7 +48,14 @@ struct MealReminderView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Late Meals", body: "Let your body rest at night Stop eating four hours before sleep to ensure sweet dreams and uninterrupted Zzz's! 😴🌙", notifHour: nil)
+                            let every12Hour: TimeInterval = 12 * 60 * 60
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "lateMeals", type: "time", timeInterval: every12Hour, title: "Late Meals", body: "Let your body rest at night Stop eating four hours before sleep to ensure sweet dreams and uninterrupted Zzz's! 😴🌙", notifHour: nil)
+                            }else {
+                                UserNotificationService.shared.disableNotifications(identifiers: ["limitCaffeine"])
+                            }
+                            dailyHabitViewModel.updateReminder(name: "Stop Late Meals", isRemind: isReminderActive)
+
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()
@@ -56,6 +65,10 @@ struct MealReminderView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Stop Late Meals")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Stop Late Meal")
             .toolbarColorScheme(.dark, for: .navigationBar)

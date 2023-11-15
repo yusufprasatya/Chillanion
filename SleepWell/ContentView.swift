@@ -45,6 +45,15 @@ extension UserDefaults {
             UserDefaults.standard.setValue(newValue, forKey: "onBoardingShow")
         }
     }
+    
+    var showCaseDashboard: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "showCaseDashboard") as? Bool) ?? false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "showCaseDashboard")
+        }
+    }
 }
 
 #Preview {

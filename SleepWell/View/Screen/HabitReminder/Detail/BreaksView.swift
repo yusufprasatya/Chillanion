@@ -45,10 +45,14 @@ struct BreaksView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            dailyHabitViewModel.updateReminder(name: "Short Breaks")
+                            let notifEveryTwoHours: TimeInterval =  2 * 60 * 60
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "shortBreaks", type: "time", timeInterval: notifEveryTwoHours, title: "Short Breaks", body: "Grab quick 5-10 minute sweet breaks to stretch or walk for an instant energy boost and improved alertness!", notifHour: nil)
+                            }else{
+                                UserNotificationService.shared.disableNotifications(identifiers: ["shortBreaks"])
+                            }
                             
-                            let notifEveryThreeHours: TimeInterval = 3600
-                            UserNotificationService.shared.scheduleNotification(type: "time", timeInterval: notifEveryThreeHours, title: "Short Breaks", body: "Grab quick 5-10 minute sweet breaks to stretch or walk for an instant energy boost and improved alertness!", notifHour: nil)
+                            dailyHabitViewModel.updateReminder(name: "Short Breaks", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()},
@@ -60,6 +64,7 @@ struct BreaksView: View {
             }
             .onAppear{
                 dailyHabitViewModel.getDailyHabit(name: "Short Breaks")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Breaks")
             .toolbarColorScheme(.dark, for: .navigationBar)

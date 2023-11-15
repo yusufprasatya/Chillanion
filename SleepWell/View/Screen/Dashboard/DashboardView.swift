@@ -28,6 +28,7 @@ struct DashboardView: View {
     @State private var wakeUpTime = Date()
     @State private var name = ""
     @State private var habitSelected: String = ""
+    @State private var timeBeforeSleep: String = ""
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)])
     private var habitsEntries: FetchedResults<DailyHabits>
@@ -97,6 +98,12 @@ struct DashboardView: View {
                                 }
                             }
                         }
+                        .overlay(
+                            Text("Based on your commitment")
+                                .foregroundStyle(Color.white)
+                                .font(.system(size: 16, weight: .regular, design: .rounded))
+                                .offset(x: -73,y: 100)
+                        )
                         Spacer(minLength: 40)
                         NavigationLink(destination: SleepReminderView( bedTimeCommitment: $bedTimeCommitment, wakeUpTime: $wakeUpTime), label: {
                             ZStack{
@@ -110,6 +117,10 @@ struct DashboardView: View {
                                     .font(.system(size: 40))
                                     .padding(.leading, -150)
                                     .padding(.top, 16)
+                                Text("It’s 6 hours before sleep!")
+                                    .foregroundStyle(Color.white)
+                                    .font(.system(size: 17, weight: .medium, design: .rounded))
+                                    .offset(x:-53, y: 50)
                             }
                         })
                         Image("chillatips")
@@ -139,66 +150,29 @@ struct DashboardView: View {
                                         .font(.system(size: 17))
                                         .foregroundStyle(Color.white)
                                     Spacer()
-                                    
+
                                     StepProgressBar(stepprogress: $StepBarProgress, lineWidth: 15)
                                         .frame(width: 100, height: 100)
                                     Spacer()
                                 }
                             }
                         })
-                        VStack {
-                            Text("total\(habitsEntries.count)")
-                                .foregroundColor(.white)
-                            Button(action: {
-                                isStayHydrated.toggle()
-                            }) {
-                                ZStack {
-                                    Color.activitybg
-                                        .frame(width: 341, height: 93)
-                                    CustomViewButton(icon: "💧", title: "Stay Hydrated", desc: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", isSelected: isStayHydrated) {
-                                        isStayHydrated.toggle()
+                        
+                        ForEach(habitsEntries) { dailyHabit in
+                            if dailyHabit.isRemind {
+                                CustomViewButton(
+                                    icon: dailyHabit.icon ?? "",
+                                    title: dailyHabit.name ?? "",
+                                    desc: dailyHabit.desc ?? "",
+                                    isSelected: selectedHabit[dailyHabit.name ?? ""] ?? false
+                                ) {
+                                    if selectedHabit[dailyHabit.name ?? ""] ?? false {
+                                        selectedHabit[dailyHabit.name ?? ""] = false
+                                    } else {
+                                        selectedHabit[dailyHabit.name ?? ""] = true
                                     }
                                 }
-                                .cornerRadius(10)
-                            }
-                            .disabled(isStayHydrated)
-                            
-                            Button(action: {
-                                isJournalingSelected.toggle()
-                            }) {
-                                ZStack {
-                                    Color.activitybg
-                                        .frame(width: 341, height: 93)
-                                    
-                                    CustomViewButton(icon: "📝", title: "Journaling", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isSelected: isJournalingSelected) {
-                                        isJournalingSelected.toggle()
-                                    }
-                                }
-                                .cornerRadius(10)
-                            }
-                            .disabled(isJournalingSelected)
-                            
-                            ForEach(habitsEntries, id: \.self) { dailyHabit in
-                                if dailyHabit.isRemind == true {
-                                    Button(action: {
-                                        
-                                    }) {
-                                        ZStack {
-                                            Color.activitybg
-                                                .frame(width: 341, height: 93)
-                                            
-                                            CustomViewButton(
-                                                icon: dailyHabit.icon ?? "",
-                                                title: dailyHabit.name ?? "",
-                                                desc: dailyHabit.desc ?? "",
-                                                isSelected: false) {
-                                                    
-                                                }
-                                        }
-                                        .cornerRadius(10)
-                                    }
-                                    
-                                }
+                                .disabled(selectedHabit[dailyHabit.name ?? ""] ?? false)
                             }
                         }
                         
@@ -288,7 +262,6 @@ extension DashboardView {
         if sleepTime <= 0 {
             return 0.0 // To avoid division by zero
         }
-        
         let percentage = (yourSleep / sleepTime) * 100.0
         return min(100.0, percentage) // Ensure the result is within [0, 100]
     }

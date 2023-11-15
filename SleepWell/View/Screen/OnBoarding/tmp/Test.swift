@@ -6,33 +6,34 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Test: View {
-    @State private var rectangleWidth: CGFloat = 58
-    @State private var ofSetRectangle : CGFloat = -50
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)])
+    private var habitsEntries: FetchedResults<DailyHabits>
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        ZStack{
-            Button(action: {
-                withAnimation{
-                    rectangleWidth = 160
-                    ofSetRectangle = 0
+        ScrollViewReader{ proxy in
+            ScrollView{
+                List {
+                    ForEach(habitsEntries) { dailyHabit in
+                        CustomViewButton(
+                            icon: dailyHabit.icon ?? "",
+                            title: dailyHabit.name ?? "",
+                            desc: dailyHabit.desc ?? "",
+                            isSelected: false
+                        ) {
+                            // Your action goes here
+                        }
+                    }
                 }
-            }, label: {
-                ZStack{
-                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                        .stroke(Color.green)
-                        .fill(.clear)
-                        .frame(width: 160, height: 48)
-                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                        .fill(.blue)
-                        .frame(width: rectangleWidth, height: 48)
-                        .offset(x: ofSetRectangle)
-                }
-            })
+
+            }
+            
         }
     }
 }
+
 
 #Preview {
     Test()

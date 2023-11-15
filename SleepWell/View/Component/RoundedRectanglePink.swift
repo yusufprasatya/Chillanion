@@ -25,6 +25,7 @@ struct RoundedRectanglePink: View {
                             .frame(width: 100, height: 54)
                         Text(category)
                             .font(.system(size: 17, weight: .medium, design: .rounded))
+                            .foregroundColor(.black)
                     }
                     Spacer()
                     Text(targetedTime)

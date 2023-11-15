@@ -34,7 +34,11 @@ struct JournalView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 20) {
                             ForEach(journalEntries, id: \.id) { entry in
-                                JournalComponent(date: DateUtil.formatDatedmmmyyyy(date: entry.create_date!), text: entry.text ?? "")
+                                NavigationLink(destination: {
+                                    DetailJournalView(journalText: entry.text ?? "")
+                                }, label: {
+                                    JournalComponent(date: DateUtil.formatDatedmmmyyyy(date: entry.create_date!), text: entry.text ?? "")
+                                })
                             }
                         }
                         .padding(.horizontal, 25)
@@ -44,6 +48,7 @@ struct JournalView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
+                
                     NavigationLink(destination: AddJournalView(), isActive: $isAddJournalViewPresented) {
                         Button(action: {
                             isAddJournalViewPresented = true

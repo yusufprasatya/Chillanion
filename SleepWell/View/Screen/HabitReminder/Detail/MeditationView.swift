@@ -12,7 +12,7 @@ struct MeditationView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject private var userViewModel = UserViewModel()
-    @ObservedObject private var reminderViewModel = ReminderViewModel()
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -26,7 +26,7 @@ struct MeditationView: View {
                         .padding(.top, 10)
                 }
                 VStack(alignment: .leading) {
-                    Toggle(isOn: $reminderViewModel.isRemind, label: {
+                    Toggle(isOn: $isReminderActive, label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -46,11 +46,12 @@ struct MeditationView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            let reminder = ReminderModel(name: "Step", category: "Day activity", remindTime: Date(), isRemind: true)
-                            
-                            let notifEveryThreeHours: TimeInterval = 3 * 60 * 60
-                            PersistenceController.shared.saveReminder(reminder: reminder)
-                            UserNotificationService.shared.scheduleNotification(type: "time", timeInterval: notifEveryThreeHours, title: "Step", body: "Boost your sleep quality by adding daily steps to your routine. A little physical activity can harmonize your body's internal clock and improve your restful nights. Keep moving for better sleep!", notifHour: nil)
+//                            let reminder = ReminderModel(name: "Step", category: "Day activity", remindTime: Date(), isRemind: true)
+//                            
+//                            let notifEveryThreeHours: TimeInterval = 3 * 60 * 60
+//                            PersistenceController.shared.saveReminder(reminder: reminder)
+//                            UserNotificationService.shared.scheduleNotification(identifier: "step", type: "time", timeInterval: notifEveryThreeHours, title: "Step", body: "Boost your sleep quality by adding daily steps to your routine. A little physical activity can harmonize your body's internal clock and improve your restful nights. Keep moving for better sleep!", notifHour: nil)
+                            dailyHabitViewModel.updateReminder(name: "Meditation", isRemind: isReminderActive)
                             self
                                 .presentationMode
                                 .wrappedValue
@@ -60,6 +61,10 @@ struct MeditationView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Meditation")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Meditation")

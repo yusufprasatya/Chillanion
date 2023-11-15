@@ -30,7 +30,7 @@ struct SunlightReminderView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Toggle(isOn:  $dailyHabitViewModel.isRemind, label: {
+                    Toggle(isOn:  $isReminderActive, label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -50,14 +50,19 @@ struct SunlightReminderView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            dailyHabitViewModel.updateReminder(name: "Sunlight")
                             let wakeUpTime = userViewModel.wakeUpTime
                             let calendar = Calendar.current
                             let date15MinutesFromWakeUp = calendar.date(byAdding: .minute, value: 15, to: wakeUpTime)
                             
                             let triggerDateComponents = calendar.dateComponents([.hour, .minute, .second], from: date15MinutesFromWakeUp!)
                             
-                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Sunlight", body: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!🌤️", notifHour: triggerDateComponents)
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "sunLight", type: "date", timeInterval: nil, title: "Sunlight", body: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!🌤️", notifHour: triggerDateComponents)
+                            }else {
+                                UserNotificationService.shared.disableNotifications(identifiers: ["sunLight"])
+                            }
+                            
+                            dailyHabitViewModel.updateReminder(name: "Sunlight", isRemind: isReminderActive)
                             self.presentationMode.wrappedValue.dismiss()
                         },
                         backgroundColor: .primaryButton,
@@ -65,12 +70,10 @@ struct SunlightReminderView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
-                .onAppear{
-                    
-                }
             }
             .onAppear {
                 dailyHabitViewModel.getDailyHabit(name: "Sunlight")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Sunlight")

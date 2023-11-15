@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct HydratedView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
-
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -26,7 +27,7 @@ struct HydratedView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Toggle(isOn: $dailyHabitViewModel.isRemind, label: {
+                    Toggle(isOn: $isReminderActive, label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -47,13 +48,17 @@ struct HydratedView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            dailyHabitViewModel.updateReminder(name: "Stay Hydrated")
-                            
                             let notifEveryThreeHours: TimeInterval = 3 * 60 * 60
-                            UserNotificationService.shared.scheduleNotification(type: "time", timeInterval: notifEveryThreeHours, title: "Stay Hydrated", body: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", notifHour: nil)
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "stayHydrated", type: "time", timeInterval: notifEveryThreeHours, title: "Stay Hydrated", body: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!😉", notifHour: nil)
+                            }else {
+                                UserNotificationService.shared.disableNotifications(identifiers: ["stayHydrated"])
+                            }
+                            
+                            dailyHabitViewModel.updateReminder(name: "Stay Hydrated", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
-                                .dismiss()},
+                            .dismiss()},
                         backgroundColor: .primaryButton,
                         foregroundColor: .white,
                         cornerRadius: 15)
@@ -62,6 +67,7 @@ struct HydratedView: View {
             }
             .onAppear{
                 dailyHabitViewModel.getDailyHabit(name: "Stay Hydrated")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Hydrate")
             .toolbarColorScheme(.dark, for: .navigationBar)

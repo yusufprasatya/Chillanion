@@ -46,8 +46,23 @@ struct CaffeineReminderView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            dailyHabitViewModel.updateReminder(name: "Limit Caffeine")
-                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Limit Caffeine", body: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!😌", notifHour: nil)
+                            // Get the current date and time
+                                    let currentDate = Date()
+
+                                    // Create a date component for 9 PM
+                                    var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: currentDate)
+                                    dateComponents.hour = 21
+                                    dateComponents.minute = 0
+                            if let notificationDate = Calendar.current.date(byAdding: .hour, value: -6, to: dateComponents.date ?? Date()) {
+                                let trigger6hour = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: notificationDate)
+                                if isReminderActive {
+                                    UserNotificationService.shared.scheduleNotification(identifier: "limitCaffeine", type: "date", timeInterval: nil, title: "Limit Caffeine", body: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!😌", notifHour: trigger6hour)
+                                } else{
+                                    UserNotificationService.shared.disableNotifications(identifiers: ["limitCaffeine"])
+
+                                }
+                            }
+                            dailyHabitViewModel.updateReminder(name: "Limit Caffeine", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()},
@@ -59,6 +74,7 @@ struct CaffeineReminderView: View {
             }
             .onAppear{
                 dailyHabitViewModel.getDailyHabit(name: "Limit Caffeine")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Stop Caffeine")

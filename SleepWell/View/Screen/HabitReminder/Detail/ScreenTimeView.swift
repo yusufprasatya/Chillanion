@@ -10,6 +10,7 @@ import SwiftUI
 struct ScreenTimeView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -44,6 +45,7 @@ struct ScreenTimeView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
+                            dailyHabitViewModel.updateReminder(name: "Limit Screen Time", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()
@@ -53,6 +55,10 @@ struct ScreenTimeView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Limit Screen Time")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Screen Time")
             .toolbarColorScheme(.dark, for: .navigationBar)

@@ -96,6 +96,9 @@
 		DADF46152ADE328E00771DF0 /* Screen9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46142ADE328E00771DF0 /* Screen9View.swift */; };
 		DADF46172ADE389300771DF0 /* CircularDotProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */; };
 		DADF461B2ADE4B9900771DF0 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADF461A2ADE4B9900771DF0 /* ConfirmationView.swift */; };
+		DAEA59232B0481C4002FC70C /* DetailJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA59222B0481C4002FC70C /* DetailJournal.swift */; };
+		DAEA59252B048375002FC70C /* NightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA59242B048375002FC70C /* NightView.swift */; };
+		DAEA59272B048395002FC70C /* WakeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA59262B048395002FC70C /* WakeUpView.swift */; };
 		DAEC5CEC2B02AFA900560BDB /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CEB2B02AFA900560BDB /* JournalViewModel.swift */; };
 		DAEC5CEE2B02BDE800560BDB /* DailyHabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CED2B02BDE800560BDB /* DailyHabbit.swift */; };
 		DAED2F4C2AFFCC2800915BC7 /* RoundedRectanglePink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2F4B2AFFCC2800915BC7 /* RoundedRectanglePink.swift */; };
@@ -222,6 +225,9 @@
 		DADF46142ADE328E00771DF0 /* Screen9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen9View.swift; sourceTree = "<group>"; };
 		DADF46162ADE389300771DF0 /* CircularDotProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircularDotProgressView.swift; path = SleepWell/View/Screen/OnBoarding/CircularDotProgressView.swift; sourceTree = SOURCE_ROOT; };
 		DADF461A2ADE4B9900771DF0 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		DAEA59222B0481C4002FC70C /* DetailJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailJournal.swift; sourceTree = "<group>"; };
+		DAEA59242B048375002FC70C /* NightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightView.swift; sourceTree = "<group>"; };
+		DAEA59262B048395002FC70C /* WakeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeUpView.swift; sourceTree = "<group>"; };
 		DAEC5CEB2B02AFA900560BDB /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
 		DAEC5CED2B02BDE800560BDB /* DailyHabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabbit.swift; sourceTree = "<group>"; };
 		DAED2F4B2AFFCC2800915BC7 /* RoundedRectanglePink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectanglePink.swift; sourceTree = "<group>"; };
@@ -312,6 +318,7 @@
 				DA3028382AEF959E00A334FA /* TodayStepView.swift */,
 				DA945B282AEFB6F5009E7D64 /* JournalView.swift */,
 				DA1D174E2B02150300CDA3C6 /* AddJournalView.swift */,
+				DAEA59222B0481C4002FC70C /* DetailJournal.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -351,6 +358,8 @@
 				DA4A73392AFD5302002DC913 /* KiwKiwView.swift */,
 				DA1D17442B0151E200CDA3C6 /* BeforeSleepFeelingView.swift */,
 				DA1D17482B01B79C00CDA3C6 /* AfterSleepFeelingView.swift */,
+				DAEA59242B048375002FC70C /* NightView.swift */,
+				DAEA59262B048395002FC70C /* WakeUpView.swift */,
 			);
 			path = MySleep;
 			sourceTree = "<group>";
@@ -735,6 +744,7 @@
 				DADBD0172ADD236300E74D3C /* OnBoardingView.swift in Sources */,
 				DA0E5B212ADF7F89002563DB /* RoundedPicker.swift in Sources */,
 				DAF2F6262AED9CB9004C8F72 /* HydratedView.swift in Sources */,
+				DAEA59252B048375002FC70C /* NightView.swift in Sources */,
 				DA8DC44E2AF152F300FA476A /* MySleepView.swift in Sources */,
 				DA8CE72C2AE76BA000884062 /* StepReminderView.swift in Sources */,
 				DAF2F6282AED9EC4004C8F72 /* BreatheView.swift in Sources */,
@@ -774,6 +784,8 @@
 				DA8DC44B2AF0AC7B00FA476A /* MeditationView.swift in Sources */,
 				DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */,
 				DA2C32562AEB5FB300D18B19 /* StepService.swift in Sources */,
+				DAEA59272B048395002FC70C /* WakeUpView.swift in Sources */,
+				DAEA59232B0481C4002FC70C /* DetailJournal.swift in Sources */,
 				DA8DC4452AF03B3000FA476A /* SplashScreenView.swift in Sources */,
 				DA3028392AEF959E00A334FA /* TodayStepView.swift in Sources */,
 				DA8CE73E2AE77E9B00884062 /* PlanView.swift in Sources */,

@@ -46,7 +46,7 @@ struct HomeScreenView: View {
         .accentColor(.BarIconColor)
         .overlay(
             Group {
-                if isOverlayVisible {
+                if !UserDefaults.standard.showCaseDashboard {
                     Color.black.opacity(0.91)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
@@ -59,16 +59,21 @@ struct HomeScreenView: View {
                 }
             }
         )
+        if !UserDefaults.standard.showCaseDashboard{
+            // This will keep the Dashboard area visible
+            DashboardViewOverlay(isOverlayVisible: $isOverlayVisible)
+                .opacity(isOverlayVisible ? 1 : 0)
+        }
         
-        // This will keep the Dashboard area visible
-        DashboardViewOverlay(isOverlayVisible: $isOverlayVisible)
-            .opacity(isOverlayVisible ? 1 : 0)
     }
 }
 
 struct DashboardViewOverlay: View {
     @Binding var isOverlayVisible: Bool
     @State private var currentImageIndex = 0
+    
+    @AppStorage("showCaseDashboard")
+    var showCaseDashboard: Bool = true
     
     let maxImageCount = 5 // Set the desired limit
     
@@ -109,6 +114,11 @@ struct DashboardViewOverlay: View {
                             }
                             .onChange(of: currentImageIndex) { newIndex in
                                 print("Current index \(newIndex)")
+                                if newIndex == 4 {
+                                    print(UserDefaults.standard.showCaseDashboard)
+                                    UserDefaults.standard.showCaseDashboard = true
+                                    UserDefaults.standard.showCaseDashboard = showCaseDashboard
+                                }
                             }
                     )
             }

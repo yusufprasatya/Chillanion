@@ -95,6 +95,7 @@ struct Screen5View: View {
                             }
                         }
                     }
+                    .padding(.top, 20)
                     
                     Group {
                         Spacer()

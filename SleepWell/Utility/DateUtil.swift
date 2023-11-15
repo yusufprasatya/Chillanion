@@ -94,16 +94,16 @@ final class DateUtil {
     
     static func calculateNextDateWithSameTime(from currentDate: Date, at desiredTime: Date) -> Date {
         let calendar = Calendar.current
-
+        
         // Add one day to the current date
         let nextDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? Date()
-
+        
         // Combine the new date with the desired time
         let resultDate = calendar.date(bySettingHour: calendar.component(.hour, from: desiredTime),
                                        minute: calendar.component(.minute, from: desiredTime),
                                        second: calendar.component(.second, from: desiredTime),
                                        of: nextDate) ?? Date()
-
+        
         return resultDate
     }
     
@@ -118,4 +118,16 @@ final class DateUtil {
         dateFormatter.dateFormat = "d MMM yyyy" // Set the desired format
         return dateFormatter.string(from: date)
     }
+    
+    static func calculateHours(endDate: Date) {
+        let totalHours = Calendar.current.date(byAdding: .hour, value: 6, to: endDate) ?? Date() // Replace with your end date
+        
+        // Calculate the time difference in hours
+        if let hoursBetween = Calendar.current.dateComponents([.hour], from: Date(), to: totalHours).hour {
+            print("Total hours between the two times: \(hoursBetween) hours")
+        } else {
+            print("Error calculating hours")
+        }
+    }
+    
 }

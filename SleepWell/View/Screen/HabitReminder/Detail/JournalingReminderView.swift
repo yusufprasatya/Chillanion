@@ -10,6 +10,7 @@ import SwiftUI
 struct JournalingReminderView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -46,7 +47,8 @@ struct JournalingReminderView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Work-out", body: "Skip tough workouts before bed/ Your body needs to unwind and prepare for sweet dream🥱", notifHour: nil)
+//                            UserNotificationService.shared.scheduleNotification(identifier: "Journal", type: "date", timeInterval: nil, title: "Work-out", body: "Skip tough workouts before bed/ Your body needs to unwind and prepare for sweet dream🥱", notifHour: nil)
+                            dailyHabitViewModel.updateReminder(name: "Journaling", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()
@@ -56,6 +58,10 @@ struct JournalingReminderView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Journaling")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Journaling")
             .toolbarColorScheme(.dark, for: .navigationBar)

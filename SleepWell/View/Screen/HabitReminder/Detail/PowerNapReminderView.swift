@@ -11,7 +11,7 @@ struct PowerNapReminderView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
-
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -27,7 +27,7 @@ struct PowerNapReminderView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Toggle(isOn: $dailyHabitViewModel.isRemind, label: {
+                    Toggle(isOn: $isReminderActive , label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -47,11 +47,29 @@ struct PowerNapReminderView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            dailyHabitViewModel.updateReminder(name: "Power Nap")
-                            UserNotificationService.shared.scheduleNotification(type: "date", timeInterval: nil, title: "Power Nap", body: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!⚡️", notifHour: nil)
+                            print("reminder \(isReminderActive)")
+                            let currentDate = Date()
+                            var components = Calendar.current.dateComponents([.hour, .minute, .second], from: currentDate)
+                            
+                            // Set the notification time to the next 4-hour interval excluding time up to 11 PM
+                            if components.hour! < 23 {
+                                components.hour = (components.hour! / 4 + 1) * 4
+                            } else {
+                                // If it's after 11 PM, schedule the next notification at 4 AM the next day
+                                components.hour = 4
+                                components.minute = 0
+                            }
+                            
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "powerNap", type: "date", timeInterval: nil, title: "Power Nap", body: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!⚡️", notifHour: components)
+                            } else {
+                                UserNotificationService.shared.disableNotifications(identifiers: ["powerNap"])
+                            }
+                            dailyHabitViewModel.updateReminder(name: "Power Nap", isRemind: isReminderActive)
+                            
                             self.presentationMode
                                 .wrappedValue
-                                .dismiss()},
+                            .dismiss()},
                         backgroundColor: .primaryButton,
                         foregroundColor: .white,
                         cornerRadius: 15)
@@ -60,6 +78,7 @@ struct PowerNapReminderView: View {
             }
             .onAppear{
                 dailyHabitViewModel.getDailyHabit(name: "Power Nap")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Power Nap")

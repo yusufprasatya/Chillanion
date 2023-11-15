@@ -22,21 +22,14 @@ struct StepReminderView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 23) {
                 ZStack {
-                    //                    Rectangle()
-                    //                        .fill(LinearGradient(gradient: Gradient(colors: [.navyBlue, .paleAqua]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                    //                        .frame(width: .infinity, height: 250)
-                    //                        .cornerRadius(10)
-                    //                        .padding(.top, 10)
                     Image("stepbg")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 342, height: 342)
                         .padding(.top, 10)
-                    
                 }
                 VStack(alignment: .leading) {
-                    
-                    Toggle(isOn: $dailyHabitViewModel.isRemind, label: {
+                    Toggle(isOn: $isReminderActive, label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -50,17 +43,25 @@ struct StepReminderView: View {
                         .font(.system(size: 16, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                         .padding(.top, 23)
-                    Text("Once every 3 hours")
+                    Text("15 minutes after wake-up")
                         .font(.system(size: 16, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                     Spacer()
                     RoundedButton(
                         title: "Done",
                         action: {
-                            dailyHabitViewModel.updateReminder(name: "Step")
+                            let wakeUpTime = userViewModel.wakeUpTime
+                            let calendar = Calendar.current
+                            let date15MinutesFromWakeUp = calendar.date(byAdding: .minute, value: 15, to: wakeUpTime)
                             
-                            let notifEveryThreeHours: TimeInterval = 3 * 60 * 60
-                            UserNotificationService.shared.scheduleNotification(type: "time", timeInterval: notifEveryThreeHours, title: "Step", body: "Boost your sleep quality by adding daily steps to your routine. A little physical activity can harmonize your body's internal clock and improve your restful nights. Keep moving for better sleep!", notifHour: nil)
+                            let triggerDateComponents = calendar.dateComponents([.hour, .minute, .second], from: date15MinutesFromWakeUp!)
+                            
+                            if isReminderActive {
+                                UserNotificationService.shared.scheduleNotification(identifier: "step", type: "date", timeInterval: nil, title: "Step", body: "Boost your sleep quality by adding daily steps to your routine. A little physical activity can harmonize your body's internal clock and improve your restful nights. Keep moving for better sleep!", notifHour: triggerDateComponents)
+                            } else{
+                                UserNotificationService.shared.disableNotifications(identifiers: ["powerNap"])
+                            }
+                            dailyHabitViewModel.updateReminder(name: "Step", isRemind: isReminderActive)
                             self
                                 .presentationMode
                                 .wrappedValue
@@ -73,6 +74,7 @@ struct StepReminderView: View {
             }
             .onAppear {
                 dailyHabitViewModel.getDailyHabit(name: "Step")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Step")

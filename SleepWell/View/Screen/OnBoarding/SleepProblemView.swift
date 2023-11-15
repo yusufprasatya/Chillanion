@@ -62,7 +62,7 @@ struct SleepProblemView: View {
                 Text("Skip")
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .foregroundColor(.lightpurple)
+                    .foregroundColor(.BarIconColor)
                     .cornerRadius(10)
             }
             , alignment: .topTrailing
@@ -98,12 +98,12 @@ struct SecondSleepProblemView: View{
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundStyle(Color.white)
-                        .padding(.leading, 10) // Adjust the leading padding
+                        .padding(.leading, 5) // Adjust the leading padding
                     
-                    Text("The joy that comes from having someone accompany us on our journey of improvement! \n\n\nSo..")
+                    Text("The joy that comes from having someone accompany us on our journey of improvement! \n\nSo..\n\nIf you can have a friend who can")
                         .multilineTextAlignment(.leading)
                         .foregroundStyle(Color.white)
-                        .padding(.leading, 10) // Adjust the leading padding
+                        .padding(.leading, 5) // Adjust the leading padding
                 }
                 Spacer()
                 RoundedButton(
@@ -131,7 +131,7 @@ struct SecondSleepProblemView: View{
                 Text("Skip")
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .foregroundColor(.lightpurple)
+                    .foregroundColor(.BarIconColor)
                     .cornerRadius(10)
             }
             , alignment: .topTrailing
@@ -144,9 +144,9 @@ struct SecondSleepProblemView: View{
             }) {
                 HStack {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.lightpurple)
+                        .foregroundColor(.BarIconColor)
                     Text("Back")
-                        .foregroundColor(.lightpurple)
+                        .foregroundColor(.BarIconColor)
                         .cornerRadius(10)
                 }
             }

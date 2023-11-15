@@ -116,7 +116,7 @@ struct PersistenceController {
             let results = try context.fetch(fetchRequest)
             
             if let existingReminder = results.first as? DailyHabits {
-                existingReminder.isRemind = true
+                existingReminder.isRemind = dailyHabit.isRemind
                 
                 do {
                     try context.save()
@@ -191,10 +191,10 @@ struct PersistenceController {
 
     func seedInitialData(context: NSManagedObjectContext) {
         let dailyHabbitArr = [
-            DailyHabbit(name: "Limit Caffeine", icon: "☕", desc: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!", isRemind: false, date: Date()),
+            DailyHabbit(name: "Limit Caffeine", icon: "☕", desc: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!", isRemind: true, date: Date()),
             DailyHabbit(name: "Power Nap", icon: "😴", desc: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!️", isRemind: false, date: Date()),
-            DailyHabbit(name: "Sunlight", icon: "☀️️", desc: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!", isRemind: false, date: Date()),
-            DailyHabbit(name: "Journaling", icon: "📝", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isRemind: false, date: Date()),
+            DailyHabbit(name: "Sunlight", icon: "☀️️", desc: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!", isRemind: true, date: Date()),
+            DailyHabbit(name: "Journaling", icon: "📝", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isRemind: true, date: Date()),
             DailyHabbit(name: "Stop Late Meals", icon: "🍔", desc: "Let your body rest at night. Stop eating 4 hours before sleep to ensure uninterrupted Zzz's! ", isRemind: false, date: Date()),
             DailyHabbit(name: "Stop Heavy Work-out", icon: "🏋️️", desc: "Skip tough workouts before bed/ Your body needs to unwind and prepare for sweet dream!", isRemind: false, date: Date()),
             DailyHabbit(name: "Stay Hydrated", icon: "💧", desc: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!", isRemind: false, date: Date()),
@@ -202,7 +202,7 @@ struct PersistenceController {
             DailyHabbit(name: "Short Breaks", icon: "🚶🏻", desc: "Grab quick 5-10 minute sweet breaks to stretch or walk for an instant energy boost and improved alertness!", isRemind: false, date: Date()),
             DailyHabbit(name: "Meditation", icon: "🧘🏼‍♀️️", desc: "A cozy way to relax, ease stress, and sleep better by soothing the mind and embracing mindfulness", isRemind: false, date: Date()),
             DailyHabbit(name: "Hygiene", icon: "😴", desc: "Your bedtime buddies for a fresher, more relaxed sleep and a healthier you💆‍♀️", isRemind: false, date: Date()),
-            DailyHabbit(name: "Journaling", icon: "📝", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isRemind: false, date: Date()),
+            DailyHabbit(name: "Limit Alcohol", icon: "🍷", desc: "Wrap up that last sip of alcohol 3-4 hours before bedtime for a cozier night's sleep.", isRemind: false, date: Date()),
             DailyHabbit(name: "Limit Screen Time", icon: "📱", desc: "Give screens a break at least an hour before bed. Their blue light can mess with your sleep.", isRemind: false, date: Date()),
             DailyHabbit(name: "Step", icon: "🏃🏻‍♂️", desc: "Boost your sleep quality by adding daily steps to your routine. A little physical activity can harmonize your body's internal clock and improve your restful nights. Keep moving for better sleep!", isRemind: false, date: Date())
         ]

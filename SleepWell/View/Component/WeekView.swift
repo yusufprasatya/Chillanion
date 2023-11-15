@@ -59,6 +59,7 @@ struct WeekView: View {
                                 .overlay(content: {
                                     ProgressBar(progress: .constant(sleepFilter.getTotalDurationSleep(sleepData: sleepFilter.filteringSleepStages(sleepData: sleepManager.sleepData, selectedDay: week.dates[i], sleepStage: "", startOfOpeningHours: week.dates[i].startOfDay, endOfOpeningHours: week.dates[i].endOfDay))
                                                                     / wakeUpTime.timeIntervalSince(bedTimeCommitment)) , lineWidth: .constant(5))
+                                    .opacity(week.dates[i] == week.referenceDate ? 1.0 : 0.5)
                                         .frame(width: 42, height: 42)
                                 })
                         })

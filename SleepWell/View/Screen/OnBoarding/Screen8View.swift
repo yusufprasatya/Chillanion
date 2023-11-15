@@ -64,6 +64,7 @@ struct Screen8View: View {
                 .padding(.horizontal)
             }
         }
+        .accentColor(.BarIconColor)
     
     }
 }

@@ -10,6 +10,8 @@ import SwiftUI
 struct HygieneView: View {
     @State private var isReminderActive: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var dailyHabitViewModel = DailyHabitsViewModel()
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.darkBlue, .black]), startPoint: .top, endPoint: .bottom)
@@ -45,6 +47,7 @@ struct HygieneView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
+                            dailyHabitViewModel.updateReminder(name: "Hygiene", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()
@@ -54,6 +57,10 @@ struct HygieneView: View {
                         cornerRadius: 15)
                 }
                 .padding(.horizontal, 20)
+            }
+            .onAppear{
+                dailyHabitViewModel.getDailyHabit(name: "Hygiene")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .navigationTitle("Sleep Hygiene")
             .toolbarColorScheme(.dark, for: .navigationBar)

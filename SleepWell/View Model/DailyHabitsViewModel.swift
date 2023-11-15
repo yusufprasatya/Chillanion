@@ -16,9 +16,9 @@ class DailyHabitsViewModel: ObservableObject {
         return dailyHabit
     }
     
-    func updateReminder(name: String) {
+    func updateReminder(name: String, isRemind: Bool) {
         var dailyHabbit = getDailyHabit(name: name)
-        
+        dailyHabbit.isRemind = isRemind
         PersistenceController.shared.updateReminder(dailyHabit: dailyHabbit)
     }
 }

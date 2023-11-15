@@ -13,7 +13,7 @@ struct FeatureView: View {
     @State private var showSkipButton = false // Added state for showing/hiding "Skip" button
     
     let featuresData: [FeatureScreenData] = [
-        FeatureScreenData(title: "Imagine....", description: "if you can have a friend who can", imageName: ""),
+        //        FeatureScreenData(title: "Imagine....", description: "if you can have a friend who can", imageName: ""),
         FeatureScreenData(title: "Plan", description: "Help you to schedule your bed time, slowly, but consistently.", imageName: "PlanImage"),
         FeatureScreenData(title: "Track", description: "Help you to track your progress in improving your sleep schedule.", imageName: "TrackImage"),
         FeatureScreenData(title: "Remind", description: "Remind you about what habit you can improve to have a better sleeping schedule.", imageName: "RemindImage")
@@ -38,21 +38,38 @@ struct FeatureView: View {
             VStack {
                 Spacer()
                 if currentPage == 0 {
-                    Button(action: {
-                        withAnimation {
-                            currentPage += 1
-                            print("click")
-                        }
-                    }, label: {
-                        HStack {
-                            Image(systemName: "chevron.right")
-                                .font(.title)
-                                .frame(width: 43, height: 41)
-                                .foregroundColor(.white)
-                                .background(Color.primaryButton)
-                                .cornerRadius(15)
-                        }
-                    })
+                    HStack(spacing: 80){
+                        Button(action: {
+                            withAnimation {
+                                screen -= 1
+                            }
+                        }, label: {
+                            HStack {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
+                            }
+                        })
+                        
+                        Button(action: {
+                            withAnimation {
+                                currentPage += 1
+                                print("click")
+                            }
+                        }, label: {
+                            HStack {
+                                Image(systemName: "chevron.right")
+                                    .font(.title)
+                                    .frame(width: 43, height: 41)
+                                    .foregroundColor(.white)
+                                    .background(Color.primaryButton)
+                                    .cornerRadius(15)
+                            }
+                        })
+                    }
                 } else if currentPage == 1 {
                     HStack(spacing: 80) {
                         Button(action: {
@@ -107,40 +124,6 @@ struct FeatureView: View {
                         
                         Button(action: {
                             withAnimation {
-                                currentPage += 1
-                                print("cleck")
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.right")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                    }
-                }
-                else {
-                    HStack(spacing: 80) {
-                        Button(action: {
-                            withAnimation {
-                                currentPage -= 1
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                        
-                        Button(action: {
-                            withAnimation {
                                 screen += 1
                             }
                         }, label: {
@@ -155,6 +138,7 @@ struct FeatureView: View {
                         })
                     }
                 }
+            
                 PageControl(numberOfPages: featuresData.count, currentPage: $currentPage)
                     .padding(.bottom, 20)
                 
@@ -171,7 +155,7 @@ struct FeatureView: View {
                 Text("Skip")
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
-                    .foregroundColor(.lightpurple)
+                    .foregroundColor(.BarIconColor)
                     .cornerRadius(10)
             }
                 .padding(.top, 20) // Adjust the spacing from the top edge

@@ -27,7 +27,7 @@ struct BreatheView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Toggle(isOn: $dailyHabitViewModel.isRemind, label: {
+                    Toggle(isOn: $isReminderActive, label: {
                         Text("Remind me ")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
@@ -47,11 +47,14 @@ struct BreatheView: View {
                     RoundedButton(
                         title: "Done",
                         action: {
-                            
-                            dailyHabitViewModel.updateReminder(name: "Mindful Breathing")
-                            
                             let notifEveryThreeHours: TimeInterval = 3600
-                            UserNotificationService.shared.scheduleNotification(type: "time", timeInterval: notifEveryThreeHours, title: "Breathe", body: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!⚡️", notifHour: nil)
+                            if isReminderActive{
+                                UserNotificationService.shared.scheduleNotification(identifier: "breathe", type: "time", timeInterval: notifEveryThreeHours, title: "Breathe", body: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!⚡️", notifHour: nil)
+                            }else {
+                                UserNotificationService.shared.disableNotifications(identifiers: ["breathe"])
+                            }
+                            
+                            dailyHabitViewModel.updateReminder(name: "Mindful Breathing", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()},
@@ -63,6 +66,7 @@ struct BreatheView: View {
             }
             .onAppear{
                 dailyHabitViewModel.getDailyHabit(name: "Mindful Breathing")
+                isReminderActive = dailyHabitViewModel.isRemind
             }
             .padding()
             .navigationTitle("Breathe")

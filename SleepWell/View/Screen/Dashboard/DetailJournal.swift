@@ -1,13 +1,14 @@
 //
-//  AddJournView.swift
+//  DetailJournal.swift
 //  SleepWell
 //
-//  Created by Billbert Pohandy on 12/11/23.
+//  Created by Muhammad Yusuf on 15/11/23.
+//
 
 import SwiftUI
 
-struct AddJournalView: View {
-    @State var journalText: String = ""
+struct DetailJournalView: View {
+    @State var journalText: String
     @State private var date: Date = Date()
     @Environment(\.presentationMode) var presentationMode
     
@@ -58,7 +59,7 @@ struct AddJournalView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
-                            saveEntry()
+                           
                             presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Done")
@@ -69,16 +70,8 @@ struct AddJournalView: View {
             }
         }.ignoresSafeArea(.keyboard, edges: .bottom)
     }
-    
-    private func saveEntry() {
-        // Implement your logic to save or update the journal entry
-        if !journalText.isEmpty {
-            let entry = JournalEntry(date: date, text: journalText)
-            PersistenceController.shared.saveJournal(journal: entry)
-        }
-    }
 }
 
-//#Preview {
-//    AddJournalView(journalEntries: .constant([]), journalText: "")
-//}
+#Preview {
+    DetailJournalView(journalText: "")
+}
