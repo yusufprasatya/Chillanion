@@ -6,13 +6,25 @@
       "scale" : "1x"
     },
     {
-      "filename" : "checkv2 1.png",
+      "filename" : "checkv2@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "checkv2 2.png",
+      "filename" : "checkv2@3x.png",
       "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],
