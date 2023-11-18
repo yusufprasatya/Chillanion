@@ -236,6 +236,7 @@ struct DashboardView: View {
             .background(LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         }
+        .navigationBarHidden(true)
     }
 }
 

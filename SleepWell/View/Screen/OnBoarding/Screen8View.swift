@@ -11,7 +11,8 @@ struct Screen8View: View {
     @Binding var screen: Int
     @Binding var name: String
     @Binding var averageSleepDuration:  String
-    @State private var wakeTime: Date = Date()
+    @State private var wakeTime: Date = Calendar.current.date(bySettingHour: 5, minute: 0, second: 0, of: Date()) ?? Date()
+
     var body: some View {
         NavigationStack {
             ZStack {

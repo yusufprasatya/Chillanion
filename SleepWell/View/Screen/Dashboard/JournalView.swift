@@ -48,7 +48,6 @@ struct JournalView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                
                     NavigationLink(destination: AddJournalView(), isActive: $isAddJournalViewPresented) {
                         Button(action: {
                             isAddJournalViewPresented = true
@@ -61,7 +60,6 @@ struct JournalView: View {
         }
     }
 }
-
 
 #Preview {
     JournalView()

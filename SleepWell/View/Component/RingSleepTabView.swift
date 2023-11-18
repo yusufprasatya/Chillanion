@@ -27,9 +27,7 @@ struct RingSleepTabView: View {
     @EnvironmentObject var sleepManager: SleepManager
     @ObservedObject private var userViewModel = UserViewModel()
     var sleepFilter = SleepFilter()
-    
     @State private var sleepEntry: [SleepEntry] = []
-    
     var body: some View {
         print("kerender berapa kali niich")
         return TabView(selection: $activeTab) {
@@ -63,9 +61,6 @@ struct RingSleepTabView: View {
                                     .padding(.top, 50)
                                     .padding(.leading, 12)
                             }
-                            Text("\(activeTab)")
-                                .font(.system(size: 32, weight: .medium, design: .rounded))
-                                .foregroundColor(.white)
                             ProgressBar(progress: $SleepBarProgress , lineWidth: .constant(30))
                                 .frame(width: 274, height: 274)
                                 .padding(.leading, 10)
@@ -103,21 +98,21 @@ struct RingSleepTabView: View {
                             .offset(x: -140)
                         HStack {
                             RoundedRectangleFeeling(category: "Before Sleep", feelEmoji: "😍")
-                                .onTapGesture{
-                                    showFullScreenCover.toggle()
-                                }
-                                .fullScreenCover(isPresented: $showFullScreenCover) {
-                                    // Your full-screen cover content
-                                    NightView()
-                                }
+                            //                                .onTapGesture{
+                            //                                    showFullScreenCover.toggle()
+                            //                                }
+                            //                                .fullScreenCover(isPresented: $showFullScreenCover) {
+                            //                                    // Your full-screen cover content
+                            //                                    NightView()
+                            //                                }
                             RoundedRectangleFeeling(category:"After Wake-up", feelEmoji: "😱")
-                                .onTapGesture{
-                                    showFullScreenCover.toggle()
-                                }
-                                .fullScreenCover(isPresented: $showFullScreenCover) {
-                                    // Your full-screen cover content
-                                    WakeUpView()
-                                }
+                            //                                .onTapGesture{
+                            //                                    showFullScreenCover.toggle()
+                            //                                }
+                            //                                .fullScreenCover(isPresented: $showFullScreenCover) {
+                            //                                    // Your full-screen cover content
+                            //                                    WakeUpView()
+                            //                                }
                         }
                         Text("Habit Tracker")
                             .font(.system(size: 17, weight: .semibold, design: .rounded))
@@ -139,9 +134,7 @@ struct RingSleepTabView: View {
                                 HabbitCard(icon: "😴", title: "power nap")
                             }.padding(.horizontal)
                             Spacer(minLength: 18)
-                            
                         }
-                        
                     }
                     .padding()
                     .background(
@@ -152,7 +145,6 @@ struct RingSleepTabView: View {
                     .offset(y: -50)
                     .tag(index)
                 }
-               
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -161,6 +153,10 @@ struct RingSleepTabView: View {
             DragGesture()
                 .updating($gestureOffset, body: { (value, state, _) in
                     state = value.translation.width
+                    withAnimation{
+                        weekStore.updatePreviousOrNextDay(to: direction)
+                    }
+                    
                 })
                 .onEnded({ value in
                     let offset = value.translation.width
@@ -173,7 +169,6 @@ struct RingSleepTabView: View {
         )
         .onAppear{
             userViewModel.getUser()
-            
             //get wakeUp and bedTime from user db
             wakeUpTime = userViewModel.wakeUpTime
             bedTimeCommitment = userViewModel.bedTimeCommitment
@@ -190,11 +185,6 @@ struct RingSleepTabView: View {
             }
             previousActiveTab = value
             print(gestureOffset)
-            
-            //            withAnimation {
-            //                weekStore.updatePreviousOrNextDay(to: direction)
-            //            }
-            
             
             sleepEntry = sleepFilter.filteringSleepStages(sleepData: sleepManager.sleepData, selectedDay: weekStore.selectedDate, sleepStage: "", startOfOpeningHours: weekStore.selectedDate.startOfDay, endOfOpeningHours: weekStore.selectedDate.endOfDay)
             withAnimation(Animation.easeInOut(duration: 2.0)) {

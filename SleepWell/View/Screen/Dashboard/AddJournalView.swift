@@ -51,18 +51,18 @@ struct AddJournalView: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
-                .navigationTitle("My Journal")
                 .navigationBarTitleDisplayMode(.inline)
-                .foregroundColor(.white)
                 .offset(y: -70)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
+                        Text("")
                         Button(action: {
                             saveEntry()
                             presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Done")
-                                .foregroundColor(.circular2)
+                                .foregroundColor(.BarIconColor)
+                            
                         }
                     }
                 }

@@ -19,7 +19,7 @@ struct MySleepView: View {
     @State private var dataSleep: [SleepEntry] = []
     @State var items: [Any] = []
     @State private var isShare: Bool = false
-    
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
@@ -37,7 +37,7 @@ struct MySleepView: View {
                     Spacer()
                     Group {
                         Button(action: {
-                            isDatePickerVisible.toggle()
+//                            isDatePickerVisible.toggle()
                         }) {
                             Image(systemName: "calendar")
                                 .font(.title)
@@ -47,19 +47,21 @@ struct MySleepView: View {
                             CalendarView(dates, mode: .basicCalendarMode)
                         }
                         
+                        
                         Button(action: {
                             self.items.removeAll()
                             guard let resultImage = ImageRenderer(content: shareView).uiImage else {
                                 return
                             }
                             self.items.append(resultImage)
-                            isShare.toggle()
+//                            isShare.toggle()
                         }) {
                             Image(systemName: "square.and.arrow.up")
                                 .font(.title)
                                 .accentColor(.white)
                                 .padding(.bottom, 5)
                         }
+                    
                         .sheet(isPresented: $isShare) {
                             ShareSheetView(items: items).edgesIgnoringSafeArea(.all)
                         }
@@ -68,24 +70,11 @@ struct MySleepView: View {
                 WeeksTabView() { week in
                     WeekView(activeTab: $selectedTab, sleepTabRing: $sleepTabRing, week: week)
                 }
-                
                 RingSleepTabView(activeTab: $selectedTab, sleepTabRing: $sleepTabRing, dataSleep: $dataSleep)
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
         }
-        //        .onAppear {
-        //            let calendar = Calendar.current
-        //            let currentDate = Date()
-        //
-        //            if let thirtyDaysAgo = calendar.date(byAdding: .day, value: -30, to: currentDate) {
-        //                let timeInterval = thirtyDaysAgo.timeIntervalSince1970
-        //                sleepManager.readSleep(from: thirtyDaysAgo, to: Date())
-        //
-        //            } else {
-        //                print("Error calculating date")
-        //            }
-        //
-        //        }
     }
     @State var screenWidthShare: CGFloat = 2000
     @State var screenHeightShare: CGFloat = 4330.18

@@ -13,43 +13,15 @@ struct SplashScreenView: View {
     @State private var union1Appear: CGFloat = -400
     var body: some View {
         ZStack {
-            //            Image("bg")
-            //                .resizable()
-            //                .scaledToFill()
-            //                .edgesIgnoringSafeArea(.all)
-            //                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            //
-            //            Image("Union1")
-            //                .resizable()
-            //                .aspectRatio(contentMode: .fit)
-            //                .frame(width: 405, height: 215)
-            //                .padding(.leading, -160)
-            //                .padding(.top, 100)
-            //                .offset(x: union1Appear)
-            //
-            //
-            //            Image("Union")
-            //                .resizable()
-            //                .aspectRatio(contentMode: .fit)
-            //                .frame(width: 466, height: 270)
-            //                .padding(.trailing, -70)
-            //                .padding(.top, 200)
-            //                .offset(x: unionAppear)
-            //
-            //            Image("KoalaSplashScreen")
-            //                .resizable()
-            //                .aspectRatio(contentMode: .fit)
-            //                .frame(width: 270, height: 270)
-            //                .padding(.bottom, 50)
-            //                .padding(.top,20)
-            //                .offset(y: chillaAppear)
+            LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
             
             VStack{
                 Spacer()
-                Image("LogoChillanion")
+                Image("KoalaSplashScreen")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 237, height: 226)
                     .padding(.bottom, 50)
                     .padding(.top,20)
 //                    .offset(y: chillaAppear)

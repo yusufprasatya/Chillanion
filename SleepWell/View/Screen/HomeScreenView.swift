@@ -18,31 +18,35 @@ struct HomeScreenView: View {
     
     var body: some View {
         // created by bilbert pohandy
-        TabView(selection: $selectedTab) {
+        TabView() {
             // First Tab: MainScreenView
             Group {
                 DashboardView()
                     .tabItem {
                         Label("Dashboard", systemImage: "star.fill")
                     }
-                    .tag(0)
-                
                 // Second Tab: Placeholder view
                 MySleepView()
                     .tabItem {
                         Label("My Sleep", systemImage: "moon.zzz")
                     }
-                    .tag(1)
-                
                 // Third Tab: Placeholder view
                 ProfileView()
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
-                    .tag(2)
             }
             .toolbarBackground(Color.navyBlueTabBar, for: .tabBar)
         }
+        .onAppear(perform: {
+            let tabBarAppearance = UITabBarAppearance()
+                           tabBarAppearance.configureWithOpaqueBackground()
+                           UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+                           // correct the transparency bug for Navigation bars
+                           let navigationBarAppearance = UINavigationBarAppearance()
+                           navigationBarAppearance.configureWithOpaqueBackground()
+                           UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        })
         .accentColor(.BarIconColor)
         .overlay(
             Group {
