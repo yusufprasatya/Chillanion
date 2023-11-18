@@ -46,58 +46,21 @@ struct ProfileView: View {
                                         RoundedRectangle(cornerRadius: 15)
                                             .fill(Color.imperialBlue)
                                             .frame(width: 342, height: 97)
-                                        VStack(alignment: .leading){
-                                            Text("Try to get a better life?")
-                                                .font(.system(size: 15, weight: .bold, design: .rounded))
+                                        HStack{
+                                            Text("Try to get a better life? Click here to see what we can improve together!")
+                                                .font(.system(size: 16, weight: .semibold, design: .rounded))
                                                 .foregroundColor(.white)
-                                            Text("See what we can improve together")
-                                                .font(.system(size: 15, weight: .bold, design: .rounded))
-                                                .foregroundColor(.white)
+                                                .multilineTextAlignment(.leading)
+                                                .padding(.leading)
+                                            Image("Koala 1")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 111, height: 79)
                                         }
-                                        .padding(.leading, -65)
-                                        
-                                        Image("Koala 1")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 147, height: 105)
-                                            .position(x: 300, y: 50)
-                                            .padding(.top, -20)
                                     }
-                                    //                                    VStack {
-                                    //                                        Text("Building habit is not easy, we know. But relax, Chilla will help and accompany your journey!")
-                                    //                                            .font(.system(size: 17, weight: .semibold, design: .rounded))
-                                    //                                            .padding(.bottom, 20)
-                                    //                                            .foregroundColor(.black)
-                                    //                                            .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                                    //                                    }.background(Rectangle()
-                                    //                                        .fill(LinearGradient(gradient: Gradient(colors: [.pastelLavender, .paleTaupe]), startPoint: .top, endPoint: .bottom))
-                                    //                                        .frame(width: 342, height: 97)
-                                    //                                        .cornerRadius(15))
-                                    //                                    .padding()
                                 })
                             }
                         }
-                        //                        Group {
-                        //                            Text("Daily Journal")
-                        //                                .font(.system(size: 20, weight: .bold, design: .rounded))
-                        //                                .foregroundColor(.white)
-                        //                            HStack {
-                        //                                NavigationLink(destination: {
-                        //                                }, label: {
-                        //                                    VStack {
-                        //                                        Text("Building habit is not easy, we know. But relax, Chilla will help and accompany your journey!")
-                        //                                            .font(.system(size: 17, weight: .semibold, design: .rounded))
-                        //                                            .padding(.bottom, 20)
-                        //                                            .foregroundColor(.black)
-                        //                                            .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                        //                                    }.background(Rectangle()
-                        //                                        .fill(LinearGradient(gradient: Gradient(colors: [.pastelLavender, .paleTaupe]), startPoint: .top, endPoint: .bottom))
-                        //                                        .frame(width: 342, height: 97)
-                        //                                        .cornerRadius(15))
-                        //                                    .padding()
-                        //                                })
-                        //                            }
-                        //                        }
                         Group {
                             Text("Things to Learn")
                                 .font(.system(size: 22, weight: .bold, design: .rounded))
@@ -122,6 +85,7 @@ struct ProfileView: View {
                                     //                                    VStack {
                                     
                                 })
+                                .disabled(true)
                                 NavigationLink(destination: {
                                     
                                 }, label: {
@@ -138,6 +102,7 @@ struct ProfileView: View {
                                                     .foregroundColor(.white)
                                             })
                                 })
+                                .disabled(true)
                             }
                             
                             HStack {
@@ -157,6 +122,7 @@ struct ProfileView: View {
                                                     .foregroundColor(.white)
                                             })
                                 })
+                                .disabled(true)
                                 NavigationLink(destination: {
                                     
                                 }, label: {
@@ -172,7 +138,7 @@ struct ProfileView: View {
                                                     .font(.system(size: 56, weight: .bold, design: .rounded))
                                                     .foregroundColor(.white)
                                             })
-                                })
+                                }).disabled(true)
                             }
                         }
                     }

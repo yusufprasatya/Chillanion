@@ -118,7 +118,7 @@ class WeekStore: ObservableObject {
         case .unknown:
             selectedDate = selectedDate
         }
-        print("jalan jugoo kann?")
-        calcDays(with: selectedDate)
+//        print("jalan jugoo kann?")
+//        calcDays(with: selectedDate)
     }
 }

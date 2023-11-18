@@ -47,7 +47,6 @@ struct WeekView: View {
                                 weekStore.selectedDate = week.dates[i]
                                 print("ini keberapo 2")
                             }
-                            
                         }, label: {
                             Text(week.dates[i].toString(format: "E").uppercased().prefix(1))
                                 .font(.system(size: 24, weight: .bold, design: .rounded))
