@@ -36,7 +36,7 @@ struct DashboardView: View {
     
     let sleepQualityData: [Double] = [8, 7, 9, 8, 9, 7, 8]
     
-    var body: some View {
+var body: some View {
         NavigationStack{
             ScrollView {
                 ZStack {

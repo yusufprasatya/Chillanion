@@ -13,39 +13,41 @@ struct DashboardView2: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-               
-                    Text("Dashboard")
-                        .foregroundStyle(Color.black)
-                        .fontWeight(.bold)
-                        .font(.system(size: 34))
+            VStack{
                 
+                Text("Hi, Gemi!")
+                    .foregroundStyle(Color.white)
+                    .fontWeight(.bold)
+                    .font(.system(size: 34))
+                    .offset(x: -126, y: 20)
+                    .fixedSize(horizontal: true, vertical: false)
+                    .frame(width: 110, alignment: .leading)
                 HStack {
                     VStack {
-                        Text("Hi, Gemi!")
-                            .foregroundStyle(Color.black)
-                            .fontWeight(.semibold)
-                            .font(.system(size: 28))
-                            .offset(x: -48)
-                            
                         
-                        Text("Your sleep time goal:")
-                            .foregroundStyle(Color.black)
-                            .font(.system(size: 17))
-                            .offset(x: -25)
-                        Text("23.30")
-                            .foregroundStyle(Color.black)
+                        Text("Your Last night’s sleep duration:")
+                            .foregroundStyle(Color.white)
                             .fontWeight(.semibold)
-                            .font(.system(size: 40))
-                            .offset(x: -50)
-                        Text("It's 6 hours before sleep!")
-                            .foregroundStyle(Color.black)
+                            .font(.system(size: 17))
+                            .offset(x: -40)
+                        Text("0%")
+                            .foregroundStyle(Color.white)
+                            .fontWeight(.semibold)
+                            .font(.system(size: 32))
+                            .offset(x: -84)
+                            .padding(.top, -4)
+                            .padding(.bottom, 2)
+                        Text("Based on your commitment")
+                            .foregroundStyle(Color.white)
                             .fontWeight(.medium)
-                            .font(.system(size: 20))
-                            .offset(x: 1)
+                            .font(.system(size: 13))
+                            .offset(x: -24)
                             .lineLimit(1)
+                            .frame(width: 224)
+                        
+                        
                     }
-                   
+                    
                     ZStack{
                         CircularBarView(progress: $SleepBarProgress)
                         switch SleepBarProgress {
@@ -53,60 +55,103 @@ struct DashboardView2: View {
                             Image("koalaSoso")
                                 .resizable()
                                 .frame(width: 93, height: 67)
-                                
+                            
                         case 0.50..<0.75:
                             Image("koalaGood")
                                 .resizable()
                                 .frame(width: 93, height: 67)
-                               
+                            
                         case 0.75...2.0:
                             Image("koalaHappy")
                                 .resizable()
                                 .frame(width: 93, height: 67)
-                                
+                            
                         default:
                             Image("KoalaSad")
                                 .resizable()
                                 .frame(width: 93, height: 67)
-                               
+                            
                         }
                     }
                 }
-                .border(Color.blue)
-
+               
+                .padding(.bottom, 4)
+                
+                
+                HStack{
+                    Spacer()
+                    Text("Your sleep time goal:")
+                        .foregroundStyle(Color.white)
+                        .fontWeight(.medium)
+                        .font(.system(size: 17))
+                    Spacer()
+                    Text("23.30")
+                        .foregroundStyle(Color.white)
+                        .fontWeight(.bold)
+                        .font(.system(size: 34))
+                    Spacer()
+                }
+                .background(
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 343, height: 55)
+                        .background(Color.timegoalbg)
+                        .cornerRadius(15))
+                
+                
                 ZStack {
                     Image("chillatips2")
                         .offset(x: -8.5, y: -12)
-                        
+                    
                     Text("Welcome!\nLater, You can see your sleep report here!")
                         .foregroundStyle(Color.white)
                         .fontWeight(.medium)
                         .font(.system(size: 17))
                         .offset(y: 20)
+                        .lineLimit(3)
+                        .multilineTextAlignment(.center)
                         .frame(width: 305, height: 73, alignment: .top)
                 }
-                .border(Color.black)
-
+               
+                
                 Text("Today’s Habit☀️")
-                Text("Seems like you don’t have any habit list\nimprove. Set your habit reminder in the\nexplore page or")
-
-                RoundedButton(
-                    title: "Tap Here",
-                    action: {
-                        
-                    },
-                    backgroundColor: .primaryButton,
-                    foregroundColor: .white,
-                    cornerRadius: 15
-                )
-            }.border(Color.red)
-            .padding()
-        }
+                    .foregroundStyle(Color.white)
+                    .offset(x: -105)
+                    .fontWeight(.bold)
+                    .font(.system(size: 20))
+             
+                    Image("KoalaSad")
+                        .resizable()
+                        .frame(width: 100, height: 79)
+                    
+                    
+                    Text("Seems like you don’t have any habit\nreminder list. Set your habit reminder in\nthe explore page.")
+                        .foregroundStyle(Color.white)
+                        .multilineTextAlignment(.center)
+                        .fontWeight(.medium)
+                        .font(.system(size: 17))
+                        .padding(.top, 1)
+                        .padding(.bottom, 12)
+                    
+                    RoundedButton(
+                        title: "Go to Habit Reminder",
+                        action: {
+                            
+                        },
+                        backgroundColor: .primaryButton,
+                        foregroundColor: .white,
+                        cornerRadius: 15
+                    ) .fontWeight(.bold)
+                        .font(.system(size: 17))
+                
+            }
+                .padding()
+        }.background(LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
     }
 }
-
 
 #Preview {
     DashboardView2()
