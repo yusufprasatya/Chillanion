@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct HomeScreenView: View {
     @ObservedObject private var userViewModel = UserViewModel()
     @ObservedObject private var health = SleepManager()
@@ -16,57 +17,60 @@ struct HomeScreenView: View {
     @State private var selectedTab = 0
     @State private var isOverlayVisible = true
     
+   
     var body: some View {
-        // created by bilbert pohandy
+     
         TabView(selection: $selectedTab) {
-            // First Tab: MainScreenView
             Group {
                 DashboardView()
                     .tabItem {
                         Label("Dashboard", systemImage: "star.fill")
+                        
                     }
                     .tag(0)
                 
-                // Second Tab: Placeholder view
                 MySleepView()
                     .tabItem {
                         Label("My Sleep", systemImage: "moon.zzz")
                     }
                     .tag(1)
                 
-                // Third Tab: Placeholder view
                 ProfileView()
                     .tabItem {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
                     .tag(2)
             }
-            .toolbarBackground(Color.navyBlueTabBar, for: .tabBar)
+        }.onAppear {
+            UITabBar.appearance().backgroundColor = UIColor.clear.withAlphaComponent(0.75) // Adjust alpha as needed
+            UITabBar.appearance().backgroundImage = UIImage()
+            UITabBar.appearance().shadowImage = UIImage()
+        
         }
-        .accentColor(.BarIconColor)
-        .overlay(
-            Group {
-                if !UserDefaults.standard.showCaseDashboard {
-                    Color.black.opacity(0.91)
-                        .edgesIgnoringSafeArea(.all)
-                        .onTapGesture {
-                            withAnimation {
-                                if isOverlayVisible { // Add a check here
-                                    isOverlayVisible.toggle()
+            .accentColor(.BarIconColor)
+            .background(Color.black.opacity(0.5).blur(radius: 5))
+            .overlay(
+                Group {
+                    if !UserDefaults.standard.showCaseDashboard {
+                        Color.black.opacity(0.70)
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                withAnimation {
+                                    if isOverlayVisible {
+                                        isOverlayVisible.toggle()
+                                    }
                                 }
                             }
-                        }
+                    }
                 }
-            }
-        )
-        if !UserDefaults.standard.showCaseDashboard{
-            // This will keep the Dashboard area visible
-            DashboardViewOverlay(isOverlayVisible: $isOverlayVisible)
-                .opacity(isOverlayVisible ? 1 : 0)
-        }
+            )
         
+            if !UserDefaults.standard.showCaseDashboard {
+                DashboardViewOverlay(isOverlayVisible: $isOverlayVisible)
+                    .opacity(isOverlayVisible ? 1 : 0)
+            }
+        }
     }
-}
 
 struct DashboardViewOverlay: View {
     @Binding var isOverlayVisible: Bool

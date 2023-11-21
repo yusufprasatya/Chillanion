@@ -15,9 +15,8 @@ struct CircularBarView: View {
         print("progress \(progress)")
        return VStack {
            ProgressBar(progress: $progress, lineWidth: .constant(15))
-               .frame(width: 167, height: 167)
-               .padding(.leading, 10)
-               .padding(.top, 50)
+               .frame(width: 105, height: 105)
+              
 //            Button(action: {
 //                // Increase progress by 0.05 each time the button is tapped
 //                self.progress = min(self.progress + 0.05, 1.0)

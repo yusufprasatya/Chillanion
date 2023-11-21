@@ -4,167 +4,78 @@
 //
 //  Created by Muhammad Yusuf on 31/10/23.
 //
-
 import SwiftUI
-
 struct FeatureView: View {
     @Binding var screen: Int
     @State private var currentPage = 0
-    @State private var showSkipButton = false // Added state for showing/hiding "Skip" button
-    
     let featuresData: [FeatureScreenData] = [
-        //        FeatureScreenData(title: "Imagine....", description: "if you can have a friend who can", imageName: ""),
         FeatureScreenData(title: "Plan", description: "Help you to schedule your bed time, slowly, but consistently.", imageName: "PlanImage"),
         FeatureScreenData(title: "Track", description: "Help you to track your progress in improving your sleep schedule.", imageName: "TrackImage"),
         FeatureScreenData(title: "Remind", description: "Remind you about what habit you can improve to have a better sleeping schedule.", imageName: "RemindImage")
     ]
     
     var body: some View {
-        TabView(selection: $currentPage) {
-            ForEach(0..<featuresData.count, id: \.self) { index in
-                FeaturesScreenView(featureScreenData: featuresData[index])
-                    .tag(index)
-            }
-        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .background(
-            Image("OnboardingImage")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .edgesIgnoringSafeArea(.all)
-        )
-        .overlay(
-            VStack {
-                Spacer()
-                if currentPage == 0 {
-                    HStack(spacing: 80){
-                        Button(action: {
-                            withAnimation {
-                                screen -= 1
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                        
-                        Button(action: {
-                            withAnimation {
-                                currentPage += 1
-                                print("click")
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.right")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                    }
-                } else if currentPage == 1 {
-                    HStack(spacing: 80) {
-                        Button(action: {
-                            withAnimation {
-                                currentPage -= 1
-                                print("cluck")
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                        
-                        Button(action: {
-                            withAnimation {
-                                currentPage += 1
-                                print("cleck")
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.right")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                    }
-                }else if currentPage == 2 {
-                    HStack(spacing: 80) {
-                        Button(action: {
-                            withAnimation {
-                                currentPage -= 1
-                                print("cluck")
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                        
-                        Button(action: {
-                            withAnimation {
-                                screen += 1
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "chevron.right")
-                                    .font(.title)
-                                    .frame(width: 43, height: 41)
-                                    .foregroundColor(.white)
-                                    .background(Color.primaryButton)
-                                    .cornerRadius(15)
-                            }
-                        })
-                    }
+        NavigationView {
+            TabView(selection: $currentPage) {
+                ForEach(0..<featuresData.count, id: \.self) { index in
+                    FeatureScreenView(featureScreenData: featuresData[index])
+                        .tag(index)
                 }
-            
-                PageControl(numberOfPages: featuresData.count, currentPage: $currentPage)
-                    .padding(.bottom, 20)
-                
             }
-        )
-        .overlay(
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .background(
+                Image("blankbg")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .edgesIgnoringSafeArea(.all)
+            )
+            .overlay(
+                VStack {
+                    Spacer()
+                    HStack {
+                        
+                        if currentPage == featuresData.count - 1 {
+                                Button(action: {
+                                    withAnimation {
+                                        screen += 1
+                                    }
+                                }) {
+                                    Text("Get Started")
+                                        .frame(maxWidth: 340, maxHeight: 60)
+                                        .background(Color.primaryButton)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(15)
+                                        .offset(y: 18)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 20)
+                    
+                    // PageControl with circle dots
+                    PageControl(numberOfPages: featuresData.count, currentPage: $currentPage)
+                        .padding(.bottom, 20)
+                }
+                .navigationBarHidden(true)
+            )
+        }.overlay(
             // Skip Button
             Button(action: {
                 // Handle the action for "Skip"
                 withAnimation {
-                    screen += 1
+                    screen += 2
                 }
             }) {
                 Text("Skip")
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
+                    .padding(.horizontal, 23)
+                    .padding(.vertical, 54)
                     .foregroundColor(.BarIconColor)
                     .cornerRadius(10)
             }
-                .padding(.top, 20) // Adjust the spacing from the top edge
-                .padding(.trailing, 20) // Adjust the spacing from the right edge
             , alignment: .topTrailing
         )
     }
 }
-
 
 struct FeatureScreenData {
     let title: String
@@ -172,7 +83,7 @@ struct FeatureScreenData {
     let imageName: String
 }
 
-struct FeaturesScreenView: View {
+struct FeatureScreenView: View {
     var featureScreenData: FeatureScreenData
     
     var body: some View {
@@ -213,18 +124,17 @@ struct PageControl: View {
     @Binding var currentPage: Int
     
     var body: some View {
-        VStack{
-            HStack {
-                ForEach(0..<numberOfPages) { index in
-                    Circle()
-                        .fill(index == currentPage ? Color.white : Color.primaryButton)
-                        .frame(width: 8, height: 8)
-                }
+        HStack {
+            ForEach(0..<numberOfPages, id: \.self) { index in
+                Circle()
+                    .fill(index == currentPage ? Color.white : Color.primaryButton)
+                    .frame(width: 8, height: 8)
+                    .offset(y: 18)
             }
-            .padding(.top, 20)
         }
     }
 }
+
 #Preview {
     FeatureView(screen: .constant(1))
 }

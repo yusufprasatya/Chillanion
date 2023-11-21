@@ -4,9 +4,7 @@
 //
 //  Created by Billbert Pohandy on 12/11/23.
 //
-
 import SwiftUI
-
 struct JournalComponent: View {
     let date: String
     let text: String
@@ -16,24 +14,23 @@ struct JournalComponent: View {
         VStack(alignment: .leading) {
             HStack {
                 Circle()
-                    .fill(Color.circular3)
-                    .frame(width: 23, height: 23)
-                
+                    .fill(Color.circular1)
+                    .frame(width: 15, height: 15)
+                    .offset(x: 3)
                 Text(date)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color.circular3)
+                    .foregroundColor(Color.circular1)
                     .font(.system(size: 22))
             }
             .padding(.leading, -10)
             
             HStack {
                 Rectangle()
-                    .fill(Color.circular3)
+                    .fill(Color.circular1)
                     .frame(width: 2, height: 80)
                 
                 // Wrap the Rectangle in a Button
                 Button(action: {
-                    // Call the onEditTapped closure when the button is tapped
                     onEditTapped?()
                 }) {
                     ZStack {
@@ -43,18 +40,23 @@ struct JournalComponent: View {
                             .cornerRadius(10)
                         
                         Text(text)
-                            .fontWeight(.semibold)
-                            .font(.system(size: 12))
+                            .font(Font.custom("Alegreya Sans", size: 15))
+                            .foregroundColor(Color.black)
                             .padding(.top, 7.5)
                             .frame(width: 290, height: 74, alignment: .topLeading)
                     }
+                }
+                .onTapGesture {
+                    onEditTapped?()
                 }
             }
         }
         .padding(.horizontal)
     }
 }
-
-#Preview {
-    JournalComponent(date: "", text: "")
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        JournalComponent(date: "", text: "")
+    }
 }
+

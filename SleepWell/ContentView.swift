@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var isSplashNotAppear = false
     
     init() {
-        UITabBar.appearance().barTintColor = .black
+        UITabBar.appearance().barTintColor = .clear
     }
     
     var body: some View {

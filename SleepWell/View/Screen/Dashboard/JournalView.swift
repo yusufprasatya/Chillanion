@@ -7,12 +7,22 @@
 
 import SwiftUI
 
+class JournalViewCoordinator: NSObject, ObservableObject {
+    @Published var selectedJournalID: UUID?
+    
+    func showDetail(for journalID: UUID) {
+        selectedJournalID = journalID
+    }
+}
+
 struct JournalView: View {
     @State private var isAddingEntry = false
     @State private var isAddJournalViewPresented = false
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\Journal.create_date, order: .reverse)])
     private var journalEntries: FetchedResults<Journal>
+    
+    @ObservedObject private var coordinator = JournalViewCoordinator()
     
     var body: some View {
         NavigationStack {
@@ -34,11 +44,12 @@ struct JournalView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 20) {
                             ForEach(journalEntries, id: \.id) { entry in
-                                NavigationLink(destination: {
-                                    DetailJournalView(journalText: entry.text ?? "")
-                                }, label: {
-                                    JournalComponent(date: DateUtil.formatDatedmmmyyyy(date: entry.create_date!), text: entry.text ?? "")
-                                })
+                                JournalComponent(
+                                    date: DateUtil.formatDatedmmmyyyy(date: entry.create_date!),
+                                    text: entry.text ?? ""
+                                ) {
+                                    coordinator.showDetail(for: entry.id!)
+                                }
                             }
                         }
                         .padding(.horizontal, 25)
@@ -46,23 +57,38 @@ struct JournalView: View {
                     .padding(.bottom, 140)
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                
-                    NavigationLink(destination: AddJournalView(), isActive: $isAddJournalViewPresented) {
-                        Button(action: {
-                            isAddJournalViewPresented = true
-                        }) {
-                            Image("addButton")
-                        }
-                    }
+            
+            
+            .background(
+                NavigationLink(
+                    destination: DetailJournalView(
+                        journalText: journalEntries
+                                        .first(where: { $0.id == coordinator.selectedJournalID })?
+                                        .text ?? ""
+                    ),
+                    isActive: Binding(
+                                               get: { coordinator.selectedJournalID != nil },
+                                               set: { _ in coordinator.selectedJournalID = nil }
+                                           )
+                                       ) {
+                                           EmptyView()
+                                       }
+            )
+            
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(destination: AddJournalView()) {
+                    Image("addButton")
                 }
             }
         }
     }
 }
-
-
+extension Optional {
+    var isNotNil: Bool {
+        self != nil
+    }
+}
 #Preview {
     JournalView()
 }

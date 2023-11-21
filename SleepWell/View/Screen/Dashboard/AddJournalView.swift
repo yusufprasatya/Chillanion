@@ -33,18 +33,20 @@ struct AddJournalView: View {
                             .frame(width: 342, height: 687)
                             .clipped()
                         Text("\(DateUtil.formatDate(date: date))")
-                            .font(.system(size: 20))
+                            .font(Font.custom("Sansita Swashen", size: 25))
                             .foregroundColor(Color.black)
                             .background(Color.clear)
                             .offset(x: -80, y: -305)
                         TextEditor(text: $journalText)
                             .scrollContentBackground(.hidden)
                             .offset(y: 17)
-                            .foregroundColor(Color.black)
-                            .font(.system(size: 20))
+                            .foregroundColor(Color.journaltext)
+                            .font(Font.custom("Alegreya Sans", size: 25))
+
                             .lineSpacing(10.7)
                             .background(Color.clear)
                             .frame(width: 302, height: 627)
+                            .accentColor(.black)
                             .scrollDisabled(true)
                             .lineLimit(18)
                             .fixedSize(horizontal: false, vertical: true)
@@ -52,7 +54,7 @@ struct AddJournalView: View {
                 }
                 .navigationTitle("My Journal")
                 .navigationBarTitleDisplayMode(.inline)
-                .foregroundColor(.white)
+                .foregroundColor(Color.white)
                 .offset(y: -70)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -61,7 +63,7 @@ struct AddJournalView: View {
                             presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Done")
-                                .foregroundColor(.circular2)
+                                .foregroundColor(.circular1)
                         }
                     }
                 }
@@ -78,6 +80,6 @@ struct AddJournalView: View {
     }
 }
 
-//#Preview {
-//    AddJournalView(journalEntries: .constant([]), journalText: "")
-//}
+#Preview {
+    JournalView()
+}

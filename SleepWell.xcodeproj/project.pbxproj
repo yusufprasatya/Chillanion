@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF036E092B0A837A00DDFBB4 /* DashboardView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF036E082B0A837A00DDFBB4 /* DashboardView2.swift */; };
+		BFC0FF672B0540BC00A6B382 /* Alegreya Sans Regular 400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFC0FF662B0540BC00A6B382 /* Alegreya Sans Regular 400.ttf */; };
+		BFC0FF692B055AE400A6B382 /* SansitaSwashed-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFC0FF682B055AE400A6B382 /* SansitaSwashed-VariableFont_wght.ttf */; };
 		DA046C982AF93FA5003EFE3A /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA046C972AF93FA5003EFE3A /* Calendar.swift */; };
 		DA046C9B2AF9402E003EFE3A /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = DA046C9A2AF9402E003EFE3A /* FSCalendar */; };
 		DA046C9D2AF940BF003EFE3A /* Extension+Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA046C9C2AF940BF003EFE3A /* Extension+Calender.swift */; };
@@ -133,6 +136,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF036E082B0A837A00DDFBB4 /* DashboardView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView2.swift; sourceTree = "<group>"; };
+		BFC0FF612B04D81E00A6B382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BFC0FF662B0540BC00A6B382 /* Alegreya Sans Regular 400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Alegreya Sans Regular 400.ttf"; path = "../../../../../Downloads/Alegreya Sans Regular 400.ttf"; sourceTree = "<group>"; };
+		BFC0FF682B055AE400A6B382 /* SansitaSwashed-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SansitaSwashed-VariableFont_wght.ttf"; path = "../../../../../Downloads/Sansita_Swashed 3/SansitaSwashed-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		DA046C972AF93FA5003EFE3A /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		DA046C9C2AF940BF003EFE3A /* Extension+Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Calender.swift"; sourceTree = "<group>"; };
 		DA046C9E2AF9E116003EFE3A /* WeekUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekUtil.swift; sourceTree = "<group>"; };
@@ -314,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9099B82AE909D50011B09B /* DashboardView.swift */,
+				BF036E082B0A837A00DDFBB4 /* DashboardView2.swift */,
 				DAF2F62B2AEEAD2D004C8F72 /* SleepReminderView.swift */,
 				DA3028382AEF959E00A334FA /* TodayStepView.swift */,
 				DA945B282AEFB6F5009E7D64 /* JournalView.swift */,
@@ -404,6 +412,7 @@
 		DACC39372AD531F2002E488D /* SleepWell */ = {
 			isa = PBXGroup;
 			children = (
+				BFC0FF612B04D81E00A6B382 /* Info.plist */,
 				DA8CE7622AE7B01A00884062 /* Persistence */,
 				DABFA3422AE133980012DEC2 /* SleepWell.entitlements */,
 				DABFA33D2AE132420012DEC2 /* View Model */,
@@ -511,6 +520,8 @@
 				DAED2F512AFFFBE900915BC7 /* HabbitCard.swift */,
 				DA1D17462B01542400CDA3C6 /* RoundedFeelingView.swift */,
 				DA1D174A2B02144800CDA3C6 /* JournalComponent.swift */,
+				BFC0FF662B0540BC00A6B382 /* Alegreya Sans Regular 400.ttf */,
+				BFC0FF682B055AE400A6B382 /* SansitaSwashed-VariableFont_wght.ttf */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -664,7 +675,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACC39402AD531F4002E488D /* Preview Assets.xcassets in Resources */,
+				BFC0FF692B055AE400A6B382 /* SansitaSwashed-VariableFont_wght.ttf in Resources */,
 				DACC393D2AD531F4002E488D /* Assets.xcassets in Resources */,
+				BFC0FF672B0540BC00A6B382 /* Alegreya Sans Regular 400.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +800,7 @@
 				DAEA59272B048395002FC70C /* WakeUpView.swift in Sources */,
 				DAEA59232B0481C4002FC70C /* DetailJournal.swift in Sources */,
 				DA8DC4452AF03B3000FA476A /* SplashScreenView.swift in Sources */,
+				BF036E092B0A837A00DDFBB4 /* DashboardView2.swift in Sources */,
 				DA3028392AEF959E00A334FA /* TodayStepView.swift in Sources */,
 				DA8CE73E2AE77E9B00884062 /* PlanView.swift in Sources */,
 			);
@@ -951,12 +965,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = SleepWell/SleepWell.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SleepWell/Preview Content\"";
-				DEVELOPMENT_TEAM = LC2HFZR2DS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SleepWell/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
@@ -972,8 +987,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ilb.com.SleepWell;
+				PRODUCT_BUNDLE_IDENTIFIER = billbert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -987,12 +1003,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = SleepWell/SleepWell.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SleepWell/Preview Content\"";
-				DEVELOPMENT_TEAM = LC2HFZR2DS;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SleepWell/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
@@ -1008,8 +1025,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ilb.com.SleepWell;
+				PRODUCT_BUNDLE_IDENTIFIER = billbert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
