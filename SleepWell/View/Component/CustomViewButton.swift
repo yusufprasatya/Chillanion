@@ -27,8 +27,9 @@ struct CustomViewButton: View {
             }
         }) {
             ZStack {
-                Color(activitybgColor)
+                activitybgColor
                     .frame(width: 341, height: 93)
+                    .cornerRadius(15)
                 HStack {
                     Text(icon)
                         .font(.system(size: 40, weight: .medium, design: .rounded))
@@ -59,8 +60,8 @@ struct CustomViewButton: View {
                         .scaleEffect(scaleFactor)
                 }
             }
-            .cornerRadius(10)
         }
+        .padding(.bottom, -10)
     }
     
     var activitybgColor: Color {

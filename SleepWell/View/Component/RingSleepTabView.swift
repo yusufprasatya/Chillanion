@@ -21,180 +21,205 @@ struct RingSleepTabView: View {
     @State private var onTapGesture: Bool = false
     @State private var percentageOfSleep = 0.0
     @State private var showFullScreenCover = false
+    @State private var actualBedTime: Date = Date()
+    @State private var actualWakeUp: Date = Date()
+    @State private var commitmentWakeUp: Date = Date()
+    @State private var commitmentBedTime: Date = Date()
+    @State private var isAlertPresented: Bool =  false
+    
+    @State private var timeLateWakeUp: (hours: Int, minutes: Int) = (hours: 0, minutes: 0)
+    @State private var timeLateBedTime: (hours: Int, minutes: Int) = (hours: 0, minutes: 0)
     
     @GestureState private var gestureOffset: CGFloat = 0
     
+    @FetchRequest(sortDescriptors: [SortDescriptor(\TodaysHabit.date)])
+    private var todaysHabit: FetchedResults<TodaysHabit>
+    
     @EnvironmentObject var sleepManager: SleepManager
     @ObservedObject private var userViewModel = UserViewModel()
+    @ObservedObject private var healthManager = HealthManager()
     var sleepFilter = SleepFilter()
     @State private var sleepEntry: [SleepEntry] = []
     var body: some View {
-        print("kerender berapa kali niich")
-        return TabView(selection: $activeTab) {
-            ForEach(0..<sleepTabRing, id: \.self) { index in
-                ScrollView{
-                    VStack {
-                        ZStack {
-                            switch SleepBarProgress {
-                            case 0.25..<0.50:
-                                Image("koalaSoso")
-                                    .resizable()
-                                    .frame(width: 270, height: 215)
-                                    .padding(.top, 50)
-                                    .padding(.leading, 12)
-                            case 0.50..<0.75:
-                                Image("koalaGood")
-                                    .resizable()
-                                    .frame(width: 270, height: 215)
-                                    .padding(.top, 50)
-                                    .padding(.leading, 12)
-                            case 0.75...2.0:
-                                Image("koalaHappy")
-                                    .resizable()
-                                    .frame(width: 270, height: 215)
-                                    .padding(.top, 50)
-                                    .padding(.leading, 12)
-                            default:
-                                Image("KoalaSad")
-                                    .resizable()
-                                    .frame(width: 270, height: 215)
-                                    .padding(.top, 50)
-                                    .padding(.leading, 12)
-                            }
-                            ProgressBar(progress: $SleepBarProgress , lineWidth: .constant(30))
-                                .frame(width: 274, height: 274)
-                                .padding(.leading, 10)
-                                .padding(.top, 50)
-                        }
-                        .padding()
-                        Group {
-                            Text("Sleep duration")
-                                .font(.system(size: 18, weight: .medium, design: .rounded))
-                                .foregroundColor(.white)
-                            Text("\(DateUtil.formatDoubleToString(param: percentageOfSleep))%")
-                                .font(.system(size: 32, weight: .semibold, design: .rounded))
-                                .foregroundColor(.white)
-                                .padding(.bottom, 46)
-                        }
-                        HStack {
-                            Text("Targetted time")
-                                .font(.system(size: 17, weight: .medium, design: .rounded))
-                                .foregroundColor(.white)
-                                .padding(.trailing, 12)
-                            Text("Actual time")
-                                .font(.system(size: 17, weight: .medium, design: .rounded))
-                                .foregroundColor(.white)
-                            Spacer()
-                        }
-                        .offset(x: 135)
-                        RoundedRectanglePink(fillColor: Color.lightPink, targetedTime: DateUtil.formatDateToString(param: bedTimeCommitment), actualTime: "00.00", category: "Sleep")
-                            .padding(.leading, 15)
-                        RoundedRectanglePink(fillColor: Color.softYellow, targetedTime: DateUtil.formatDateToString(param: wakeUpTime), actualTime: "07.30", category: "Wake-up")
-                            .padding(.leading, 15)
-                        Text("Feelings")
-                            .font(.system(size: 17, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.top, 28)
-                            .offset(x: -140)
-                        HStack {
-                            RoundedRectangleFeeling(category: "Before Sleep", feelEmoji: "😍")
-                            //                                .onTapGesture{
-                            //                                    showFullScreenCover.toggle()
-                            //                                }
-                            //                                .fullScreenCover(isPresented: $showFullScreenCover) {
-                            //                                    // Your full-screen cover content
-                            //                                    NightView()
-                            //                                }
-                            RoundedRectangleFeeling(category:"After Wake-up", feelEmoji: "😱")
-                            //                                .onTapGesture{
-                            //                                    showFullScreenCover.toggle()
-                            //                                }
-                            //                                .fullScreenCover(isPresented: $showFullScreenCover) {
-                            //                                    // Your full-screen cover content
-                            //                                    WakeUpView()
-                            //                                }
-                        }
-                        Text("Habit Tracker")
-                            .font(.system(size: 17, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.top, 19)
-                            .offset(x: -120)
-                        
-                        VStack {
-                            Spacer(minLength: 18)
-                            HStack {
-                                HabbitCard(icon: "☀️", title: "sunlight exposure")
-                                Spacer()
-                                HabbitCard(icon: "💡", title: "short breaks")
-                            }
-                            .padding(.horizontal)
-                            HStack {
-                                HabbitCard(icon: "💧", title: "stay hydrated")
-                                Spacer()
-                                HabbitCard(icon: "😴", title: "power nap")
-                            }.padding(.horizontal)
-                            Spacer(minLength: 18)
-                        }
-                    }
-                    .padding()
-                    .background(
-                        Image("bgSTars")
-                            .resizable()
-                            .scaledToFit()
-                            .ignoresSafeArea(.all))
-                    .offset(y: -50)
-                    .tag(index)
+        
+        return ScrollView {
+            ZStack {
+                switch SleepBarProgress {
+                case 0.25..<0.50:
+                    Image("koalaSoso")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 130, height: 130)
+                        .padding(.top, 50)
+                        .padding(.leading, 12)
+                case 0.50..<0.75:
+                    Image("koalaGood")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 130, height: 130)
+                        .padding(.top, 50)
+                        .padding(.leading, 12)
+                case 0.75...2.0:
+                    Image("koalaHappy")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 130, height: 130)
+                        .padding(.top, 50)
+                        .padding(.leading, 12)
+                default:
+                    Image("KoalaSad")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 130, height: 130)
+                        .padding(.top, 50)
+                        .padding(.leading, 12)
                 }
+                ProgressBar(progress: $SleepBarProgress , lineWidth: .constant(30))
+                    .frame(width: 274, height: 274)
+                    .padding(.leading, 10)
+                    .padding(.top, 50)
             }
-        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-        .gesture(
-            DragGesture()
-                .updating($gestureOffset, body: { (value, state, _) in
-                    state = value.translation.width
-                    withAnimation{
-                        weekStore.updatePreviousOrNextDay(to: direction)
+            .background(Image("starsProfile").resizable().scaledToFit().ignoresSafeArea())
+            .padding()
+            .onAppear{
+                userViewModel.getUser()
+                //get wakeUp and bedTime from user db
+                wakeUpTime = userViewModel.wakeUpTime
+                bedTimeCommitment = userViewModel.bedTimeCommitment
+            }
+            .onChange(of: activeTab) { val in
+                if val > previousActiveTab {
+                    direction = .future
+                } else if val < previousActiveTab {
+                    direction = .past
+                }
+                
+                
+                let calendar = Calendar.current
+                let actualBedTimeTmp = DateUtil.combineDateWithSelectedTime(specificDate: bedTimeCommitment, selectedDate: weekStore.selectedDate) ?? Date()
+                
+                withAnimation(Animation.easeInOut(duration: 2.0)) {
+                    commitmentWakeUp = DateUtil.combineDateWithSelectedTime(specificDate: wakeUpTime, selectedDate: weekStore.selectedDate) ?? Date()
+                    commitmentBedTime = calendar.date(byAdding: .day, value: -1, to: actualBedTimeTmp) ?? Date()
+                    sleepEntry = sleepFilter.filteringSleepDaily(sleepData: sleepManager.sleepData, selectedDay: weekStore.selectedDate, startOfOpeningHours: commitmentBedTime, endOfOpeningHours: commitmentWakeUp.addingTimeInterval(10 * 60 * 60))
+                    if !sleepEntry.isEmpty {
+                        actualBedTime = sleepEntry.first!.startDate
+                        actualWakeUp = sleepEntry.last!.endDate
                     }
                     
-                })
-                .onEnded({ value in
-                    let offset = value.translation.width
-                    let tabWidth = UIScreen.main.bounds.width
-                    let changeInTab = Int(offset / tabWidth)
-                    withAnimation {
-                        activeTab = (activeTab - changeInTab).clamped(to: 0...(4))
-                    }
-                })
-        )
-        .onAppear{
-            userViewModel.getUser()
-            //get wakeUp and bedTime from user db
-            wakeUpTime = userViewModel.wakeUpTime
-            bedTimeCommitment = userViewModel.bedTimeCommitment
-            let calendar = Calendar.current
-            let currentDate = Date()
-            let thirtyDaysAgo = calendar.date(byAdding: .day, value: -30, to: currentDate)
-            sleepManager.readSleep(from: thirtyDaysAgo, to: Date())
-        }
-        .onChange(of: activeTab) { value in
-            if value > previousActiveTab {
-                direction = .future
-            } else if value < previousActiveTab {
-                direction = .past
-            }
-            previousActiveTab = value
-            print(gestureOffset)
-            
-            sleepEntry = sleepFilter.filteringSleepStages(sleepData: sleepManager.sleepData, selectedDay: weekStore.selectedDate, sleepStage: "", startOfOpeningHours: weekStore.selectedDate.startOfDay, endOfOpeningHours: weekStore.selectedDate.endOfDay)
-            withAnimation(Animation.easeInOut(duration: 2.0)) {
-                percentageOfSleep = SleepUtil.calculatePercentageSleep(yourSleep: sleepFilter.getTotalDurationSleep(sleepData: sleepEntry), sleepTime: wakeUpTime.timeIntervalSince(bedTimeCommitment))
+                    timeLateBedTime = DateUtil.calculateTotalHoursAndMinutes(startDate: commitmentBedTime , endDate: actualBedTime)
+                    timeLateWakeUp = DateUtil.calculateTotalHoursAndMinutes(startDate: actualWakeUp , endDate:  commitmentWakeUp)
+                    
+                    percentageOfSleep = SleepUtil.calculatePercentageSleep(yourSleep: sleepFilter.getTotalDurationSleep(sleepData: sleepEntry), sleepTime: wakeUpTime.timeIntervalSince(bedTimeCommitment))
+                    
+                    SleepBarProgress = sleepFilter.getTotalDurationSleep(sleepData: sleepEntry)
+                                   / wakeUpTime.timeIntervalSince(bedTimeCommitment)
+                }
                 
-                SleepBarProgress = sleepFilter.getTotalDurationSleep(sleepData: sleepEntry)
-                / wakeUpTime.timeIntervalSince(bedTimeCommitment)
             }
+            Group {
+                Text("Sleep duration")
+                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                    .foregroundColor(.white)
+                Text("\(DateUtil.formatDoubleToString(param: percentageOfSleep))%")
+                    .font(.system(size: 32, weight: .semibold, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding(.bottom, 46)
+                
+                if sleepManager.sleepData.isEmpty {
+                    Text("Whoops, Chilla can’t give you your \nsleep data. Allow Chilla to get \npermission to access your data health!")
+                        .font(.caption)
+                        .fontWeight(.medium)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.top, -30)
+                    
+                    RoundedButton(title: "Allow data health", action: {
+                        isAlertPresented.toggle()
+                    }, backgroundColor: .primaryButton, foregroundColor: .white, cornerRadius: 15)
+                    .padding(.top, 45)
+                    .padding(.bottom, 80)
+                    .alert(isPresented: $isAlertPresented) {
+                        Alert(
+                            title: Text("“Chilla” Would Like to Access Your Health Data"),
+                            message: Text("This lets Chilla to personalized your needed information"),
+                            primaryButton: .default(
+                                Text("Ok"),
+                                action: {
+                                    healthManager.requestHealthAuthorizationForSleep { health in
+                                        print("Masoook \(health)")
+                                    }
+                                }
+                            ),
+                            secondaryButton: .cancel(
+                                Text("Don't Allow"),
+                                action: {
+                                    // Handle access denied here
+                                }
+                            )
+                        )
+                    }
+                }
+            }
+            VStack{
+                HStack {
+                    
+                    TimeView(title: "Sleep", time: actualBedTime, commitmentTime: commitmentBedTime, timeLate: TimeDifference(hours: timeLateBedTime.hours, minutes: timeLateBedTime.minutes), colorCommitment: Color.forestGreen)
+                    Spacer()
+                    TimeView(title: "Wake-up", time: actualWakeUp, commitmentTime: commitmentWakeUp, timeLate: TimeDifference(hours: timeLateWakeUp.hours, minutes: timeLateWakeUp.minutes), colorCommitment: Color.forestGreen)
+                }
+                .padding(.bottom)
+                LinearGradient(gradient: Gradient(colors: [.paleLavender, .softYellow]), startPoint: .top, endPoint: .bottom)
+                    .frame(width: 344, height: 1)
+                    .padding()
+                
+                VStack {
+                    Text("Habit Tracker")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                        .padding(.top)
+                        .padding(.bottom, 2)
+                        .padding(.leading, -170)
+                    
+                    if todaysHabit.filter({ $0.date!.isInSameDay(as: weekStore.selectedDate) }).isEmpty {
+                        koalaSadView()
+                        Text("You haven't marked any habits as done.")
+                            .font(.headline)
+                            .fontWeight(.medium)
+                            .fontDesign(.rounded)
+                            .foregroundColor(.white)
+                    } else {
+                        ForEach(todaysHabit) { isHabitFinished in
+                            if isHabitFinished.date!.isInSameDay(as: weekStore.selectedDate) {
+                                ListItem(icon: isHabitFinished.icon ?? "", title: isHabitFinished.name ?? "")
+                                    .padding(.leading, -170)
+                            }
+                        }
+                    }
+                }
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        }
+        .scrollIndicators(.hidden)
+    }
+}
+
+extension RingSleepTabView {
+    @ViewBuilder
+    private func koalaSadView() -> some View {
+        HStack {
+            Spacer()
+            Image("KoalaSad")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+            Spacer()
         }
     }
+    
 }
 //#Preview {
 //    RingSleepTabView(activeTab: <#Binding<Int>#>, sleepTabRing: <#Binding<Int>#>, dataSleep: <#Binding<[SleepEntry]>#>)

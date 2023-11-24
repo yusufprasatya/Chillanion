@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeScreenView: View {
     @ObservedObject private var userViewModel = UserViewModel()
-    @ObservedObject private var health = SleepManager()
+    @EnvironmentObject var sleepManager: SleepManager
     
     @State private var stepCount: Double = 0
     @State private var todaysStep: Double = 0
@@ -21,53 +21,58 @@ struct HomeScreenView: View {
         TabView() {
             // First Tab: MainScreenView
             Group {
-                DashboardView()
+                NewDashboardView()
                     .tabItem {
+//                        Image("dahsboard")
+//                                    .resizable()
+//                                    .scaledToFit()
+//
+//                        Text("Dashboard")
                         Label("Dashboard", systemImage: "star.fill")
                     }
                 // Second Tab: Placeholder view
                 MySleepView()
                     .tabItem {
-                        Label("My Sleep", systemImage: "moon.zzz")
+                        Label("Tracker", systemImage: "moon.zzz")
                     }
                 // Third Tab: Placeholder view
-                ProfileView()
+                HabitReminderView()
                     .tabItem {
-                        Label("Profile", systemImage: "person.crop.circle")
+                        Label("Reminder", systemImage: "clock")
                     }
             }
-            .toolbarBackground(Color.navyBlueTabBar, for: .tabBar)
+            //            .toolbarBackground(Color.clear.blur(radius: 5.0, opaque: true), for: .tabBar)
         }
-        .onAppear(perform: {
-            let tabBarAppearance = UITabBarAppearance()
-                           tabBarAppearance.configureWithOpaqueBackground()
-                           UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-                           // correct the transparency bug for Navigation bars
-                           let navigationBarAppearance = UINavigationBarAppearance()
-                           navigationBarAppearance.configureWithOpaqueBackground()
-                           UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-        })
+        .onAppear{
+            UITabBar.appearance().backgroundColor = UIColor.clear.withAlphaComponent(0.75)
+            UITabBar.appearance().backgroundImage = UIImage()
+            UITabBar.appearance().shadowImage = UIImage()
+            let calendar = Calendar.current
+            let currentDate = Date()
+            let thirtyDaysAgo = calendar.date(byAdding: .day, value: -30, to: currentDate)
+            sleepManager.readSleep(from: thirtyDaysAgo, to: Date())
+        }
         .accentColor(.BarIconColor)
-        .overlay(
-            Group {
-                if !UserDefaults.standard.showCaseDashboard {
-                    Color.black.opacity(0.91)
-                        .edgesIgnoringSafeArea(.all)
-                        .onTapGesture {
-                            withAnimation {
-                                if isOverlayVisible { // Add a check here
-                                    isOverlayVisible.toggle()
-                                }
-                            }
-                        }
-                }
-            }
-        )
-        if !UserDefaults.standard.showCaseDashboard{
-            // This will keep the Dashboard area visible
-            DashboardViewOverlay(isOverlayVisible: $isOverlayVisible)
-                .opacity(isOverlayVisible ? 1 : 0)
-        }
+//        .overlay(
+//            Group {
+//                if !UserDefaults.standard.showCaseDashboard {
+//                    Color.black.opacity(0.91)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .onTapGesture {
+//                            withAnimation {
+//                                if isOverlayVisible { // Add a check here
+//                                    isOverlayVisible.toggle()
+//                                }
+//                            }
+//                        }
+//                }
+//            }
+//        )
+//        if !UserDefaults.standard.showCaseDashboard{
+//            // This will keep the Dashboard area visible
+//            DashboardViewOverlay(isOverlayVisible: $isOverlayVisible)
+//                .opacity(isOverlayVisible ? 1 : 0)
+//        }
         
     }
 }
@@ -127,6 +132,20 @@ struct DashboardViewOverlay: View {
                     )
             }
         }
+    }
+}
+
+struct VisualEffectBlur: UIViewRepresentable {
+    var blurStyle: UIBlurEffect.Style
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: blurStyle)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        return blurView
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        // No update needed
     }
 }
 

@@ -55,15 +55,17 @@ struct Screen1View: View {
             .padding()
             .padding(.horizontal)
         }
-        .onTapGesture {
-            screen += 1
-        }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 withAnimation {
                     chillaAppear = 0
                     textAppear.toggle()
                 }
+            }
+            
+            // Automatically move to the next screen after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                screen += 1
             }
         }
         

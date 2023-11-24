@@ -19,12 +19,18 @@ struct MySleepView: View {
     @State private var dataSleep: [SleepEntry] = []
     @State var items: [Any] = []
     @State private var isShare: Bool = false
-
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
-            VStack{
+            VStack(alignment: .leading){
+                Text("Tracker")
+                    .font(.title)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .fontDesign(.rounded)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 13)
                 HStack {
                     VStack (alignment: .leading){
                         Text("\(weekStore.selectedDate.toString(format: "EEEE"))")
@@ -36,32 +42,31 @@ struct MySleepView: View {
                     }
                     Spacer()
                     Group {
-                        Button(action: {
-//                            isDatePickerVisible.toggle()
-                        }) {
-                            Image(systemName: "calendar")
-                                .font(.title)
-                                .accentColor(.white)
-                        }
-                        .sheet(isPresented: $isDatePickerVisible) {
-                            CalendarView(dates, mode: .basicCalendarMode)
-                        }
-                        
-                        
+                        //                        Button(action: {
+                        //                            //                            isDatePickerVisible.toggle()
+                        //                        }) {
+                        //                            Image(systemName: "calendar")
+                        //                                .font(.title)
+                        //                                .accentColor(.white)
+                        //                        }
+                        //                        .sheet(isPresented: $isDatePickerVisible) {
+                        //                            CalendarView(dates, mode: .basicCalendarMode)
+                        //                        }
+                        //
                         Button(action: {
                             self.items.removeAll()
                             guard let resultImage = ImageRenderer(content: shareView).uiImage else {
                                 return
                             }
                             self.items.append(resultImage)
-//                            isShare.toggle()
+                            isShare.toggle()
                         }) {
                             Image(systemName: "square.and.arrow.up")
                                 .font(.title)
                                 .accentColor(.white)
                                 .padding(.bottom, 5)
                         }
-                    
+                        
                         .sheet(isPresented: $isShare) {
                             ShareSheetView(items: items).edgesIgnoringSafeArea(.all)
                         }
@@ -83,61 +88,146 @@ struct MySleepView: View {
     @State var fontSizeDesc: CGFloat = 2000/26.5
     @State var fontSizeCallout: CGFloat = 2000/45
     @State var padding: CGFloat = 2000/45
-    @State var SleepBarProgress = 100.0
+    @State var SleepBarProgress = 0.0
+    @State private var percentageOfSleep = 0.0
+    @State private var sleepEntry: [SleepEntry] = []
+    @State private var actualBedTime: Date = Date()
+    @State private var actualWakeUp: Date = Date()
+    @State private var commitmentWakeUp: Date = Date()
+    @State private var commitmentBedTime: Date = Date()
+    var sleepFilter = SleepFilter()
+    @ObservedObject private var userViewModel = UserViewModel()
+    @State private var bedTimeCommitment = Date()
+    @State private var wakeUpTime = Date()
+    @State private var name = ""
+    
+    @State var textTitle: String = ""
+    @State var textDescription: String = ""
+    @State var textSubTitle: String = ""
+    
     var shareView: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
-        VStack {
-            ZStack {
-                switch SleepBarProgress {
-                case 0.25..<0.50:
-                    Image("koalaSoso")
-                        .resizable()
-                        .frame(width: 270, height: 215)
-                        .padding(.top, 50)
-                        .padding(.leading, 12)
-                case 0.50..<0.75:
-                    Image("koalaGood")
-                        .resizable()
-                        .frame(width: 270, height: 215)
-                        .padding(.top, 50)
-                        .padding(.leading, 12)
-                case 0.75...2.0:
-                    Image("koalaHappy")
-                        .resizable()
-                        .frame(width: 270, height: 215)
-                        .padding(.top, 50)
-                        .padding(.leading, 12)
-                default:
-                    Image("KoalaSad")
-                        .resizable()
-                        .frame(width: 270, height: 215)
-                        .padding(.top, 50)
-                        .padding(.leading, 12)
+            VStack {
+                let widthScaleFactor = screenWidthShare / 2000
+                let heightScaleFactor = screenHeightShare / 4330.18
+                
+                let imageSize: CGFloat = 68 * widthScaleFactor
+                let progressBarSize: CGFloat = 120 * widthScaleFactor
+                let paddingValue: CGFloat = 10 * widthScaleFactor
+                ZStack {
+                    switch SleepBarProgress {
+                    case 0.25..<0.50:
+                        Image("koalaSoso")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: imageSize, height: imageSize)
+                            .padding(.top, 50)
+                            .padding(.leading, 12)
+                    case 0.50..<0.75:
+                        Image("koalaGood")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: imageSize, height: imageSize)
+                            .padding(.top, 50)
+                            .padding(.leading, 12)
+                    case 0.75...2.0:
+                        Image("koalaHappy")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: imageSize, height: imageSize)
+                            .padding(.top, 50)
+                            .padding(.leading, 12)
+                    default:
+                        Image("KoalaSad")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: imageSize, height: imageSize)
+                            .padding(.top, 50)
+                            .padding(.leading, 12)
+                    }
                 }
-                ProgressBar(progress: .constant(100.0) , lineWidth: .constant(30))
-                    .frame(width: 274, height: 274)
-                    .padding(.leading, 10)
-                    .padding(.top, 50)
+                .padding()
+                .onAppear{
+                    userViewModel.getUser()
+                    
+                    // Update UI-related data on the main queue
+                    name = userViewModel.name
+                    wakeUpTime = userViewModel.wakeUpTime
+                    bedTimeCommitment = userViewModel.bedTimeCommitment
+                    
+                    let calendar = Calendar.current
+                    let actualBedTimeTmp = DateUtil.combineDateWithSelectedTime(specificDate: bedTimeCommitment, selectedDate: Date()) ?? Date()
+                    
+                    commitmentWakeUp = DateUtil.combineDateWithSelectedTime(specificDate: wakeUpTime, selectedDate: Date()) ?? Date()
+                    commitmentBedTime = calendar.date(byAdding: .day, value: -1, to: actualBedTimeTmp) ?? Date()
+                    
+                    sleepEntry = sleepFilter.filteringSleepDaily(sleepData: sleepManager.sleepData, selectedDay: Date(), startOfOpeningHours: commitmentBedTime, endOfOpeningHours: commitmentWakeUp.addingTimeInterval(10 * 60 * 60))
+                    
+                    if !sleepEntry.isEmpty {
+                        actualBedTime = sleepEntry.first!.startDate
+                        actualWakeUp = sleepEntry.last!.endDate
+                    }
+                    
+                    withAnimation{
+                        percentageOfSleep = SleepUtil.calculatePercentageSleep(yourSleep: sleepFilter.getTotalDurationSleep(sleepData: sleepEntry), sleepTime: wakeUpTime.timeIntervalSince(bedTimeCommitment))
+                        
+                        SleepBarProgress = sleepFilter.getTotalDurationSleep(sleepData: sleepEntry)
+                        / wakeUpTime.timeIntervalSince(bedTimeCommitment)
+                    }
+                    
+                    let totalSleepDurationInSeconds = sleepFilter.getTotalDurationSleep(sleepData: sleepEntry)
+                    
+                    // Convert seconds to hours
+                    let totalSleepDurationInHours = totalSleepDurationInSeconds / 3600.0
+                    print("duration \(totalSleepDurationInHours)")
+                    
+                    if (SleepBarProgress < 0.50) {
+                        textTitle = "Oh no!"
+                        textSubTitle = "I've only achieved"
+                        textDescription = "of my sleep duration with Chillanion. Let's aim for better sleep tonight!"
+                    }else{
+                        textTitle = "Yeay!"
+                        textSubTitle = "I’ve gain"
+                        textDescription = "of sleep duration with Chillanion!"
+                    }
+                }
+                Group {
+                    Text(textTitle)
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                        .frame(width: 200)
+                    Text(textSubTitle)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                        .frame(width: 200)
+                        .multilineTextAlignment(.center)
+                    Text("\(DateUtil.formatDoubleToString(param: percentageOfSleep))%")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                    Text(textDescription)
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                        .frame(width: 200)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.leading, 0)
             }
             .padding()
-            Group {
-                Text("Sleep duration")
-                    .font(.system(size: 18, weight: .medium, design: .rounded))
-                    .foregroundColor(.white)
-                Text("\(DateUtil.formatDoubleToString(param: 100.0))%")
-                    .font(.system(size: 32, weight: .semibold, design: .rounded))
-                    .foregroundColor(.white)
-                    .padding(.bottom, 46)
-            }
-        }
-        .padding()
-        .background(
-            Image("bgSTars")
-                .resizable()
-                .scaledToFit()
-                .ignoresSafeArea(.all))
+            .background(
+                Image("bgSTars")
+                    .resizable()
+                    .scaledToFit()
+                    .ignoresSafeArea(.all))
             
         }
     }

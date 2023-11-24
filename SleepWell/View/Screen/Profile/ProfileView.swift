@@ -15,9 +15,10 @@ struct ProfileView: View {
                 ZStack {
                     VStack (alignment: .leading) {
                         Group {
-                            Text("Profile")
+                            Text("Explore")
                                 .font(.title)
                                 .fontWeight(.bold)
+                                .fontDesign(.rounded)
                                 .foregroundColor(.white)
                             HStack {
                                 Spacer()
@@ -28,11 +29,7 @@ struct ProfileView: View {
                                 Spacer()
                             }
                         }
-                        Text("Sleep Statistics ")
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                        Image("sleepStatistic")
-                            .padding(.top, 12)
+                
                         Group {
                             Text("Habit Reminder")
                                 .font(.system(size: 22, weight: .bold, design: .rounded))
@@ -61,95 +58,20 @@ struct ProfileView: View {
                                 })
                             }
                         }
-                        Group {
-                            Text("Things to Learn")
-                                .font(.system(size: 22, weight: .bold, design: .rounded))
-                                .foregroundColor(.white)
-                                .padding(.top, 35)
-                            HStack {
-                                NavigationLink(destination: {
-                                }, label: {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.teal)
-                                        .frame(width: 165, height: 82)
-                                        .overlay(
-                                            HStack {
-                                                Text("Sleep Cycle")
-                                                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                                Text("💤")
-                                                    .font(.system(size: 56, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                            }
-                                        )
-                                    //                                    VStack {
-                                    
-                                })
-                                .disabled(true)
-                                NavigationLink(destination: {
-                                    
-                                }, label: {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.burgundy)
-                                        .frame(width: 165, height: 82)
-                                        .overlay(
-                                            HStack {
-                                                Text("Sleep Quality")
-                                                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                                Text("🛌")
-                                                    .font(.system(size: 56, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                            })
-                                })
-                                .disabled(true)
-                            }
-                            
-                            HStack {
-                                NavigationLink(destination: {
-                                    
-                                }, label: {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.cornFlowerBlue)
-                                        .frame(width: 165, height: 82)
-                                        .overlay(
-                                            HStack {
-                                                Text("Circadian Rythm")
-                                                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                                Text("💫")
-                                                    .font(.system(size: 56, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                            })
-                                })
-                                .disabled(true)
-                                NavigationLink(destination: {
-                                    
-                                }, label: {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color.plum)
-                                        .frame(width: 165, height: 82)
-                                        .overlay(
-                                            HStack {
-                                                Text("Day Activities")
-                                                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                                Text("🌤️")
-                                                    .font(.system(size: 56, weight: .bold, design: .rounded))
-                                                    .foregroundColor(.white)
-                                            })
-                                }).disabled(true)
-                            }
-                        }
                     }
+                    .background(
+                        Image("bgStar")
+                            .resizable()
+                            .scaledToFill()
+                            .offset(y: -150)
+                    )
                     .padding()
                     .padding(.horizontal)
                 }
-                .background(Image("MainBackground")
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea(.all))
             }
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.blueGray, .black]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all))
         }
     }
 }

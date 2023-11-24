@@ -130,4 +130,29 @@ final class DateUtil {
         }
     }
     
+    static func combineDateWithSelectedTime(specificDate: Date, selectedDate: Date) -> Date? {
+        // Extracting the time components from selectedDate
+        let timeComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: specificDate)
+
+        // Combine specificDate with the time components from selectedDate
+        guard let combinedDate = Calendar.current.date(bySettingHour: timeComponents.hour ?? 0,
+                                                       minute: timeComponents.minute ?? 0,
+                                                       second: timeComponents.second ?? 0,
+                                                       of: selectedDate) else {
+            // Handle the case where the combination fails
+            return nil
+        }
+
+        return combinedDate
+    }
+    
+    static func calculateTotalHoursAndMinutes(startDate: Date, endDate: Date) -> (hours: Int, minutes: Int) {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: startDate, to: endDate)
+
+        let hours = components.hour ?? 0
+        let minutes = components.minute ?? 0
+
+        return (hours, minutes)
+    }
 }

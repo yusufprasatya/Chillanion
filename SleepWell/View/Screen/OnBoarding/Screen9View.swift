@@ -117,6 +117,8 @@ struct Screen9View: View {
                     NavigationLink(destination: ConfirmationView(screen: $screen, name: $name, wakeTime: $wakeTime, selectedCycle: $selectedCycle), label: {
                         NavigationButton(backgroundColor: .primaryButton, foregroundColor: .white, cornerRadius: 15, title: "Confirm")
                     })
+                    .buttonStyle(PlainButtonStyle())
+                    .disabled(selectedCycle == 0)
                 }
                 .padding(.top, 20)
             }
@@ -138,6 +140,7 @@ struct ExplanationView: View {
         }
     }
 }
+
 
 struct CustomButtonStyle: ButtonStyle {
     var selected: Bool
@@ -170,7 +173,6 @@ struct ConfirmButtonStyle: ButtonStyle {
             .contentShape(Rectangle())
     }
 }
-
 #Preview {
     Screen9View(screen: .constant(1), name: .constant(""), wakeTime: .constant(Date()))
 }

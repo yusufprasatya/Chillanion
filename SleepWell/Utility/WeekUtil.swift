@@ -26,6 +26,7 @@ class WeekStore: ObservableObject {
             calcWeeks(with: selectedDate)
         }
     }
+    
     @Published var dateNow: Date = Date()
     
     @Published var dayChart: Int

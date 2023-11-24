@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "koalaHappy 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "koalaHappy 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

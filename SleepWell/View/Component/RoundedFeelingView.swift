@@ -21,7 +21,7 @@ struct RoundedFeelingView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(color)
-                            .fill(isSelected ? Color.navyBlue : Color.clear)
+                            .background(isSelected ? Color.navyBlue : Color.clear)
                         
                         HStack {
                             Spacer()

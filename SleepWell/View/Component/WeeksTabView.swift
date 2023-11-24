@@ -14,6 +14,9 @@ struct WeeksTabView<Content: View>: View {
     @State private var position = CGSize.zero
     @GestureState private var dragOffset = CGSize.zero
     
+    @EnvironmentObject var sleepManager: SleepManager
+
+    
     let content: (_ week: Week) -> Content
     
     init(@ViewBuilder content: @escaping (_ week: Week) -> Content) {
@@ -33,6 +36,8 @@ struct WeeksTabView<Content: View>: View {
                     weekStore.update(to: direction)
                     direction = .unknown
                     activeTab = 1
+                    print("tab now \(activeTab)")
+                    
                 }
             content(weekStore.weeks[2])
                 .frame(maxWidth: .infinity)
@@ -41,15 +46,23 @@ struct WeeksTabView<Content: View>: View {
         .frame(height: 65)
         .tabViewStyle(.page(indexDisplayMode: .never))
         .onChange(of: activeTab) { value in
+            print("date \(weekStore.weeks[1])")
             if value == 0 {
                 withAnimation {
                     direction = .past
                 }
             } else if value == 2 {
                 withAnimation {
-                    direction = .future
+                    if weekStore.selectedDate < weekStore.maxDate {
+                        direction = .future
+                        
+                    }else{
+                        direction = .unknown
+                    }
                 }
             }
         }
     }
 }
+
+

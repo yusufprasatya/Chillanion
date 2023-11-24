@@ -54,7 +54,7 @@ struct BreatheView: View {
                                 UserNotificationService.shared.disableNotifications(identifiers: ["breathe"])
                             }
                             
-                            dailyHabitViewModel.updateReminder(name: "Mindful Breathing", isRemind: isReminderActive)
+//                            dailyHabitViewModel.updateReminder(name: "Mindful Breathing", isRemind: isReminderActive)
                             self.presentationMode
                                 .wrappedValue
                                 .dismiss()},

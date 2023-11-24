@@ -48,4 +48,5 @@ final class SleepUtil {
         let percentage = (yourSleep / sleepTime) * 100.0
         return min(100.0, percentage) // Ensure the result is within [0, 100]
     }
+
 }
