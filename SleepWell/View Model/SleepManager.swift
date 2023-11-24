@@ -46,7 +46,6 @@ class SleepManager: ObservableObject {
                         }
                         return nil
                     }
-                print("data \(filteredSamples.count)")
                 self?.getDurationOfSleep(filteredSamples)
             }
         }
@@ -57,7 +56,7 @@ class SleepManager: ObservableObject {
     func getDurationOfSleep(_ samples: [HKCategorySample]) {
         var sleepData: [SleepEntry] = []
         
-        print("samples \(samples.count)")
+//        print("samples \(samples.count)")
         for sample in samples {
             let startDate = sample.startDate
             let endDate = sample.endDate
@@ -82,9 +81,9 @@ class SleepManager: ObservableObject {
             let duration = endDate.timeIntervalSince(startDate)
             
             // Create a SleepEntry object and add it to the sleepData array
-            if sleepStages != "Unspecified"{
+            if sleepStages != "Unspecified" {
                 let sleepEntry = SleepEntry(id: sample.uuid, startDate: startDate, endDate: endDate, sleepStages: sleepStages, duration: duration, source: sample.source.name)
-                print("Sleep Entry duration \(sleepEntry.duration) source \(sleepEntry.source) stages \(sleepEntry.sleepStages)")
+                print("Sleep Entry duration \(sleepEntry.duration) source \(sleepEntry.source) stages \(sleepEntry.sleepStages) statrDate \(sleepEntry.startDate) endDate \(sleepEntry.endDate)")
                 sleepData.append(sleepEntry)
             }
         }

@@ -131,6 +131,7 @@ struct PersistenceController {
             print("Error fetching reminder: \(error)")
         }
     }
+    
     func fetchReminder(name: String) -> Reminder {
         let context = container.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Reminder")
@@ -191,10 +192,10 @@ struct PersistenceController {
 
     func seedInitialData(context: NSManagedObjectContext) {
         let dailyHabbitArr = [
-            DailyHabbit(name: "Limit Caffeine", icon: "☕", desc: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!", isRemind: true, date: Date()),
+            DailyHabbit(name: "Limit Caffeine", icon: "☕", desc: "It’s 6 hours before sleep! Time to limit your caffeine to have better sleep tonight!", isRemind: false, date: Date()),
             DailyHabbit(name: "Power Nap", icon: "😴", desc: "Seems like you were short of sleep last night! Take a 20-minute power nap to power up your energy!️", isRemind: false, date: Date()),
-            DailyHabbit(name: "Sunlight", icon: "☀️️", desc: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!", isRemind: true, date: Date()),
-            DailyHabbit(name: "Journaling", icon: "📝", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isRemind: true, date: Date()),
+            DailyHabbit(name: "Sunlight", icon: "☀️️", desc: "Rise and shine, gorgeous! Get 15-minutes sunlight to start your day brighter and have a better mood!", isRemind: false, date: Date()),
+            DailyHabbit(name: "Journaling", icon: "📝", desc: "Hey, how's your day going? Or do you have anything on your mind? Care to share?", isRemind: false, date: Date()),
             DailyHabbit(name: "Stop Late Meals", icon: "🍔", desc: "Let your body rest at night. Stop eating 4 hours before sleep to ensure uninterrupted Zzz's! ", isRemind: false, date: Date()),
             DailyHabbit(name: "Stop Heavy Work-out", icon: "🏋️️", desc: "Skip tough workouts before bed/ Your body needs to unwind and prepare for sweet dream!", isRemind: false, date: Date()),
             DailyHabbit(name: "Stay Hydrated", icon: "💧", desc: "Stay peppy! Sip on water throughout the day to keep fatigue at bay!", isRemind: false, date: Date()),
@@ -250,4 +251,26 @@ struct PersistenceController {
         
         return DailyHabits()
     }
+    
+    func saveTodaysHabit(todaysHabit: TodayHabit) {
+        let context = container.viewContext
+        
+        if let entity = NSEntityDescription.entity(forEntityName: "TodaysHabit", in: context) {
+            let newHabit = NSManagedObject(entity: entity, insertInto: context) as! TodaysHabit
+            newHabit.id = UUID()
+            newHabit.name = todaysHabit.name
+            newHabit.desc = todaysHabit.desc
+            newHabit.icon = todaysHabit.icon
+            newHabit.isDone = todaysHabit.isDone
+            newHabit.date = Date()
+            do {
+                try context.save()
+                print("Item saved successfully")
+            } catch {
+                print("Error saving item: \(error)")
+            }
+        }
+    }
+    
+    
 }

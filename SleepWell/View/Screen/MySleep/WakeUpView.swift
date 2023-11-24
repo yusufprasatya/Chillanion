@@ -7,17 +7,17 @@
 
 import SwiftUI
 
+enum ActiveButton {
+    case good2, happy2, calm2, refreshed2, sad2, annoyed2, tired2, angry2
+}
+
 struct WakeUpView: View {
   
     @State private var activeButton: ActiveButton?
-    
-    enum ActiveButton {
-        case good2, happy2, calm2, refreshed2, sad2, annoyed2, tired2, angry2
-    }
+    @Binding var showFullScreenCover: Bool
     
     var body: some View {
         VStack{
-            
             Text("Good Morning, x!")
                 .multilineTextAlignment(.center)
                 .foregroundStyle(Color.white)
@@ -45,9 +45,9 @@ struct WakeUpView: View {
                     }
                 }, label: {
                     ZStack{
-                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                        RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(Color.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.goodbg)
@@ -70,9 +70,9 @@ struct WakeUpView: View {
                         activeButton = activeButton == nil ? .happy2 : nil
                     }  }, label: {
                         ZStack{
-                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                            RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(Color.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.happybg)
@@ -96,9 +96,9 @@ struct WakeUpView: View {
                     }
                 }, label: {
                     ZStack{
-                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                        RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(Color.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.calmbg)
@@ -121,9 +121,9 @@ struct WakeUpView: View {
                         activeButton = activeButton == nil ? .refreshed2 : nil
                     }  }, label: {
                         ZStack{
-                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                            RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.enthusiasticbg)
@@ -155,9 +155,9 @@ struct WakeUpView: View {
                     }
                 }, label: {
                     ZStack{
-                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                        RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.sadbg)
@@ -180,9 +180,9 @@ struct WakeUpView: View {
                         activeButton = activeButton == nil ? .annoyed2 : nil
                     }  }, label: {
                         ZStack{
-                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                            RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.goodbg)
@@ -206,9 +206,9 @@ struct WakeUpView: View {
                     }
                 }, label: {
                     ZStack{
-                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                        RoundedRectangle(cornerRadius: 20)
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.tiredbg)
@@ -230,9 +230,9 @@ struct WakeUpView: View {
                         activeButton = activeButton == nil ? .angry2 : nil
                     }  }, label: {
                         ZStack{
-                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                            RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.angrybg)
@@ -251,6 +251,7 @@ struct WakeUpView: View {
             }
             Button(action: {
                 // Handle the action when the button is clicked
+                showFullScreenCover.toggle()
             }) {
                 Text("Continue")
                     .font(.system(size: 17))
@@ -289,5 +290,5 @@ struct CustomShape: Shape {
 }
 
 #Preview {
-    WakeUpView()
+    WakeUpView(showFullScreenCover: .constant(false))
 }

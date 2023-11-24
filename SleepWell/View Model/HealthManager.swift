@@ -68,7 +68,7 @@ class HealthManager: ObservableObject {
         }
     }
     
-    func getCurrentAuthStatus() {
+    func getCurrentAuthStatusSleep() {
         let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
         let authStatus = healthStore?.authorizationStatus(for: sleepType)
         print(authStatus?.rawValue)
@@ -81,6 +81,28 @@ class HealthManager: ObservableObject {
             healthKitStatus = "sharingDenied"
         @unknown default:
             healthKitStatus = ""
+        }
+    }
+    
+    func requestHealthAuthorizationForSleep(completion: @escaping (Bool) -> Void) {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            print("Health data is not available on this device.")
+            completion(false)
+            return
+        }
+        
+        let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
+        healthStore?.requestAuthorization(toShare: [], read: [sleepType]) { success, error in
+            if success {
+                print("Authorization succeeded")
+                completion(true) // Signal that authorization was successful
+            } else {
+                print("Authorization failed")
+                if let error = error {
+                    print("Authorization Error: \(error.localizedDescription)")
+                }
+                completion(false) // Signal that authorization failed
+            }
         }
     }
 }

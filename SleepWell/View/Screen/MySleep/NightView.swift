@@ -10,6 +10,7 @@ import SwiftUI
 struct NightView: View {
   
     @State private var activeButton: ActiveButton?
+    @Binding var showFullScreenCover: Bool
     
     enum ActiveButton {
         case good, happy, calm, enthusiastic, sad, annoyed, tired, angry
@@ -47,7 +48,7 @@ struct NightView: View {
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.goodbg)
@@ -72,7 +73,7 @@ struct NightView: View {
                         ZStack{
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.happybg)
@@ -98,7 +99,7 @@ struct NightView: View {
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.calmbg)
@@ -123,7 +124,7 @@ struct NightView: View {
                         ZStack{
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.enthusiasticbg)
@@ -157,7 +158,7 @@ struct NightView: View {
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.sadbg)
@@ -182,7 +183,7 @@ struct NightView: View {
                         ZStack{
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.goodbg)
@@ -208,7 +209,7 @@ struct NightView: View {
                     ZStack{
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .stroke(Color.primaryButton, lineWidth: 2)
-                            .fill(.clear)
+                            .background(.clear)
                             .frame(width: 160, height: 48)
                         RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                             .fill(Color.tiredbg)
@@ -232,7 +233,7 @@ struct NightView: View {
                         ZStack{
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .stroke(Color.primaryButton, lineWidth: 2)
-                                .fill(.clear)
+                                .background(.clear)
                                 .frame(width: 160, height: 48)
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .fill(Color.angrybg)
@@ -251,6 +252,8 @@ struct NightView: View {
             }
             Button(action: {
                 // Handle the action when the button is clicked
+                showFullScreenCover.toggle()
+                
             }) {
                 Text("Continue")
                     .font(.system(size: 17))
@@ -272,5 +275,5 @@ struct NightView: View {
 
 
 #Preview {
-    NightView()
+    NightView(showFullScreenCover: .constant(false))
 }

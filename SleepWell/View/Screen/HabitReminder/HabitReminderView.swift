@@ -17,7 +17,7 @@ struct HabitReminderView: View {
                     .edgesIgnoringSafeArea(.all)
                 ScrollView {
                     VStack (alignment: .leading) {
-                        Text("Habit Reminder")
+                        Text("Reminder")
                             .font(.title)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .fontDesign(.rounded)
@@ -48,7 +48,9 @@ struct HabitReminderView: View {
                                             Text("🏃")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Step")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -64,7 +66,9 @@ struct HabitReminderView: View {
                                             Text("☀️")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Sunlight")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -80,7 +84,9 @@ struct HabitReminderView: View {
                                             Text("😴")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Power Nap")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -100,7 +106,9 @@ struct HabitReminderView: View {
                                             Text("💧")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Hydrate")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -115,7 +123,9 @@ struct HabitReminderView: View {
                                             Text("🌼")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Breathe")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -131,7 +141,9 @@ struct HabitReminderView: View {
                                             Text("💡")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Breaks")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -159,7 +171,9 @@ struct HabitReminderView: View {
                                             Text("☕️")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Caffeine")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -174,7 +188,9 @@ struct HabitReminderView: View {
                                             Text("🍜")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Meal")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -189,7 +205,9 @@ struct HabitReminderView: View {
                                             Text("🏋🏻")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Workout")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -206,7 +224,9 @@ struct HabitReminderView: View {
                                             Text("🥂")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Alcohol")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -231,7 +251,9 @@ struct HabitReminderView: View {
                                             Text("📝")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Journaling")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .foregroundColor(.white)
                                         }
                                     }
@@ -246,7 +268,9 @@ struct HabitReminderView: View {
                                             Text("🧘🏼‍♀️")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Meditation")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.white)
                                         }
@@ -262,7 +286,9 @@ struct HabitReminderView: View {
                                             Text("😶‍🌫️")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Hygiene")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.white)
                                         }
@@ -280,7 +306,9 @@ struct HabitReminderView: View {
                                             Text("📱")
                                                 .font(.system(size: 40, weight: .semibold))
                                             Text("Screen-time")
-                                                .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                                .font(.subheadline)
+                                                .fontWeight(.bold)
+                                                .fontDesign(.rounded)
                                                 .multilineTextAlignment(.center)
                                                 .foregroundColor(.white)
                                         }

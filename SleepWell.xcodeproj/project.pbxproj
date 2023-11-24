@@ -15,6 +15,8 @@
 		DA046CA32AF9E1FB003EFE3A /* WeeksTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA046CA22AF9E1FB003EFE3A /* WeeksTabView.swift */; };
 		DA046CA52AF9E31D003EFE3A /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA046CA42AF9E31D003EFE3A /* WeekView.swift */; };
 		DA046CA72AFB22B7003EFE3A /* RingSleepTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA046CA62AFB22B7003EFE3A /* RingSleepTabView.swift */; };
+		DA0CA3322B0E5A4F00195E8E /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CA3312B0E5A4F00195E8E /* TimeView.swift */; };
+		DA0CA3342B0E5ABE00195E8E /* TimeDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0CA3332B0E5ABE00195E8E /* TimeDifference.swift */; };
 		DA0E5B1B2ADF108F002563DB /* Screen5Viewnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */; };
 		DA0E5B1D2ADF6D3F002563DB /* Screen6notView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */; };
 		DA0E5B1F2ADF709B002563DB /* Screen5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0E5B1E2ADF709B002563DB /* Screen5View.swift */; };
@@ -38,6 +40,7 @@
 		DA4A733A2AFD5302002DC913 /* KiwKiwView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A73392AFD5302002DC913 /* KiwKiwView.swift */; };
 		DA4AABCA2AFC6C040016A134 /* DetailSleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4AABC92AFC6C040016A134 /* DetailSleepView.swift */; };
 		DA741A3A2B03189500921DF2 /* DailyHabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA741A392B03189500921DF2 /* DailyHabitsViewModel.swift */; };
+		DA7F0F112B0D103A00B5FEEC /* NewDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F0F102B0D103A00B5FEEC /* NewDashboardView.swift */; };
 		DA8CE7262AE6F70100884062 /* HabitReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7252AE6F70100884062 /* HabitReminderView.swift */; };
 		DA8CE7282AE75E4900884062 /* SunlightReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE7272AE75E4900884062 /* SunlightReminderView.swift */; };
 		DA8CE72C2AE76BA000884062 /* StepReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CE72B2AE76BA000884062 /* StepReminderView.swift */; };
@@ -69,10 +72,19 @@
 		DA945B292AEFB6F5009E7D64 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA945B282AEFB6F5009E7D64 /* JournalView.swift */; };
 		DA945B2B2AEFF321009E7D64 /* TesAutoSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA945B2A2AEFF321009E7D64 /* TesAutoSlide.swift */; };
 		DA94B1212B0380CC00086A2E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94B1202B0380CC00086A2E /* Test.swift */; };
+		DAA4D4F92B0B0BC100E115C2 /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F02B0B0BC000E115C2 /* SF-Pro-Rounded-Bold.otf */; };
+		DAA4D4FA2B0B0BC100E115C2 /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F12B0B0BC000E115C2 /* SF-Pro-Rounded-Heavy.otf */; };
+		DAA4D4FB2B0B0BC100E115C2 /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F22B0B0BC000E115C2 /* SF-Pro-Rounded-Light.otf */; };
+		DAA4D4FC2B0B0BC100E115C2 /* SF-Pro-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F32B0B0BC000E115C2 /* SF-Pro-Rounded-Medium.otf */; };
+		DAA4D4FD2B0B0BC100E115C2 /* SF-Pro-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F42B0B0BC000E115C2 /* SF-Pro-Rounded-Ultralight.otf */; };
+		DAA4D4FE2B0B0BC100E115C2 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F52B0B0BC000E115C2 /* SF-Pro-Rounded-Thin.otf */; };
+		DAA4D4FF2B0B0BC100E115C2 /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F62B0B0BC100E115C2 /* SF-Pro-Rounded-Semibold.otf */; };
+		DAA4D5002B0B0BC100E115C2 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F72B0B0BC100E115C2 /* SF-Pro-Rounded-Black.otf */; };
+		DAA4D5012B0B0BC100E115C2 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAA4D4F82B0B0BC100E115C2 /* SF-Pro-Rounded-Regular.otf */; };
 		DAAD1B2B2AE8B7AC00C85F43 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD1B2A2AE8B7AC00C85F43 /* DateUtil.swift */; };
 		DAAD1B2D2AE8B94100C85F43 /* SleepUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD1B2C2AE8B94100C85F43 /* SleepUtil.swift */; };
 		DAAD1B2F2AE8BED200C85F43 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD1B2E2AE8BED200C85F43 /* UserViewModel.swift */; };
-		DABFA33F2AE132570012DEC2 /* SleepManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA33E2AE132570012DEC2 /* SleepManager2.swift */; };
+		DAAEBABF2B0BA29100653B4A /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAEBABE2B0BA29100653B4A /* ListItem.swift */; };
 		DABFA3412AE1327D0012DEC2 /* SleepEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA3402AE1327D0012DEC2 /* SleepEntry.swift */; };
 		DABFA3442AE17B590012DEC2 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABFA3432AE17B590012DEC2 /* SelectionView.swift */; };
 		DACC39392AD531F2002E488D /* SleepWellApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC39382AD531F2002E488D /* SleepWellApp.swift */; };
@@ -113,6 +125,7 @@
 		DAF86C532AE6132300E11DC6 /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF86C522AE6132300E11DC6 /* DataUtil.swift */; };
 		DAF86C562AE6134100E11DC6 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF86C552AE6134100E11DC6 /* NavigationButton.swift */; };
 		DAF86C592AE6C71700E11DC6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF86C582AE6C71700E11DC6 /* ProfileView.swift */; };
+		DAFC03482B0CC46200D71A00 /* TodaysHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC03472B0CC46200D71A00 /* TodaysHabit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +153,8 @@
 		DA046CA22AF9E1FB003EFE3A /* WeeksTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksTabView.swift; sourceTree = "<group>"; };
 		DA046CA42AF9E31D003EFE3A /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		DA046CA62AFB22B7003EFE3A /* RingSleepTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingSleepTabView.swift; sourceTree = "<group>"; };
+		DA0CA3312B0E5A4F00195E8E /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		DA0CA3332B0E5ABE00195E8E /* TimeDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDifference.swift; sourceTree = "<group>"; };
 		DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5Viewnot.swift; sourceTree = "<group>"; };
 		DA0E5B1C2ADF6D3F002563DB /* Screen6notView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen6notView.swift; sourceTree = "<group>"; };
 		DA0E5B1E2ADF709B002563DB /* Screen5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5View.swift; sourceTree = "<group>"; };
@@ -163,6 +178,7 @@
 		DA4A73392AFD5302002DC913 /* KiwKiwView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiwKiwView.swift; sourceTree = "<group>"; };
 		DA4AABC92AFC6C040016A134 /* DetailSleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSleepView.swift; sourceTree = "<group>"; };
 		DA741A392B03189500921DF2 /* DailyHabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitsViewModel.swift; sourceTree = "<group>"; };
+		DA7F0F102B0D103A00B5FEEC /* NewDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDashboardView.swift; sourceTree = "<group>"; };
 		DA8CE7252AE6F70100884062 /* HabitReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitReminderView.swift; sourceTree = "<group>"; };
 		DA8CE7272AE75E4900884062 /* SunlightReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunlightReminderView.swift; sourceTree = "<group>"; };
 		DA8CE72B2AE76BA000884062 /* StepReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepReminderView.swift; sourceTree = "<group>"; };
@@ -194,10 +210,20 @@
 		DA945B282AEFB6F5009E7D64 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		DA945B2A2AEFF321009E7D64 /* TesAutoSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesAutoSlide.swift; sourceTree = "<group>"; };
 		DA94B1202B0380CC00086A2E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		DAA4D4F02B0B0BC000E115C2 /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Bold.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		DAA4D4F12B0B0BC000E115C2 /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Heavy.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		DAA4D4F22B0B0BC000E115C2 /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Light.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
+		DAA4D4F32B0B0BC000E115C2 /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Medium.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		DAA4D4F42B0B0BC000E115C2 /* SF-Pro-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Ultralight.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		DAA4D4F52B0B0BC000E115C2 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Thin.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
+		DAA4D4F62B0B0BC100E115C2 /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Semibold.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		DAA4D4F72B0B0BC100E115C2 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Black.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
+		DAA4D4F82B0B0BC100E115C2 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Regular.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		DAA4D5022B0B0C3200E115C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DAAD1B2A2AE8B7AC00C85F43 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		DAAD1B2C2AE8B94100C85F43 /* SleepUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepUtil.swift; sourceTree = "<group>"; };
 		DAAD1B2E2AE8BED200C85F43 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		DABFA33E2AE132570012DEC2 /* SleepManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepManager2.swift; sourceTree = "<group>"; };
+		DAAEBABE2B0BA29100653B4A /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		DABFA3402AE1327D0012DEC2 /* SleepEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SleepEntry.swift; path = "SleepWell/View Model/SleepEntry.swift"; sourceTree = SOURCE_ROOT; };
 		DABFA3422AE133980012DEC2 /* SleepWell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SleepWell.entitlements; sourceTree = "<group>"; };
 		DABFA3432AE17B590012DEC2 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
@@ -242,6 +268,7 @@
 		DAF86C522AE6132300E11DC6 /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		DAF86C552AE6134100E11DC6 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		DAF86C582AE6C71700E11DC6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DAFC03472B0CC46200D71A00 /* TodaysHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysHabit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +346,7 @@
 				DA945B282AEFB6F5009E7D64 /* JournalView.swift */,
 				DA1D174E2B02150300CDA3C6 /* AddJournalView.swift */,
 				DAEA59222B0481C4002FC70C /* DetailJournal.swift */,
+				DA7F0F102B0D103A00B5FEEC /* NewDashboardView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -327,7 +355,6 @@
 			isa = PBXGroup;
 			children = (
 				DADBD0272ADE27B600E74D3C /* Screen7View.swift */,
-				DADBD01F2ADE213400E74D3C /* Screen1View.swift */,
 				DA2C32592AEB76DB00D18B19 /* WalkTroughView.swift */,
 				DABFA3432AE17B590012DEC2 /* SelectionView.swift */,
 				DA0E5B1A2ADF108F002563DB /* Screen5Viewnot.swift */,
@@ -364,10 +391,25 @@
 			path = MySleep;
 			sourceTree = "<group>";
 		};
+		DAA4D4EF2B0B0BA800E115C2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DAA4D4F72B0B0BC100E115C2 /* SF-Pro-Rounded-Black.otf */,
+				DAA4D4F12B0B0BC000E115C2 /* SF-Pro-Rounded-Heavy.otf */,
+				DAA4D4F22B0B0BC000E115C2 /* SF-Pro-Rounded-Light.otf */,
+				DAA4D4F02B0B0BC000E115C2 /* SF-Pro-Rounded-Bold.otf */,
+				DAA4D4F32B0B0BC000E115C2 /* SF-Pro-Rounded-Medium.otf */,
+				DAA4D4F82B0B0BC100E115C2 /* SF-Pro-Rounded-Regular.otf */,
+				DAA4D4F62B0B0BC100E115C2 /* SF-Pro-Rounded-Semibold.otf */,
+				DAA4D4F52B0B0BC000E115C2 /* SF-Pro-Rounded-Thin.otf */,
+				DAA4D4F42B0B0BC000E115C2 /* SF-Pro-Rounded-Ultralight.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DABFA33D2AE132420012DEC2 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				DABFA33E2AE132570012DEC2 /* SleepManager2.swift */,
 				DAAD1B2E2AE8BED200C85F43 /* UserViewModel.swift */,
 				DA2C324B2AEB4DAA00D18B19 /* HealthManager.swift */,
 				DA2C324D2AEB512600D18B19 /* SleepManager.swift */,
@@ -404,6 +446,8 @@
 		DACC39372AD531F2002E488D /* SleepWell */ = {
 			isa = PBXGroup;
 			children = (
+				DAA4D5022B0B0C3200E115C2 /* Info.plist */,
+				DAA4D4EF2B0B0BA800E115C2 /* Fonts */,
 				DA8CE7622AE7B01A00884062 /* Persistence */,
 				DABFA3422AE133980012DEC2 /* SleepWell.entitlements */,
 				DABFA33D2AE132420012DEC2 /* View Model */,
@@ -452,6 +496,8 @@
 				DAF2F6232AED4D29004C8F72 /* ReminderModel.swift */,
 				DA1D174C2B02149700CDA3C6 /* JournalEntry.swift */,
 				DAEC5CED2B02BDE800560BDB /* DailyHabbit.swift */,
+				DAFC03472B0CC46200D71A00 /* TodaysHabit.swift */,
+				DA0CA3332B0E5ABE00195E8E /* TimeDifference.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -511,6 +557,8 @@
 				DAED2F512AFFFBE900915BC7 /* HabbitCard.swift */,
 				DA1D17462B01542400CDA3C6 /* RoundedFeelingView.swift */,
 				DA1D174A2B02144800CDA3C6 /* JournalComponent.swift */,
+				DAAEBABE2B0BA29100653B4A /* ListItem.swift */,
+				DA0CA3312B0E5A4F00195E8E /* TimeView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -521,6 +569,7 @@
 				DA8DC4402AF02D9200FA476A /* tmp */,
 				DADBD0162ADD236300E74D3C /* OnBoardingView.swift */,
 				DADBD0212ADE21E100E74D3C /* Screen2View.swift */,
+				DADBD01F2ADE213400E74D3C /* Screen1View.swift */,
 				DADBD0232ADE22C400E74D3C /* Screen3View.swift */,
 				DADBD0252ADE274000E74D3C /* Screen4View.swift */,
 				DA0E5B1E2ADF709B002563DB /* Screen5View.swift */,
@@ -663,7 +712,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA4D4F92B0B0BC100E115C2 /* SF-Pro-Rounded-Bold.otf in Resources */,
+				DAA4D4FB2B0B0BC100E115C2 /* SF-Pro-Rounded-Light.otf in Resources */,
+				DAA4D5002B0B0BC100E115C2 /* SF-Pro-Rounded-Black.otf in Resources */,
 				DACC39402AD531F4002E488D /* Preview Assets.xcassets in Resources */,
+				DAA4D4FE2B0B0BC100E115C2 /* SF-Pro-Rounded-Thin.otf in Resources */,
+				DAA4D4FC2B0B0BC100E115C2 /* SF-Pro-Rounded-Medium.otf in Resources */,
+				DAA4D5012B0B0BC100E115C2 /* SF-Pro-Rounded-Regular.otf in Resources */,
+				DAA4D4FA2B0B0BC100E115C2 /* SF-Pro-Rounded-Heavy.otf in Resources */,
+				DAA4D4FD2B0B0BC100E115C2 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
+				DAA4D4FF2B0B0BC100E115C2 /* SF-Pro-Rounded-Semibold.otf in Resources */,
 				DACC393D2AD531F4002E488D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +763,7 @@
 				DA9099B92AE909D50011B09B /* DashboardView.swift in Sources */,
 				DA4AABCA2AFC6C040016A134 /* DetailSleepView.swift in Sources */,
 				DA8CE7382AE76EB000884062 /* DimTheLightReminderView.swift in Sources */,
+				DA7F0F112B0D103A00B5FEEC /* NewDashboardView.swift in Sources */,
 				DA1D174B2B02144800CDA3C6 /* JournalComponent.swift in Sources */,
 				DADBD01C2ADD33D300E74D3C /* RoundedButton.swift in Sources */,
 				DAEC5CEC2B02AFA900560BDB /* JournalViewModel.swift in Sources */,
@@ -713,8 +772,8 @@
 				DA94B1212B0380CC00086A2E /* Test.swift in Sources */,
 				DA8CE7942AE8249100884062 /* UserModel.swift in Sources */,
 				DABFA3412AE1327D0012DEC2 /* SleepEntry.swift in Sources */,
-				DABFA33F2AE132570012DEC2 /* SleepManager2.swift in Sources */,
 				DA046CA32AF9E1FB003EFE3A /* WeeksTabView.swift in Sources */,
+				DAFC03482B0CC46200D71A00 /* TodaysHabit.swift in Sources */,
 				DA945B2B2AEFF321009E7D64 /* TesAutoSlide.swift in Sources */,
 				DAAD1B2F2AE8BED200C85F43 /* UserViewModel.swift in Sources */,
 				DA046CA12AF9E16D003EFE3A /* Date+Extension.swift in Sources */,
@@ -738,11 +797,13 @@
 				DA8CE7302AE76D8300884062 /* CaffeineReminderView.swift in Sources */,
 				DACC39692AD533B5002E488D /* HomeScreenView.swift in Sources */,
 				DA741A3A2B03189500921DF2 /* DailyHabitsViewModel.swift in Sources */,
+				DA0CA3322B0E5A4F00195E8E /* TimeView.swift in Sources */,
 				DA046C982AF93FA5003EFE3A /* Calendar.swift in Sources */,
 				DA8CE73A2AE76F3C00884062 /* HygieneView.swift in Sources */,
 				DA9099BD2AE911F20011B09B /* StepCircularView.swift in Sources */,
 				DADBD0172ADD236300E74D3C /* OnBoardingView.swift in Sources */,
 				DA0E5B212ADF7F89002563DB /* RoundedPicker.swift in Sources */,
+				DAAEBABF2B0BA29100653B4A /* ListItem.swift in Sources */,
 				DAF2F6262AED9CB9004C8F72 /* HydratedView.swift in Sources */,
 				DAEA59252B048375002FC70C /* NightView.swift in Sources */,
 				DA8DC44E2AF152F300FA476A /* MySleepView.swift in Sources */,
@@ -772,6 +833,7 @@
 				DA8CE7322AE76DCE00884062 /* MealReminderView.swift in Sources */,
 				DADF46132ADE321800771DF0 /* Screen7notView.swift in Sources */,
 				DAF86C562AE6134100E11DC6 /* NavigationButton.swift in Sources */,
+				DA0CA3342B0E5ABE00195E8E /* TimeDifference.swift in Sources */,
 				DADF461B2ADE4B9900771DF0 /* ConfirmationView.swift in Sources */,
 				DA2C325A2AEB76DB00D18B19 /* WalkTroughView.swift in Sources */,
 				DA9099BF2AE95E9D0011B09B /* UIColor+Entensions.swift in Sources */,
@@ -957,6 +1019,7 @@
 				DEVELOPMENT_TEAM = LC2HFZR2DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SleepWell/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
@@ -966,7 +1029,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -974,6 +1037,9 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ilb.com.SleepWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -993,6 +1059,7 @@
 				DEVELOPMENT_TEAM = LC2HFZR2DS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SleepWell/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Chillanion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "“Chilla” Would Like to Access Your Health Data ";
@@ -1002,7 +1069,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1010,6 +1077,9 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ilb.com.SleepWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

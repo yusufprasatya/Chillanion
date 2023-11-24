@@ -57,9 +57,6 @@ struct Screen3View: View {
                             .underline()
                             .padding(.bottom, 24)
                     })
-                    .fullScreenCover(isPresented: $isSheetPresented) {
-                        FullScreenSheetView()
-                    }
 
                     RoundedButton(title: "Sure!",
                                   action: {
@@ -84,7 +81,7 @@ struct Screen3View: View {
                             // Handle access granted here
                             healthManager.requestHealthAuthorization { success in
                                 if success {
-                                    healthManager.getCurrentAuthStatus()
+//                                    healthManager.getCurrentAuthStatus()
                                     print("status helath \(healthManager.healthKitStatus)")
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                         withAnimation{
@@ -102,6 +99,10 @@ struct Screen3View: View {
                         Text("Don't Allow"),
                         action: {
                             // Handle access denied here
+                            withAnimation{
+                                screen += 4
+                            }
+                            
                         }
                     )
                 )
@@ -111,8 +112,8 @@ struct Screen3View: View {
     }
 }
 
-struct FullScreenSheetView: View {
-    @Environment(\.presentationMode) var presentationMode
+struct AppleWatchRecommendation: View {
+    @Binding var screen: Int
 
     var body: some View {
         ZStack {
@@ -134,6 +135,12 @@ struct FullScreenSheetView: View {
                 }.padding(.bottom, 80)
                 
                 Group {
+                    Text("Apple Watch Recommendation")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 20)
                     Text("We can give your more accurate suggestion and recommendations if you are using Apple Watch when you are sleeping. ")
                         .font(.system(size: 17, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
@@ -144,7 +151,9 @@ struct FullScreenSheetView: View {
                 Group {
                     RoundedButton(title: "Alright!",
                                   action: {
-                        presentationMode.wrappedValue.dismiss()
+                        withAnimation{
+                            screen += 1
+                        }
                     },
                                   backgroundColor: .primaryButton,
                                   foregroundColor: .white,

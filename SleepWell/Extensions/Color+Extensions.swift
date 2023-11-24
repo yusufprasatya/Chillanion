@@ -91,5 +91,9 @@ extension Color {
     static let annoyedbg = Color(red: 192/255, green: 123/255, blue: 83/255)
     static let tiredbg = Color(red: 151/255, green: 83/255, blue: 192/255)
     static let angrybg = Color(red: 192/255, green: 83/255, blue: 83/255)
+    static let crimsonBlaze = Color(red: 173/255, green: 57/255, blue: 57/255)
+    static let forestGreen = Color(red: 37/255, green: 92/255, blue: 39/255)
+    static let timegoalbg = Color(red: 46/255, green: 52/255, blue: 77/255)
+
 }
 

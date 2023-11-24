@@ -42,16 +42,18 @@ struct OnBoardingView: View {
             case 4:
                 Screen2View(screen: $screen, name: $name)
             case 5:
-                Screen3View(screen: $screen, name: $name)
+                AppleWatchRecommendation(screen: $screen)
             case 6:
-                Screen4View(screen: $screen, averageSleepDuration: $averageSleepDuration, avgSleep: $avgSleep)
+                Screen3View(screen: $screen, name: $name)
             case 7:
-                Screen5View(screen: $screen, averageSleepDuration: $averageSleepDuration, avgSleep: $avgSleep)
+                Screen4View(screen: $screen, averageSleepDuration: $averageSleepDuration, avgSleep: $avgSleep)
             case 8:
-                Screen6View(screen: $screen)
+                Screen5View(screen: $screen, averageSleepDuration: $averageSleepDuration, avgSleep: $avgSleep)
             case 9:
-                Screen8View(screen: $screen, name: $name, averageSleepDuration: $averageSleepDuration)
+                Screen6View(screen: $screen)
             case 10:
+                Screen8View(screen: $screen, name: $name, averageSleepDuration: $averageSleepDuration)
+            case 11:
                 HomeScreenView()
             default:
                 EmptyView() // Handle cases where screen doesn't match any of the above

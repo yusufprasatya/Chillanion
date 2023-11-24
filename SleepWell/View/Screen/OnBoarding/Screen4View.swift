@@ -55,7 +55,6 @@ struct Screen4View: View {
             .padding(.horizontal)
         }
         .onAppear {
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 withAnimation {
                     screen += 1

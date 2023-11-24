@@ -121,6 +121,9 @@ struct Screen5View: View {
                 let threeMonthAgo = Date() - 3 * 30 * 24 * 60 * 60
                 sleepManager.readSleep(from: threeMonthAgo, to: now)
             }
+            .onDisappear{
+                sleepManager.sleepData = []
+            }
             .transition(.move(edge: .trailing))
         }
     }
