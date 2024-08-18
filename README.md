@@ -1,6 +1,6 @@
-# SleepWell
+# Chillanion
 
-SleepWell is a simple iOS application that helps you track your sleep patterns and improve your sleep quality.
+Chillanion is a simple iOS application that helps you track your sleep patterns and improve your sleep quality.
 
 ## Features
 
